@@ -1,0 +1,113 @@
+﻿/* Mobile spacing and viewport fixes */
+
+@supports (height: 100dvh) {
+  .banner {
+    min-height: calc(100dvh - var(--header-h, 0px));
+  }
+}
+
+@media (max-width: 900px) {
+  .banner {
+    min-height: min(82vh, calc(100vh - var(--header-h, 0px))) !important;
+  }
+}
+
+@supports (height: 100dvh) {
+  @media (max-width: 900px) {
+    .banner {
+      min-height: min(82vh, calc(100dvh - var(--header-h, 0px))) !important;
+    }
+  }
+}
+
+@media (max-width: 540px) {
+  .banner {
+    min-height: min(70vh, calc(100vh - var(--header-h, 0px))) !important;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#galeria .galeria-grid,
+#temas-halloween .galeria-grid,
+#temas-harry .galeria-grid,
+#temas-casamento .galeria-grid {
+  grid-template-columns: repeat(2, 1fr) !important;
+}
+
+#galeria .galeria-item,
+#temas-halloween .galeria-item,
+#temas-harry .galeria-item,
+#temas-casamento .galeria-item {
+  aspect-ratio: 1 / 1;
+}
+
+#temas-casamento .galeria-item {
+  aspect-ratio: 4 / 3;
+}
+
+#temas-casamento .galeria-item img {
+  object-fit: contain !important;
+}
+
+.galeria .galeria-grid {
+  gap: 12px;
+}
+
+.banner .banner-wrapper {
+  touch-action: pan-y;
+}
+
+section {
+  scroll-margin-top: clamp(60px, var(--header-h, 86px), 110px);
+}
+
+img[loading="lazy"] {
+  content-visibility: auto;
+}
+
+@media (max-width: 760px) {
+  .paths-grid,
+  .workshops-grid,
+  .grid-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .workshop-card img {
+    height: 190px;
+    object-fit: cover;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .button,
+  .button-strong {
+    padding: 11px 14px;
+  }
+}
+
+@media (max-width: 420px) {
+  .chip {
+    font-size: 0.82rem;
+    padding: 6px 10px;
+  }
+
+  .hero-copy h1 {
+    font-size: 24px;
+  }
+
+  .hero-copy .lead {
+    font-size: 15px;
+  }
+
+  .gallery-btn,
+  .button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
