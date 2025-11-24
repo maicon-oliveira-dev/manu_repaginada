@@ -1,4 +1,4 @@
-// Carrossel do banner e navegação da home (sem dependências externas)
+ // Carrossel do banner e navegação da home (sem dependências externas)
 
 // Banner / hero
 (function () {

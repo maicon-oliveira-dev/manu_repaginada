@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pagina de aviso para o novo e-book da Manu Rosa Bakery. Cadastre-se para ser avisado quando o lancamento estiver disponivel.">
+  <title>Novo E-book Manu Rosa &ndash; em breve</title>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+  <style>
+    body {
+      background: var(--bg);
+    }
+
+    main.pedido-ebook {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 80px 0 60px;
+    }
+
+    .pedido-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .pedido-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(201, 43, 50, .08);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .pedido-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .pedido-meta {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .pedido-gallery {
+      display: grid;
+      gap: 10px;
+    }
+
+    .pedido-thumb-main {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .pedido-thumb-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .pedido-thumb-row img {
+      border-radius: 0.9rem;
+      box-shadow: var(--shadow);
+    }
+
+    @media (max-width: 820px) {
+      main.pedido-ebook {
+        padding-top: 40px;
+      }
+
+      .pedido-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="section">
+    <div class="container" style="text-align:center;">
+      <a href="../index.html">
+        <img src="../assets/img/Manu Rosa - sem fundo.png" alt="Manu Rosa Bakery" style="max-width:140px;height:auto;">
+      </a>
+    </div>
+  </header>
+
+  <main class="pedido-ebook">
+    <section class="section">
+      <div class="container pedido-grid">
+        <div>
+          <div class="pedido-badge">
+            <span>&#127850; Novo e-book da Manu</span>
+            <span>&middot; Em breve</span>
+          </div>
+
+          <h1>E-book especial em produ&ccedil;&atilde;o &mdash; fique por dentro!</h1>
+
+          <p class="lead">
+            Estamos finalizando um novo material incr&iacute;vel da Manu Rosa para te ajudar a produzir,
+            presentear e vender ainda mais. Enquanto isso, voc&ecirc; pode se cadastrar para ser avisado
+            em primeira m&atilde;o assim que abrirmos as vendas.
+          </p>
+
+          <p>
+            Se voc&ecirc; ama confeitaria e quer receber novidades sobre o lan&ccedil;amento, basta clicar no WhatsApp
+            ou voltar para o site principal e conferir outros conte&uacute;dos, workshops e e-books dispon&iacute;veis.
+          </p>
+
+          <div class="pedido-actions">
+            <a href="https://api.whatsapp.com/send?phone=5547996552618&text=Quero%20ser%20avisado(a)%20sobre%20o%20novo%20e-book%20da%20Manu%20Rosa"
+               class="btn btn-primary btn-xl"
+               target="_blank"
+               rel="noopener noreferrer">
+              Quero ser avisado no WhatsApp
+            </a>
+
+            <a href="../index.html#workshops" class="btn btn-lg" style="background:#fff;color:var(--primary);border:1px solid rgba(0,0,0,.08);box-shadow:none;">
+              Voltar para o site
+            </a>
+          </div>
+
+          <p class="pedido-meta">
+            &#128276; Sem spam: voc&ecirc; s&oacute; receber&aacute; informa&ccedil;&otilde;es importantes sobre o lan&ccedil;amento e novidades da Manu Rosa Bakery.
+          </p>
+        </div>
+
+        <aside class="pedido-gallery" aria-label="Pr&eacute;via de biscoitos e e-books">
+          <div class="pedido-thumb-main">
+            <img src="../assets/img/ebook/Imagem do WhatsApp de 2025-11-24 à(s) 09.10.58_36ad8f78.jpg "alt="Biscoitos decorados e produ&ccedil;&atilde;o da Manu Rosa">
+          </div>
+          <div class="pedido-thumb-row">
+            <img src="../assets/img/ebook/Imagem do WhatsApp de 2025-11-24 à(s) 08.42.41_d067e853.jpg" alt="Biscoitos decorados em bandeja r&uacute;stica">
+            <img src="../assets/img/ebook/Imagem do WhatsApp de 2025-11-24 à(s) 08.42.41_dc389897.jpg" alt="Detalhe de biscoitos natalinos">
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="section" style="padding-top:24px;padding-bottom:32px;">
+    <div class="container" style="text-align:center;font-size:0.9rem;color:var(--muted);">
+      <p>&copy; <span id="ano-atual"></span> Manu Rosa Bakery &middot; Todos os direitos reservados.</p>
+    </div>
+    <script>
+      document.getElementById('ano-atual').textContent = new Date().getFullYear();
+    </script>
+  </footer>
+</body>
+</html>
