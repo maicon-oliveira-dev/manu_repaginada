@@ -1,14 +1,15 @@
 :root {
-    --bg: #fffefc;
-    /* off-white */
-    --primary: #c92b32;
-    /* vermelho natal */
-    --primary2: #0f5e3d;
-    /* verde pinheiro */
-    --gold: #f4d173;
+    --bg: #fde4e1;
+    /* rosa claro base */
+    --primary: #f473a7;
+    /* rosa escuro */
+    --primary2: #b69151;
     /* dourado */
-    --text: #252525;
-    --muted: #6c6c6c;
+    --gold: #b69151;
+    --pink-200: #f5c7c6;
+    --pink-700: #e45c9a;
+    --text: #515151;
+    --muted: #6b6b6b;
     --radius: 1.25rem;
     /* cantos generosos */
     --shadow: 0 20px 45px rgba(0, 0, 0, .08);
@@ -70,8 +71,8 @@ img {
     isolation: isolate;
     padding: 72px 0 40px;
     background:
-        radial-gradient(1200px 400px at 10% 0%, rgba(201, 43, 50, .10), transparent 60%),
-        radial-gradient(1000px 500px at 90% 0%, rgba(15, 94, 61, .10), transparent 60%);
+        radial-gradient(1200px 400px at 10% 0%, rgba(244, 115, 167, .10), transparent 60%),
+        radial-gradient(1000px 500px at 90% 0%, rgba(182, 145, 81, .10), transparent 60%);
 }
 
 .hero-overlay {
@@ -79,7 +80,7 @@ img {
     inset: 0;
     z-index: -1;
     background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .8) 60%, #fffefc 100%);
+        linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .8) 60%, var(--bg) 100%);
 }
 
 .hero-grid {
@@ -96,7 +97,7 @@ img {
 
 .lead {
     font-size: 1.125rem;
-    color: #333;
+    color: var(--text);
     margin: 0 0 1rem
 }
 
@@ -127,7 +128,7 @@ img {
 
 .trust {
     font-size: .95rem;
-    color: #2c2c2c;
+    color: var(--text);
     opacity: .9
 }
 
@@ -141,7 +142,7 @@ img {
 
 /* Botões */
 .btn {
-    --grad: linear-gradient(135deg, var(--primary), #e24a51 45%, var(--primary));
+    --grad: linear-gradient(135deg, var(--primary), var(--pink-700) 45%, var(--primary));
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -154,14 +155,14 @@ img {
     color: #fff;
     font-weight: 800;
     text-decoration: none;
-    box-shadow: 0 12px 28px rgba(201, 43, 50, .25);
+    box-shadow: 0 12px 28px rgba(244, 115, 167, .25);
     transition: transform .08s ease, filter .2s ease, box-shadow .2s ease;
 }
 
 .btn:hover {
     transform: translateY(-1px);
     filter: saturate(1.05);
-    box-shadow: 0 14px 34px rgba(201, 43, 50, .32)
+    box-shadow: 0 14px 34px rgba(244, 115, 167, .32)
 }
 
 .btn:focus-visible {
@@ -202,7 +203,7 @@ img {
 
 /* Reasons */
 .reasons {
-    background: #fffef9
+    background: var(--pink-200)
 }
 
 .reasons-grid {
@@ -212,12 +213,12 @@ img {
 }
 
 .reasons .card p {
-    color: #3a3a3a
+    color: var(--text)
 }
 
 /* About */
 .ebook-about {
-    background: #fff6eb
+    background: #f8ebdb
 }
 
 .about-grid {
@@ -284,7 +285,7 @@ img {
 
 /* Social proof */
 .social-proof {
-    background: #fffef9
+    background: var(--bg)
 }
 
 .testimonials {
@@ -309,7 +310,7 @@ img {
 
 .testimonial .author {
     font-weight: 700;
-    color: #333;
+    color: var(--text);
     font-size: .95rem
 }
 
@@ -330,7 +331,7 @@ img {
 
 /* Offer */
 .offer {
-    background: #fff6eb
+    background: #f8ebdb
 }
 
 .offer-box {
@@ -350,7 +351,7 @@ img {
 }
 
 .guarantee {
-    color: #333;
+    color: var(--text);
     font-weight: 600
 }
 
@@ -363,7 +364,7 @@ img {
 
 .price-label {
     font-weight: 700;
-    color: #333
+    color: var(--text)
 }
 
 .price-value {
@@ -468,7 +469,7 @@ a {
 }
 
 a:hover {
-    color: #a92026
+    color: var(--pink-700)
 }
 
 /* Acessibilidade foco */
