@@ -72,18 +72,17 @@
   <header>
     <div class="container">
       <div class="logo">
-        <a href="#Cursos">
+        <a href="index.html">
           <img src="assets/imagens novas/Logo Manu-01.png" alt="logo manu rosa">
         </a>
       </div>
       <nav id="primary-navigation" class="primary-nav" aria-label="Navegação principal">
         <ul class="leftside nav-menu">
-          <li><a class="nav-link" href="#Cursos">Home</a></li>
+          <li><a class="nav-link" href="index.html" aria-current="page">Home</a></li>
           <li><a class="nav-link" href="#workshops">Workshops & E-books</a></li>
-          <li><a class="nav-link" href="#diferenciais">Manu</a></li>
-          <li><a class="nav-link" href="#galeria">Galeria</a></li>
-          <li><a class="nav-link" href="#faq">FAQ</a></li>
-          <li><a class="nav-link" href="#sobre">Sobre mim</a></li>
+          <li><a class="nav-link" href="pages/sobre.html">Manu</a></li>
+          <li><a class="nav-link" href="pages/galeria.html">Galeria</a></li>
+          <li><a class="nav-link" href="pages/faq.html">FAQ</a></li>
           <li><a class="nav-link" href="https://linktr.ee/manurosabakery?fbclid=PAZXh0bgNhZW0CMTEAAae0L0NgRJLgh4Db03OEPDJeVgjPFgJaY_5LvhHkcF9bNQ7nyEBovUMHVSKr1g_aem_GUVlLWEgx6vGZZW2lq-5cQ" target="_blank" rel="noopener noreferrer">Cursos</a></li>
         </ul>
         <div class="rightside">
@@ -107,7 +106,8 @@
     </div>
   </header>
 
-  <section id="Cursos" class="banner" aria-label="Banner principal">
+  <main>
+    <section id="Cursos" class="banner" aria-label="Banner principal">
     <div class="banner-wrapper" aria-live="polite">
       <div class="banner-track">
         <div class="banner-slide" role="group" aria-roledescription="slide" aria-label="1 de 4">
@@ -120,11 +120,9 @@
                 <p class="lead">Aprenda receitas de bolos caseiros fofinhos, com o sabor e a leveza que fizeram da Manu Rosa
                      referência em confeitaria.</p>
                 <div class="hero-chips">
-                   <p>São massas, recheios e dicas que você pode aplicar hoje mesmo na sua cozinha.</p>
+                  <p>São massas, recheios e dicas que você pode aplicar hoje mesmo na sua cozinha.</p>
                   <p>Um e-book completo para quem quer transformar paixão por doces em resultado.</p>
                   <p><strong>Baixe agora e comece a criar suas próprias delícias!</strong></p>
-                  
-                 
                 </div>
                 <div class="hero-actions">
                   <a href="https://chefmanurosa1651954297.kpages.online/cook-book-bolos-caseiros-da-manu-rosa-62c773f1-3252-4aa1-9d22-e9de89b1f69a?utm_source=site_principal&utm_medium=banner&utm_campaign=cookbook" class="button button-strong" target="_blank" rel="noopener noreferrer">Quero ver o e-book</a>
@@ -150,7 +148,7 @@
                 <h1>E-book Biscoitos de Natal da Chef Manu Rosa</h1>
                  <p>Neste material reuni minhas receitas preferidas e <strong>testadas</strong> de biscoitos natalinos
                      , fáceis de executar e perfeitas para presentear ou vender.</p>
-                  <p>Quer transformar seu fim de ano em <strong>renda extra</strong>? Você recebe o PDF na hora e o guia
+                  <p>Quer transformar seu fim de ano em <strong>renda extra</strong>? Você recebe o PDF na hora e o guia</p>
                 <div class="hero-chips">
                   <span class="chip">Entrega imediata</span>
                   <span class="chip">Receitas testadas</span>
@@ -178,11 +176,11 @@
               <div class="hero-copy">
                 <p class="eyebrow">Cursos que oferecemos!</p>
                 <h1><strong>Curso de Confeitaria</strong></h1>
-                <p><br>30 aulas que te habilitam a atuar como confeiteira
+                <p>30 aulas que te habilitam a atuar como confeiteira
                      profissional.</p>
-                  <p><strong>Confeitaria Básica</strong><br>12 aulas para começar do zero com a Manu.</p>
+                  <p><strong>Confeitaria Básica</strong> 12 aulas para começar do zero com a Manu.</p>
 
-                  <p><strong>Workshops</strong><br>Aprenda receitas exclusivas de bolos, pães, tortas e doces sazonais
+                  <p><strong>Workshops</strong> Aprenda receitas exclusivas de bolos, pães, tortas e doces sazonais
                      como Páscoa e Natal.</p>
                 <div class="hero-chips">
                   <span class="chip">Turmas reduzidas</span>
@@ -244,8 +242,7 @@
       </div>
     </div>
   </section>
-<!--
-  <section class="paths" aria-label="Caminhos principais">
+    <section class="paths" aria-label="Caminhos principais">
     <div class="container">
       <div class="section-head">
         <p class="eyebrow">Comece por aqui</p>
@@ -273,8 +270,7 @@
         </article>
       </div>
     </div>
-  </section>
--->
+    </section>
   <section id="workshops" class="workshops" aria-label="Workshops e E-books Manu Rosa">
     <div class="container">
       <div class="section-head">
@@ -357,7 +353,7 @@
     </div>
   </section>
 
-  <section id="galeria" class="galeria" aria-label="Galeria de fotos">
+    <section class="galeria galeria-preview" aria-label="Galeria de fotos">
     <div class="container">
       <div class="section-head">
         <p class="eyebrow">Vitrine</p>
@@ -369,66 +365,40 @@
         <figure class="galeria-item"><img src="assets/img/img_2/galeria/manu2.jpg" alt="Fatia de bolo com recheio" loading="lazy" decoding="async"></figure>
         <figure class="galeria-item"><img src="assets/img/img_2/galeria/manu3.jpg" alt="Bolo confeitado na bancada" loading="lazy" decoding="async"></figure>
         <figure class="galeria-item"><img src="assets/img/img_2/galeria/manu4.jpg" alt="Bolo branco com morangos" loading="lazy" decoding="async"></figure>
-        <figure class="galeria-item"><img src="assets/img/img_2/galeria/bolo1.jpg" alt="Bolo decorado - detalhe da cobertura" loading="lazy" decoding="async"></figure>
-        <figure class="galeria-item"><img src="assets/img/img_2/galeria/bolo2.jpg" alt="Bolo decorado - corte mostrando o recheio" loading="lazy" decoding="async"></figure>
-        <figure class="galeria-item"><img src="assets/img/img_2/galeria/bolo4.jpg" alt="Bolo decorado com chantilly" loading="lazy" decoding="async"></figure>
-        <figure class="galeria-item"><img src="assets/img/img_2/galeria/brigadeiro.jpg" alt="Brigadeiros gourmet variados" loading="lazy" decoding="async"></figure>
       </div>
       <div class="galeria-cta">
-        <a class="gallery-btn" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=5547996552618&text=Olá%2C%20gostaria%20de%20fazer%20um%20pedido.">Encomendar pelo WhatsApp</a>
+        <a class="gallery-btn" href="pages/galeria.html">Ver galeria completa</a>
+        <a class="link-btn" href="https://www.instagram.com/manurosabakery/" target="_blank" rel="noopener noreferrer">Ver mais no Instagram</a>
       </div>
     </div>
   </section>
 
-  <section id="temas-casamento" class="galeria" aria-label="Bolos de casamento">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Wedding cakes</p>
-        <h2>Bolos de Casamento</h2>
-        <p class="section-note">Flores naturais, paleta suave e construção pensada para eventos longos.</p>
+  <section class="sobre-preview" aria-label="Sobre Manu Rosa Bakery">
+    <div class="container sobre-grid">
+      <div class="sobre-copy">
+        <p class="eyebrow">Sobre a Manu</p>
+        <h2>Olá, sou a Manu Rosa, sou chef pâtissier!!</h2>
+        <p class="lead">
+          Trabalho com doces há mais de <strong>15 anos</strong> e há mais de <strong>10 anos</strong> dou aulas de
+          confeitaria.
+        </p>
+        <p>Comecei fazendo <strong>cookies americanos</strong> (primeiro produto que vendi na vida!) e
+          <strong>bolachas decoradas</strong>, que são tradicionais na minha cidade, e fui me apaixonando cada
+          vez mais
+          pela confeitaria! Busquei conhecimento e continuei meu trabalho de formiguinha! Passei a vender
+          chocolates e
+          depois bolos! Depois disso, comecei a fazer <strong>bolos e doces pra eventos</strong> e continuei a
+          adoçar a
+          vida de muita gente!</p>
+        <a class="button" href="pages/sobre.html">Sobre mim</a>
       </div>
-      <div class="galeria-grid">
-        <figure class="galeria-item"><img src="assets/img/img_2/galeria/galeria temas/bolos casamento/bolocasamento1.jpg" alt="Bolo de casamento clássico com flores" loading="lazy" decoding="async"></figure>
-        <figure class="galeria-item"><img src="assets/img/img_2/galeria/galeria temas/bolos casamento/IMG-20251008-WA0022.jpg" alt="Bolo de casamento com flores brancas" loading="lazy" decoding="async"></figure>
-        <figure class="galeria-item"><img src="assets/img/img_2/galeria/galeria temas/bolos casamento/bolo add.jpg" alt="Bolo artístico adicional" loading="lazy" decoding="async"></figure>
-        <figure class="galeria-item"><img src="assets/img/img_2/galeria/galeria temas/bolos casamento/IMG-20251008-WA0024.jpg" alt="Bolo de casamento com arranjos florais" loading="lazy" decoding="async"></figure>
-      </div>
-    </div>
-  </section>
-
-  <section id="temas-harry" class="galeria" aria-label="Temas Harry Potter">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Temáticos</p>
-        <h2>Harry Potter</h2>
-        <p class="section-note">Mesas imersivas e bolos que viram parte do cenário.</p>
-      </div>
-      <div class="galeria-grid">
-        <figure class="galeria-item"><img src="assets/img/logo2.jpg" alt="Item temático Harry Potter" loading="lazy" decoding="async"></figure>
-        <figure class="galeria-item"><img src="assets/img/img_2/galeria/galeria temas/harry/Imagem do WhatsApp de 2025-10-08 à(s) 09.53.22_4ddc94cb.jpg" alt="Tema Harry Potter 1" loading="lazy"></figure>
-        <figure class="galeria-item"><img src="assets/img/img_2/galeria/galeria temas/harry/Imagem do WhatsApp de 2025-10-08 à(s) 09.53.22_8d631629.jpg" alt="Tema Harry Potter 2" loading="lazy"></figure>
-        <figure class="galeria-item"><img src="assets/img/img_2/galeria/galeria temas/harry/Imagem do WhatsApp de 2025-10-08 à(s) 09.53.22_a309046d.jpg" alt="Tema Harry Potter 3" loading="lazy"></figure>
+      <div class="sobre-media">
+        <img src="assets/img/img_2/galeria/manu1.jpg" alt="Chef confeiteira decorando cupcakes" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
 
-  <section id="temas-halloween" class="galeria" aria-label="Temas Halloween">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Temporadas</p>
-        <h2>Halloween</h2>
-        <p class="section-note">Doces lúdicos e cenografia com assinatura Manu Rosa.</p>
-      </div>
-      <div class="galeria-grid">
-        <figure class="galeria-item"><img src="assets/img/img_2/galeria/galeria temas/hallow/IMG-20251008-WA0015.jpg" alt="Drinks temáticos Halloween" loading="lazy" decoding="async"></figure>
-        <figure class="galeria-item"><img src="assets/img/img_2/galeria/galeria temas/hallow/IMG-20251008-WA0016.jpg" alt="Biscoitos decorados Halloween" loading="lazy" decoding="async"></figure>
-        <figure class="galeria-item"><img src="assets/img/img_2/galeria/galeria temas/hallow/IMG-20251008-WA0017.jpg" alt="Mesa temática Halloween - chapéus de bruxa" loading="lazy" decoding="async"></figure>
-        <figure class="galeria-item"><img src="assets/img/img_2/galeria/galeria temas/hallow/IMG-20251008-WA0018.jpg" alt="Mesa temática com doces e seringas cenográficas" loading="lazy" decoding="async"></figure>
-      </div>
-    </div>
-  </section>
-
-    <section id="faq" class="faq" aria-label="Perguntas frequentes sobre encomendas">
+  <section class="faq faq-preview" aria-label="Perguntas frequentes sobre encomendas">
     <div class="container">
       <div class="section-head">
         <p class="eyebrow">Dúvidas rápidas</p>
@@ -456,118 +426,13 @@
             modelo que você deseja.
           </div>
         </details>
-
-        <details class="faq-item">
-          <summary>Onde faço a retirada?</summary>
-          <div class="answer">
-            As encomendas devem ser retiradas em nosso endereço:<br>
-            <strong>Rua Rosina Diener Zipperer, 217</strong> – anexo ao escritório de Advocacia Dr. Hélio
-            Jaensch.<br>
-            Retiradas de <strong>segunda a sábado</strong>, em <strong>horário a combinar</strong>.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>Vocês fazem entrega?</summary>
-          <div class="answer">
-            Consulte-nos para entregas. Elas podem ser feitas em <strong>horário a combinar</strong> e
-            <strong>mediante taxa de entrega</strong>, conforme o endereço.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>Como devo conservar o bolo?</summary>
-          <div class="answer">
-            Conservar <strong>sempre em geladeira</strong>. Pode manter dentro da própria caixa em que foi
-            entregue.
-            Retire um pouco antes de servir para melhor textura.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary>Como funciona o pagamento?</summary>
-          <div class="answer">
-            As encomendas são confirmadas mediante o pagamento de <strong>30% de sinal</strong>, via
-            <strong>PIX</strong>.<br>
-            Aceitamos: <strong>dinheiro, PIX e cartões</strong>.
-          </div>
-        </details>
       </div>
 
-      <a class="button" href="https://api.whatsapp.com/send?phone=5547996552618&text=Ol%C3%A1%2C%20quero%20fazer%20uma%20encomenda%20na%20Manu%20Rosa%20Bakery." target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+      <a class="button" href="pages/faq.html">Ver FAQ completo</a>
     </div>
   </section>
 
-    <section id="sobre" class="sobre" aria-label="Sobre Manu Rosa Bakery">
-    <div class="container">
-      <div class="sobre-card">
-        <h2>Olá, sou a Manu Rosa, sou chef pâtissier!!</h2>
-        <p class="lead">
-          Trabalho com doces há mais de <strong>15 anos</strong> e há mais de <strong>10 anos</strong> dou aulas de
-          confeitaria.
-        </p>
-
-        <div class="sobre-texto">
-          <p>
-            <p>
-                  Comecei fazendo <strong>cookies americanos</strong> (primeiro produto que vendi na vida!) e
-                  <strong>bolachas decoradas</strong>, que são tradicionais na minha cidade, e fui me apaixonando cada
-                  vez mais
-                  pela confeitaria! Busquei conhecimento e continuei meu trabalho de formiguinha! Passei a vender
-                  chocolates e
-                  depois bolos! Depois disso, comecei a fazer <strong>bolos e doces pra eventos</strong> e continuei a
-                  adoçar a
-                  vida de muita gente!
-               </p>
-
-               <p>
-                  Sempre buscando conhecimento, fiz um <strong>curso de chef de cozinha em Curitiba-PR</strong> e tive a
-                  oportunidade de fazer uma <strong>especialização em Confeitaria na ENSP, na França</strong>! Realizei
-                  um sonho
-                  lindo e aprendi muito por lá! Quando retornei, passei a dar aulas e continuei com minhas encomendas!
-                  Nessa
-                  época, trabalhava muito com confeitaria artística e fazer doces e bolos bem decorados era a minha
-                  paixão!
-               </p>
-
-               <p>
-                  Em <strong>2016</strong> participei do programa <strong>“Que Seja Doce”</strong> no Canal GNT e
-                  <strong>ganhei o episódio chá de bebê</strong>! Foi uma grande emoção e superação pra mim! E uma
-                  divisão de
-                  águas na minha carreira como confeiteira!
-               </p>
-
-               <p>
-                  Em <strong>2018</strong> engravidei do meu filho Noah e ao mesmo tempo, da minha própria confeitaria,
-                  a <strong>Manu Rosa Bakery</strong>! Foram 6 anos lindos adoçando a vida de muita gente. Na minha
-                  própria
-                  confeitaria tive espaço pra criar doces e bolos autorais, desenvolvendo minha criatividade em eventos
-                  incríveis como o <em>Harry Potter Day</em> e <em>Halloween</em>!
-               </p>
-
-               <p>
-                  Hoje, sou proprietária da <strong>Manu Rosa Bakery</strong>, onde preparamos bolos e doces e dou
-                  <strong>workshops e cursos</strong> na área da Confeitaria.
-               </p>
-
-               <p>
-                  A cozinha é minha paixão e adoro passar meu conhecimento! Me sinto muito realizada ensinando e vendo
-                  meus
-                  alunos fazendo seus doces! Tenho certeza que minha missão de vida é <strong>adoçar a vida das
-                     pessoas</strong>
-                  e <strong>ensinar meus alunos a prosperarem com isto</strong>!
-               </p>
-
-               <p class="sobre-refs">
-                  ENSP (França) • École Ducasse / Sommet Education • Chef de Cozinha – Curitiba/PR •
-                  Vencedora “Que Seja Doce” (GNT)
-               </p>
-
-          
-        </div>
-      </div>
-    </div>
-  </section>
+  </main>
 
   <footer class="site-footer" aria-label="Rodapé do site">
     <div class="container footer-container">

@@ -186,16 +186,6 @@ document.addEventListener('DOMContentLoaded', function () {
       const style = document.createElement('style');
       style.id = cssId;
       style.textContent = `
-/* Modern gallery overrides */
-.galeria .galeria-grid{display:grid;gap:16px;align-items:start;grid-template-columns:repeat(2,1fr)}
-@media(min-width:820px){.galeria .galeria-grid{grid-template-columns:repeat(3,1fr)}}
-.galeria .galeria-grid .galeria-item:last-child:nth-child(odd){grid-column:auto;justify-self:stretch;max-width:unset}
-.galeria .galeria-item{position:relative;overflow:hidden;background:#fad3d7;border-radius:12px;box-shadow:var(--shadow);aspect-ratio:1/1}
-.galeria .galeria-item::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,.12));pointer-events:none}
-.galeria .galeria-item img{object-fit:cover !important}
-@media(min-width:900px){.galeria .galeria-grid{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}}
-#galeria .galeria-grid{grid-template-columns:repeat(2,1fr)!important}
-#temas-halloween .galeria-grid{grid-template-columns:repeat(2,1fr)!important}
 /* Lightbox */
 .lightbox{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.9);z-index:1000}
 .lightbox.is-open{display:flex}

@@ -84,6 +84,23 @@ img[loading="lazy"] {
     justify-content: center;
   }
 
+  .page-hero-content {
+    text-align: center;
+  }
+
+  .page-hero .hero-actions {
+    justify-content: center;
+  }
+
+  .sobre-grid {
+    text-align: center;
+  }
+
+  .sobre-media {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
   .button,
   .button-strong {
     padding: 11px 14px;
