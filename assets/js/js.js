@@ -196,6 +196,14 @@ document.addEventListener('DOMContentLoaded', function () {
 .lightbox__next{right:20px;top:50%;transform:translateY(-50%);font-size:28px}
 .lightbox__close:hover,.lightbox__prev:hover,.lightbox__next:hover{background:rgba(255,255,255,.15);transform:scale(1.05)}
 body.lb-open{overflow:hidden}
+@media (max-width:760px){
+.lightbox{padding:12px}
+.lightbox__img{max-width:94vw;max-height:78vh}
+.lightbox__close,.lightbox__prev,.lightbox__next{width:48px;height:48px}
+.lightbox__close{top:12px;right:12px}
+.lightbox__prev{left:8px}
+.lightbox__next{right:8px}
+}
       `;
       document.head.appendChild(style);
     }
@@ -298,4 +306,60 @@ document.addEventListener('DOMContentLoaded', function () {
     else header.classList.remove('header--scrolled');
     setHeaderHeight();
   });
+});
+
+// Reveal em viewport para entradas suaves e escalonadas
+document.addEventListener('DOMContentLoaded', function () {
+  const selectors = [
+    '.hero-copy',
+    '.hero-visual',
+    '.page-hero-content',
+    '.section-head',
+    '.section-ribbon',
+    '.path-card',
+    '.workshop-card',
+    '.grid-cards .card',
+    '.galeria-item',
+    '.sobre-copy',
+    '.sobre-media',
+    '.faq-item',
+    '.themes-grid .theme-card',
+    '.themes-cta-panel__card',
+    '.site-footer .footer-container'
+  ];
+
+  const revealItems = [];
+  selectors.forEach((selector) => {
+    const nodes = Array.from(document.querySelectorAll(selector));
+    nodes.forEach((el, index) => {
+      if (el.hasAttribute('data-reveal')) return;
+      el.setAttribute('data-reveal', '');
+      const delay = Math.min(index % 6, 5) * 70;
+      el.style.setProperty('--reveal-delay', `${delay}ms`);
+      revealItems.push(el);
+    });
+  });
+
+  if (!revealItems.length) return;
+
+  const prefersReducedMotion =
+    window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+    revealItems.forEach((el) => el.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      obs.unobserve(entry.target);
+    });
+  }, {
+    threshold: 0.18,
+    rootMargin: '0px 0px -10% 0px'
+  });
+
+  revealItems.forEach((el) => observer.observe(el));
 });

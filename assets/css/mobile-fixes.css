@@ -1,59 +1,16 @@
-﻿/* Mobile spacing and viewport fixes */
-
-@supports (height: 100dvh) {
-  .banner {
-    min-height: calc(100dvh - var(--header-h, 0px));
-  }
-}
-
-@media (max-width: 900px) {
-  .banner {
-    min-height: min(82vh, calc(100vh - var(--header-h, 0px))) !important;
-  }
-}
-
-@supports (height: 100dvh) {
-  @media (max-width: 900px) {
-    .banner {
-      min-height: min(82vh, calc(100dvh - var(--header-h, 0px))) !important;
-    }
-  }
-}
-
-@media (max-width: 540px) {
-  .banner {
-    min-height: min(70vh, calc(100vh - var(--header-h, 0px))) !important;
-  }
-}
+/* Mobile-first refinements for home + internal pages */
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
-#galeria .galeria-grid,
-#temas-halloween .galeria-grid,
-#temas-harry .galeria-grid,
-#temas-casamento .galeria-grid {
-  grid-template-columns: repeat(2, 1fr) !important;
+body {
+  overflow-x: hidden;
 }
 
-#galeria .galeria-item,
-#temas-halloween .galeria-item,
-#temas-harry .galeria-item,
-#temas-casamento .galeria-item {
-  aspect-ratio: 1 / 1;
-}
-
-#temas-casamento .galeria-item {
-  aspect-ratio: 4 / 3;
-}
-
-#temas-casamento .galeria-item img {
-  object-fit: contain !important;
-}
-
-.galeria .galeria-grid {
-  gap: 12px;
+img[loading="lazy"] {
+  content-visibility: auto;
 }
 
 .banner .banner-wrapper {
@@ -64,15 +21,104 @@ section {
   scroll-margin-top: clamp(60px, var(--header-h, 86px), 110px);
 }
 
-img[loading="lazy"] {
-  content-visibility: auto;
+@supports (height: 100dvh) {
+  .banner {
+    min-height: calc(100dvh - var(--header-h, 0px));
+  }
 }
 
+@media (max-width: 1024px) {
+  .container {
+    padding-inline: clamp(14px, 3.8vw, 22px);
+  }
+
+  section {
+    padding: clamp(48px, 9vw, 72px) 0;
+  }
+}
+
+/* Tablet/mobile nav, hero and touch behavior */
+@media (max-width: 900px) {
+  .banner {
+    min-height: auto !important;
+  }
+
+  .banner .banner-wrapper,
+  .banner .banner-track,
+  .banner .banner-slide {
+    height: auto;
+  }
+
+  .banner .banner-slide {
+    min-height: calc(100vh - var(--header-h, 0px));
+  }
+
+  @supports (height: 100dvh) {
+    .banner .banner-slide {
+      min-height: calc(100dvh - var(--header-h, 0px));
+    }
+  }
+
+  .banner .banner-content {
+    height: auto;
+    min-height: inherit;
+    align-items: flex-start;
+    padding: clamp(84px, 14vh, 112px) 0 74px;
+  }
+
+  .banner .banner-dots {
+    bottom: 12px;
+    gap: 12px;
+  }
+
+  .banner .banner-dot {
+    width: 14px;
+    height: 14px;
+  }
+
+  header.is-open nav {
+    max-height: calc(100vh - var(--header-h, 72px));
+    overflow-y: auto;
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+  }
+
+  @supports (height: 100dvh) {
+    header.is-open nav {
+      max-height: calc(100dvh - var(--header-h, 72px));
+    }
+  }
+
+  header nav li a {
+    min-height: 46px;
+    line-height: 1.35;
+  }
+
+  .page-hero {
+    min-height: auto;
+    padding: clamp(92px, 14vh, 124px) 0 58px;
+  }
+
+  .page-hero-content {
+    gap: 10px;
+  }
+
+  .page-hero h1 {
+    font-size: clamp(1.95rem, 8vw, 2.6rem);
+  }
+
+  .page-hero .lead {
+    font-size: clamp(1rem, 3.9vw, 1.15rem);
+  }
+}
+
+/* Main mobile layout improvements */
 @media (max-width: 760px) {
   .paths-grid,
   .workshops-grid,
-  .grid-cards {
-    grid-template-columns: 1fr;
+  .grid-cards,
+  .themes-grid,
+  .page-hero__grid {
+    grid-template-columns: 1fr !important;
   }
 
   .workshop-card img {
@@ -80,51 +126,232 @@ img[loading="lazy"] {
     object-fit: cover;
   }
 
+  .hero-grid {
+    text-align: left;
+  }
+
+  .hero-copy,
+  .hero-visual {
+    width: 100%;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(1.85rem, 8.2vw, 2.35rem);
+  }
+
+  .hero-copy .lead {
+    font-size: clamp(1rem, 4vw, 1.15rem);
+  }
+
+  .hero-chips,
   .hero-actions {
-    justify-content: center;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .hero-chips p {
+    font-size: 0.97rem;
+  }
+
+  .hero-actions > * {
+    min-height: 46px;
   }
 
   .page-hero-content {
-    text-align: center;
+    text-align: left;
   }
 
   .page-hero .hero-actions {
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .sobre-grid {
-    text-align: center;
+    text-align: left;
   }
 
   .sobre-media {
-    max-width: 420px;
-    margin: 0 auto;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .faq-item > summary {
+    padding: 14px 16px;
+    font-size: 0.98rem;
+  }
+
+  .faq-item .answer {
+    font-size: 0.95rem;
+  }
+
+  .site-footer .footer-container {
+    align-items: stretch;
+  }
+
+  .site-footer .footer-right {
+    display: grid;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .site-footer .footer-right .button {
+    width: 100%;
+    margin: 0;
+  }
+
+  .site-footer .footer-right .footer-ghost {
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    margin: 0;
+    padding: 10px 0;
+  }
+
+  .site-footer .footer-left small {
+    display: block;
+    line-height: 1.45;
+    font-size: 12px;
+  }
+
+  .site-footer .footer-left a {
+    font-size: 11px;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  #galeria .galeria-grid,
+  #temas-halloween .galeria-grid,
+  #temas-harry .galeria-grid,
+  #temas-casamento .galeria-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  #galeria .galeria-item,
+  #temas-halloween .galeria-item,
+  #temas-harry .galeria-item,
+  #temas-casamento .galeria-item {
+    aspect-ratio: 1 / 1;
+  }
+
+  #temas-casamento .galeria-item {
+    aspect-ratio: 4 / 3;
+  }
+
+  #temas-casamento .galeria-item img {
+    object-fit: contain !important;
+  }
+
+  .galeria .galeria-grid {
+    gap: 10px;
+  }
+}
+
+/* Phones */
+@media (max-width: 540px) {
+  .banner .banner-content {
+    padding: clamp(80px, 13vh, 100px) 0 62px;
+  }
+
+  .hero-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions .text-link,
+  .page-hero .hero-actions .text-link {
+    display: inline-flex;
+    width: 100%;
+    min-height: 46px;
+    align-items: center;
+    justify-content: center;
   }
 
   .button,
-  .button-strong {
-    padding: 11px 14px;
+  .button-strong,
+  .gallery-btn {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 16px;
+    justify-content: center;
+  }
+
+  .hero-photo {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 460px) {
+  #galeria .galeria-grid,
+  #temas-halloween .galeria-grid,
+  #temas-harry .galeria-grid,
+  #temas-casamento .galeria-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  #galeria .galeria-item,
+  #temas-halloween .galeria-item,
+  #temas-harry .galeria-item,
+  #temas-casamento .galeria-item {
+    aspect-ratio: 4 / 3;
   }
 }
 
 @media (max-width: 420px) {
+  .container {
+    padding-inline: 14px;
+  }
+
   .chip {
     font-size: 0.82rem;
     padding: 6px 10px;
   }
 
   .hero-copy h1 {
-    font-size: 24px;
+    font-size: clamp(1.55rem, 8.4vw, 1.9rem);
   }
 
   .hero-copy .lead {
-    font-size: 15px;
+    font-size: 0.98rem;
   }
 
-  .gallery-btn,
-  .button {
-    width: 100%;
-    justify-content: center;
+  .page-hero h1 {
+    font-size: clamp(1.65rem, 9vw, 2.1rem);
+  }
+
+  .section-head h2 {
+    font-size: clamp(1.45rem, 7vw, 1.8rem);
   }
 }
 
+@media (max-width: 360px) {
+  .container,
+  header .container {
+    padding-inline: 12px;
+  }
+
+  header nav li a {
+    padding-inline: 14px;
+    font-size: 15px;
+  }
+
+  .eyebrow {
+    font-size: 11.5px;
+    letter-spacing: 0.24em;
+  }
+}
+
+@media (max-height: 500px) and (orientation: landscape) and (max-width: 900px) {
+  .banner .banner-content {
+    padding: 76px 0 48px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(1.4rem, 4.2vw, 1.9rem);
+  }
+}
+
+@supports (padding: max(0px)) {
+  .site-footer {
+    padding-bottom: max(22px, env(safe-area-inset-bottom));
+  }
+}
