@@ -1,0 +1,653 @@
+.cursos-page {
+  position: relative;
+  overflow: clip;
+}
+
+.cursos-page section {
+  position: relative;
+  z-index: 1;
+}
+
+.cursos-page h1,
+.cursos-page h2,
+.cursos-page h3 {
+  letter-spacing: -0.02em;
+}
+
+.cursos-page .eyebrow {
+  margin-bottom: 6px;
+}
+
+.cursos-anchor {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(182, 145, 81, 0.24);
+  background: rgba(255, 255, 255, 0.76);
+  color: var(--brand-700);
+  font-weight: 700;
+  box-shadow: 0 12px 30px rgba(70, 56, 49, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.cursos-anchor:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 36px rgba(70, 56, 49, 0.12);
+  border-color: rgba(182, 145, 81, 0.34);
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.cursos-hero {
+  padding-top: clamp(108px, 18vh, 154px);
+  padding-bottom: clamp(54px, 8vw, 92px);
+}
+
+.cursos-hero::before,
+.cursos-hero::after,
+.cursos-profissionalizante::before,
+.cursos-cta::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-radius: 999px;
+}
+
+.cursos-hero::before {
+  width: min(72vw, 660px);
+  height: min(72vw, 660px);
+  top: -230px;
+  left: -180px;
+  background: radial-gradient(circle, rgba(244, 115, 167, 0.2) 0%, rgba(244, 115, 167, 0) 72%);
+}
+
+.cursos-hero::after {
+  width: min(60vw, 520px);
+  height: min(60vw, 520px);
+  right: -110px;
+  bottom: -180px;
+  background: radial-gradient(circle, rgba(182, 145, 81, 0.22) 0%, rgba(182, 145, 81, 0) 72%);
+}
+
+.cursos-profissionalizante::before {
+  width: min(42vw, 360px);
+  height: min(42vw, 360px);
+  top: 12%;
+  right: -150px;
+  background: radial-gradient(circle, rgba(244, 115, 167, 0.14) 0%, rgba(244, 115, 167, 0) 72%);
+}
+
+.cursos-cta::after {
+  width: min(42vw, 360px);
+  height: min(42vw, 360px);
+  left: -120px;
+  bottom: -140px;
+  background: radial-gradient(circle, rgba(182, 145, 81, 0.16) 0%, rgba(182, 145, 81, 0) 72%);
+}
+
+.cursos-hero__grid,
+.cursos-apresentacao__grid,
+.cursos-metodo__grid,
+.cursos-convidados__grid,
+.cursos-cta__grid {
+  display: grid;
+  gap: 28px;
+  align-items: center;
+}
+
+.cursos-hero__content,
+.cursos-hero__media,
+.cursos-apresentacao__media,
+.cursos-apresentacao__content,
+.cursos-modalidades__feature,
+.cursos-modalidades__card,
+.cursos-metodo__content,
+.cursos-metodo__figure,
+.cursos-convidados__media,
+.cursos-convidados__content,
+.cursos-profissionalizante__figure,
+.cursos-profissionalizante__info-card,
+.cursos-numeros__card,
+.cursos-galeria__item,
+.cursos-cta__media,
+.cursos-cta__content {
+  animation: fadeUp 0.85s ease both;
+}
+
+.cursos-hero__media {
+  animation-delay: 0.12s;
+}
+
+.cursos-hero__breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+  font-size: 0.94rem;
+  color: var(--muted);
+}
+
+.cursos-hero__breadcrumb a {
+  color: var(--brand-700);
+  font-weight: 700;
+}
+
+.cursos-hero h1 {
+  font-size: clamp(2.45rem, 9vw, 4.7rem);
+  line-height: 0.98;
+  max-width: 12ch;
+}
+
+.cursos-hero__subtitle {
+  font-size: clamp(1.04rem, 4vw, 1.24rem);
+  color: var(--muted);
+  max-width: 35rem;
+}
+
+.cursos-hero__text {
+  color: var(--brand-700);
+  font-weight: 700;
+  max-width: 34rem;
+}
+
+.cursos-hero__highlights {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px 0 0;
+  padding: 0;
+}
+
+.cursos-hero__highlights li {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(182, 145, 81, 0.2);
+  box-shadow: 0 12px 30px rgba(70, 56, 49, 0.08);
+  color: var(--text);
+  font-size: 0.94rem;
+  font-weight: 700;
+}
+
+.cursos-hero__actions {
+  margin-top: 22px;
+}
+
+.cursos-hero__media {
+  position: relative;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.cursos-hero__frame,
+.cursos-apresentacao__media,
+.cursos-modalidades__feature,
+.cursos-metodo__figure,
+.cursos-convidados__media,
+.cursos-profissionalizante__figure,
+.cursos-galeria__item,
+.cursos-cta__media {
+  overflow: hidden;
+  border-radius: 30px;
+  border: 1px solid rgba(182, 145, 81, 0.16);
+  box-shadow: 0 24px 50px rgba(70, 56, 49, 0.12);
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.cursos-hero__frame {
+  padding: 12px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.84) 100%);
+}
+
+.cursos-hero__frame img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 22px;
+}
+
+.cursos-hero__note {
+  position: relative;
+  z-index: 1;
+  width: min(88%, 360px);
+  margin: -42px auto 0;
+  padding: 18px 18px 20px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(182, 145, 81, 0.18);
+  box-shadow: 0 20px 40px rgba(70, 56, 49, 0.12);
+  display: grid;
+  gap: 8px;
+}
+
+.cursos-hero__note-label,
+.cursos-modalidades__label {
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--brand-600);
+  font-weight: 700;
+}
+
+.cursos-hero__note strong {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 5vw, 1.82rem);
+  line-height: 1.05;
+}
+
+.cursos-hero__note span {
+  color: var(--muted);
+  font-size: 0.96rem;
+}
+
+.cursos-apresentacao {
+  padding-top: clamp(24px, 4vw, 44px);
+}
+
+.cursos-apresentacao__media img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.cursos-apresentacao__content {
+  display: grid;
+  gap: 14px;
+}
+
+.cursos-apresentacao__content h2 {
+  font-size: clamp(2rem, 6vw, 3.1rem);
+  line-height: 1;
+}
+
+.cursos-apresentacao__content p {
+  color: var(--muted);
+}
+
+.cursos-apresentacao__content strong {
+  color: var(--text);
+}
+
+.cursos-apresentacao__contact {
+  display: grid;
+  gap: 10px;
+  margin-top: 6px;
+  padding: 18px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.82) 100%);
+  border: 1px solid rgba(182, 145, 81, 0.16);
+  box-shadow: 0 18px 40px rgba(70, 56, 49, 0.1);
+}
+
+.cursos-modalidades,
+.cursos-metodo,
+.cursos-convidados,
+.cursos-profissionalizante,
+.cursos-numeros,
+.cursos-galeria,
+.cursos-cta {
+  padding-top: clamp(38px, 6vw, 76px);
+}
+
+.cursos-modalidades__head,
+.cursos-profissionalizante__head,
+.cursos-galeria__head,
+.cursos-numeros__head {
+  margin-bottom: 28px;
+}
+
+.cursos-modalidades__layout,
+.cursos-profissionalizante__layout {
+  display: grid;
+  gap: 18px;
+}
+
+.cursos-modalidades__feature img {
+  width: 100%;
+  aspect-ratio: 4 / 3.45;
+  object-fit: cover;
+}
+
+.cursos-modalidades__grid {
+  display: grid;
+  gap: 16px;
+}
+
+.cursos-modalidades__card,
+.cursos-convidados__highlight,
+.cursos-profissionalizante__info-card,
+.cursos-numeros__card {
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.8) 100%);
+  border: 1px solid rgba(182, 145, 81, 0.16);
+  box-shadow: 0 18px 40px rgba(70, 56, 49, 0.1);
+}
+
+.cursos-modalidades__card {
+  padding: 20px;
+  display: grid;
+  gap: 10px;
+}
+
+.cursos-modalidades__card h3 {
+  font-size: clamp(1.55rem, 4.7vw, 2.02rem);
+  line-height: 1.03;
+}
+
+.cursos-modalidades__card p:last-child {
+  color: var(--muted);
+}
+
+.cursos-metodo__content,
+.cursos-convidados__content,
+.cursos-cta__content {
+  display: grid;
+  gap: 14px;
+}
+
+.cursos-metodo__content h2,
+.cursos-convidados__content h2,
+.cursos-cta__content h2 {
+  font-size: clamp(2rem, 6vw, 3rem);
+  line-height: 1;
+}
+
+.cursos-metodo__content p,
+.cursos-convidados__content p,
+.cursos-cta__content p {
+  color: var(--muted);
+}
+
+.cursos-metodo__gallery {
+  display: grid;
+  gap: 14px;
+}
+
+.cursos-metodo__figure img,
+.cursos-convidados__media img,
+.cursos-profissionalizante__figure img,
+.cursos-galeria__item img,
+.cursos-cta__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cursos-metodo__figure--primary img {
+  aspect-ratio: 4 / 4.5;
+}
+
+.cursos-metodo__figure img {
+  aspect-ratio: 4 / 3.3;
+}
+
+.cursos-convidados__media img {
+  aspect-ratio: 4 / 5;
+}
+
+.cursos-convidados__highlight {
+  padding: 18px;
+  display: grid;
+  gap: 8px;
+}
+
+.cursos-convidados__highlight strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.55rem, 4.6vw, 2rem);
+  line-height: 1.02;
+  color: var(--text);
+}
+
+.cursos-convidados__highlight span {
+  color: var(--muted);
+}
+
+.cursos-profissionalizante__gallery {
+  display: grid;
+  gap: 14px;
+}
+
+.cursos-profissionalizante__figure--main img {
+  aspect-ratio: 4 / 4.8;
+}
+
+.cursos-profissionalizante__figure img {
+  aspect-ratio: 4 / 3.2;
+}
+
+.cursos-profissionalizante__content {
+  display: grid;
+  gap: 18px;
+}
+
+.cursos-profissionalizante__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cursos-profissionalizante__chips span {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(182, 145, 81, 0.18);
+  box-shadow: 0 12px 30px rgba(70, 56, 49, 0.08);
+  font-size: 0.94rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.cursos-profissionalizante__info-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.cursos-profissionalizante__info-card {
+  padding: 20px;
+  display: grid;
+  gap: 12px;
+}
+
+.cursos-profissionalizante__info-card h3 {
+  font-size: clamp(1.55rem, 4.7vw, 2rem);
+  line-height: 1.04;
+}
+
+.cursos-profissionalizante__list {
+  display: grid;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+
+.cursos-profissionalizante__list li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.cursos-profissionalizante__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.68em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand), var(--pink));
+}
+
+.cursos-numeros {
+  isolation: isolate;
+}
+
+.cursos-numeros::before {
+  content: "";
+  position: absolute;
+  inset: 24px 0 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.72)),
+    url("../img/cursos/10_temperagem_chocolate.jpeg") center/cover no-repeat;
+  opacity: 0.18;
+  z-index: -1;
+  border-radius: 32px;
+}
+
+.cursos-numeros__grid {
+  display: grid;
+  gap: 14px;
+}
+
+.cursos-numeros__card {
+  padding: 20px 18px;
+  display: grid;
+  gap: 8px;
+  text-align: center;
+}
+
+.cursos-numeros__card strong {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 7vw, 3rem);
+  line-height: 1;
+  color: var(--brand-700);
+}
+
+.cursos-numeros__card span {
+  color: var(--muted);
+}
+
+.cursos-galeria__grid {
+  display: grid;
+  gap: 14px;
+}
+
+.cursos-galeria__item--wide img {
+  aspect-ratio: 4 / 3.1;
+}
+
+.cursos-galeria__item img {
+  aspect-ratio: 4 / 4.2;
+}
+
+.cursos-cta {
+  padding-bottom: clamp(72px, 9vw, 104px);
+}
+
+.cursos-cta__media {
+  background:
+    radial-gradient(circle at 50% 18%, rgba(244, 115, 167, 0.16), transparent 44%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.82));
+}
+
+.cursos-cta__media img {
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  object-position: center bottom;
+  padding: 14px 14px 0;
+}
+
+.cursos-cta__details {
+  display: grid;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+}
+
+.cursos-cta__details li {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.cursos-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+@media (min-width: 760px) {
+  .cursos-hero__grid,
+  .cursos-apresentacao__grid,
+  .cursos-convidados__grid,
+  .cursos-cta__grid {
+    grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
+  }
+
+  .cursos-metodo__grid {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  }
+
+  .cursos-metodo__grid--reverse {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  }
+
+  .cursos-modalidades__layout,
+  .cursos-profissionalizante__layout {
+    grid-template-columns: minmax(280px, 0.82fr) minmax(0, 1.18fr);
+    align-items: start;
+  }
+
+  .cursos-modalidades__grid,
+  .cursos-numeros__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cursos-profissionalizante__gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "main side-a"
+      "main side-b";
+  }
+
+  .cursos-profissionalizante__figure--main {
+    grid-area: main;
+  }
+
+  .cursos-profissionalizante__info-grid,
+  .cursos-galeria__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1120px) {
+  .cursos-modalidades__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cursos-numeros__grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 759px) {
+  .cursos-hero__note {
+    width: calc(100% - 16px);
+  }
+
+  .cursos-hero__frame,
+  .cursos-apresentacao__media,
+  .cursos-modalidades__feature,
+  .cursos-metodo__figure,
+  .cursos-convidados__media,
+  .cursos-profissionalizante__figure,
+  .cursos-galeria__item,
+  .cursos-cta__media,
+  .cursos-modalidades__card,
+  .cursos-convidados__highlight,
+  .cursos-profissionalizante__info-card,
+  .cursos-numeros__card {
+    border-radius: 24px;
+  }
+}

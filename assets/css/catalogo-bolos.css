@@ -1,0 +1,638 @@
+.catalogo-bolos-page {
+  position: relative;
+  overflow: clip;
+}
+
+.catalogo-bolos-page section {
+  position: relative;
+  z-index: 1;
+}
+
+.catalogo-bolos-page h1,
+.catalogo-bolos-page h2,
+.catalogo-bolos-page h3 {
+  letter-spacing: -0.02em;
+}
+
+.catalogo-bolos-page .eyebrow {
+  margin-bottom: 6px;
+}
+
+.catalogo-bolos-anchor {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(182, 145, 81, 0.24);
+  background: rgba(255, 255, 255, 0.74);
+  color: var(--brand-700);
+  font-weight: 700;
+  box-shadow: 0 12px 30px rgba(70, 56, 49, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.catalogo-bolos-anchor:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 36px rgba(70, 56, 49, 0.12);
+  border-color: rgba(182, 145, 81, 0.34);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.catalogo-bolos-hero {
+  padding-top: clamp(108px, 18vh, 154px);
+  padding-bottom: clamp(52px, 8vw, 88px);
+}
+
+.catalogo-bolos-hero::before,
+.catalogo-bolos-hero::after,
+.catalogo-bolos-flavors::before,
+.catalogo-bolos-cta::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-radius: 999px;
+}
+
+.catalogo-bolos-hero::before {
+  width: min(72vw, 660px);
+  height: min(72vw, 660px);
+  top: -230px;
+  left: -180px;
+  background: radial-gradient(circle, rgba(244, 115, 167, 0.2) 0%, rgba(244, 115, 167, 0) 70%);
+}
+
+.catalogo-bolos-hero::after {
+  width: min(60vw, 520px);
+  height: min(60vw, 520px);
+  right: -110px;
+  bottom: -220px;
+  background: radial-gradient(circle, rgba(182, 145, 81, 0.22) 0%, rgba(182, 145, 81, 0) 72%);
+}
+
+.catalogo-bolos-flavors::before {
+  width: min(42vw, 360px);
+  height: min(42vw, 360px);
+  top: 14%;
+  right: -160px;
+  background: radial-gradient(circle, rgba(244, 115, 167, 0.16) 0%, rgba(244, 115, 167, 0) 72%);
+}
+
+.catalogo-bolos-cta::after {
+  width: min(44vw, 380px);
+  height: min(44vw, 380px);
+  left: -120px;
+  bottom: -160px;
+  background: radial-gradient(circle, rgba(182, 145, 81, 0.18) 0%, rgba(182, 145, 81, 0) 72%);
+}
+
+.catalogo-bolos-hero__grid,
+.catalogo-bolos-story__grid,
+.catalogo-bolos-guide__grid,
+.catalogo-bolos-cta__card {
+  display: grid;
+  gap: 28px;
+  align-items: center;
+}
+
+.catalogo-bolos-hero__content,
+.catalogo-bolos-hero__media,
+.catalogo-bolos-story__media,
+.catalogo-bolos-story__content,
+.catalogo-bolos-guide__panel,
+.catalogo-bolos-card,
+.catalogo-bolos-portfolio__group,
+.catalogo-bolos-cta__card {
+  animation: fadeUp 0.85s ease both;
+}
+
+.catalogo-bolos-hero__media {
+  animation-delay: 0.12s;
+}
+
+.catalogo-bolos-hero__breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+  font-size: 0.94rem;
+  color: var(--muted);
+}
+
+.catalogo-bolos-hero__breadcrumb a {
+  color: var(--brand-700);
+  font-weight: 700;
+}
+
+.catalogo-bolos-hero h1 {
+  font-size: clamp(2.5rem, 9vw, 4.7rem);
+  line-height: 0.98;
+  max-width: 11ch;
+}
+
+.catalogo-bolos-hero__subtitle {
+  font-size: clamp(1.02rem, 3.9vw, 1.22rem);
+  color: var(--muted);
+  max-width: 36rem;
+}
+
+.catalogo-bolos-hero__text {
+  color: var(--brand-700);
+  font-weight: 700;
+  max-width: 34rem;
+}
+
+.catalogo-bolos-hero__highlights {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px 0 0;
+  padding: 0;
+}
+
+.catalogo-bolos-hero__highlights li {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(182, 145, 81, 0.2);
+  box-shadow: 0 12px 30px rgba(70, 56, 49, 0.08);
+  color: var(--text);
+  font-size: 0.94rem;
+  font-weight: 700;
+}
+
+.catalogo-bolos-hero__actions {
+  margin-top: 22px;
+}
+
+.catalogo-bolos-hero__media {
+  position: relative;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.catalogo-bolos-hero__frame {
+  position: relative;
+  padding: 12px;
+  border-radius: 30px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.82) 100%);
+  border: 1px solid rgba(182, 145, 81, 0.18);
+  box-shadow: 0 30px 60px rgba(70, 56, 49, 0.16);
+  overflow: hidden;
+}
+
+.catalogo-bolos-hero__frame img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 22px;
+}
+
+.catalogo-bolos-hero__note {
+  position: relative;
+  z-index: 1;
+  width: min(88%, 360px);
+  margin: -42px auto 0;
+  padding: 18px 18px 20px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(182, 145, 81, 0.18);
+  box-shadow: 0 20px 40px rgba(70, 56, 49, 0.12);
+  display: grid;
+  gap: 8px;
+}
+
+.catalogo-bolos-hero__note-label,
+.catalogo-bolos-portfolio__eyebrow,
+.catalogo-bolos-card__label,
+.catalogo-bolos-guide__label,
+.catalogo-bolos-story__essence-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--brand-600);
+  font-weight: 700;
+}
+
+.catalogo-bolos-hero__note strong {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 5vw, 1.82rem);
+  line-height: 1.05;
+}
+
+.catalogo-bolos-hero__note span {
+  color: var(--muted);
+  font-size: 0.96rem;
+}
+
+.catalogo-bolos-story {
+  padding-top: clamp(22px, 4vw, 40px);
+}
+
+.catalogo-bolos-story__media,
+.catalogo-bolos-guide__figure,
+.catalogo-bolos-card__media,
+.catalogo-bolos-portfolio__item,
+.catalogo-bolos-cta__media {
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid rgba(182, 145, 81, 0.16);
+  box-shadow: 0 22px 50px rgba(70, 56, 49, 0.12);
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.catalogo-bolos-story__media img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.catalogo-bolos-story__content {
+  display: grid;
+  gap: 14px;
+}
+
+.catalogo-bolos-story__content h2 {
+  font-size: clamp(2rem, 6vw, 3.1rem);
+  line-height: 1;
+}
+
+.catalogo-bolos-story__content p {
+  color: var(--muted);
+}
+
+.catalogo-bolos-story__content strong {
+  color: var(--text);
+}
+
+.catalogo-bolos-story__essence {
+  margin-top: 10px;
+  padding: 22px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.78) 100%);
+  border: 1px solid rgba(182, 145, 81, 0.18);
+  box-shadow: 0 18px 40px rgba(70, 56, 49, 0.1);
+  display: grid;
+  gap: 10px;
+}
+
+.catalogo-bolos-story__essence h3 {
+  font-size: clamp(1.55rem, 4.7vw, 2.2rem);
+  line-height: 1.04;
+}
+
+.catalogo-bolos-guide {
+  padding-top: clamp(30px, 4vw, 52px);
+}
+
+.catalogo-bolos-guide__head {
+  margin-bottom: 26px;
+}
+
+.catalogo-bolos-guide__panel {
+  padding: 14px;
+  border-radius: 30px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.72) 100%);
+  border: 1px solid rgba(182, 145, 81, 0.16);
+  box-shadow: 0 24px 50px rgba(70, 56, 49, 0.12);
+}
+
+.catalogo-bolos-guide__figure img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.catalogo-bolos-guide__content {
+  padding: 18px 8px 8px;
+  display: grid;
+  gap: 14px;
+}
+
+.catalogo-bolos-guide__content h3 {
+  font-size: clamp(1.55rem, 4.8vw, 2rem);
+  line-height: 1.05;
+}
+
+.catalogo-bolos-guide__list {
+  display: grid;
+  gap: 10px;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.catalogo-bolos-guide__list li::marker {
+  color: var(--brand-600);
+}
+
+.catalogo-bolos-size-list {
+  display: grid;
+  gap: 12px;
+}
+
+.catalogo-bolos-size-card {
+  display: grid;
+  gap: 4px;
+  padding: 16px 18px;
+  border-radius: 20px;
+  background: rgba(253, 228, 225, 0.55);
+  border: 1px solid rgba(182, 145, 81, 0.16);
+}
+
+.catalogo-bolos-size-card strong {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+.catalogo-bolos-size-card span,
+.catalogo-bolos-guide__note {
+  color: var(--muted);
+}
+
+.catalogo-bolos-flavors {
+  padding-top: clamp(36px, 6vw, 72px);
+}
+
+.catalogo-bolos-flavors__head {
+  margin-bottom: 28px;
+}
+
+.catalogo-bolos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.catalogo-bolos-card {
+  display: grid;
+  gap: 0;
+  border-radius: 30px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.78) 100%);
+  border: 1px solid rgba(182, 145, 81, 0.16);
+  box-shadow: 0 22px 44px rgba(70, 56, 49, 0.1);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.catalogo-bolos-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 28px 56px rgba(70, 56, 49, 0.14);
+  border-color: rgba(182, 145, 81, 0.24);
+}
+
+.catalogo-bolos-card__media img {
+  width: 100%;
+  aspect-ratio: 4 / 3.35;
+  object-fit: cover;
+}
+
+.catalogo-bolos-card__body {
+  display: grid;
+  gap: 12px;
+  padding: 22px;
+}
+
+.catalogo-bolos-card__body h3 {
+  font-size: clamp(1.6rem, 4.6vw, 2.05rem);
+  line-height: 1.02;
+}
+
+.catalogo-bolos-card__desc {
+  color: var(--muted);
+  min-height: 4.8em;
+}
+
+.catalogo-bolos-price {
+  display: grid;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.catalogo-bolos-price__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(253, 228, 225, 0.6);
+  border: 1px solid rgba(182, 145, 81, 0.16);
+}
+
+.catalogo-bolos-price dt {
+  min-width: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(182, 145, 81, 0.12);
+  color: var(--brand-700);
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.catalogo-bolos-price dd {
+  color: var(--text);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.catalogo-bolos-portfolio {
+  padding-top: clamp(40px, 6vw, 78px);
+}
+
+.catalogo-bolos-portfolio__head {
+  margin-bottom: 28px;
+}
+
+.catalogo-bolos-portfolio__stack {
+  display: grid;
+  gap: 22px;
+}
+
+.catalogo-bolos-portfolio__group {
+  padding: 20px;
+  border-radius: 30px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.76) 100%);
+  border: 1px solid rgba(182, 145, 81, 0.16);
+  box-shadow: 0 24px 50px rgba(70, 56, 49, 0.1);
+  display: grid;
+  gap: 18px;
+}
+
+.catalogo-bolos-portfolio__intro {
+  display: grid;
+  gap: 10px;
+  max-width: 56rem;
+}
+
+.catalogo-bolos-portfolio__intro h3 {
+  font-size: clamp(1.6rem, 4.8vw, 2.15rem);
+  line-height: 1.03;
+}
+
+.catalogo-bolos-portfolio__intro p:last-child {
+  color: var(--muted);
+}
+
+.catalogo-bolos-portfolio__grid {
+  display: grid;
+  gap: 14px;
+}
+
+.catalogo-bolos-portfolio__grid--buttercream {
+  grid-template-columns: 1fr;
+}
+
+.catalogo-bolos-portfolio__grid--trio,
+.catalogo-bolos-portfolio__grid--duo {
+  grid-template-columns: 1fr;
+}
+
+.catalogo-bolos-portfolio__item img {
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.catalogo-bolos-portfolio__item:hover img {
+  transform: scale(1.04);
+}
+
+.catalogo-bolos-cta {
+  padding-top: clamp(36px, 6vw, 74px);
+  padding-bottom: clamp(74px, 9vw, 104px);
+}
+
+.catalogo-bolos-cta__card {
+  padding: 18px;
+  border-radius: 34px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.8) 100%);
+  border: 1px solid rgba(182, 145, 81, 0.16);
+  box-shadow: 0 28px 60px rgba(70, 56, 49, 0.12);
+}
+
+.catalogo-bolos-cta__media img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.catalogo-bolos-cta__content {
+  display: grid;
+  gap: 14px;
+  padding: 6px 4px 4px;
+}
+
+.catalogo-bolos-cta__content h2 {
+  font-size: clamp(2rem, 6vw, 3rem);
+  line-height: 1;
+}
+
+.catalogo-bolos-cta__content p {
+  color: var(--muted);
+  max-width: 34rem;
+}
+
+.catalogo-bolos-cta__details {
+  display: grid;
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.catalogo-bolos-cta__details li {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.catalogo-bolos-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+@media (min-width: 760px) {
+  .catalogo-bolos-hero__grid,
+  .catalogo-bolos-story__grid,
+  .catalogo-bolos-cta__card {
+    grid-template-columns: minmax(0, 1.04fr) minmax(320px, 0.96fr);
+  }
+
+  .catalogo-bolos-guide__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .catalogo-bolos-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .catalogo-bolos-portfolio__grid--trio {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .catalogo-bolos-portfolio__grid--duo {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .catalogo-bolos-portfolio__grid--buttercream {
+    grid-template-columns: 1.15fr 0.85fr 0.85fr;
+    grid-template-areas:
+      "tall small-a small-b"
+      "tall wide wide";
+  }
+
+  .catalogo-bolos-portfolio__grid--buttercream .catalogo-bolos-portfolio__item--tall {
+    grid-area: tall;
+  }
+
+  .catalogo-bolos-portfolio__grid--buttercream .catalogo-bolos-portfolio__item--wide {
+    grid-area: wide;
+  }
+}
+
+@media (min-width: 1120px) {
+  .catalogo-bolos-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .catalogo-bolos-card__desc {
+    min-height: 5.4em;
+  }
+}
+
+@media (max-width: 759px) {
+  .catalogo-bolos-hero__content,
+  .catalogo-bolos-story__content,
+  .catalogo-bolos-cta__content {
+    text-align: left;
+  }
+
+  .catalogo-bolos-hero__note {
+    width: calc(100% - 16px);
+  }
+
+  .catalogo-bolos-card__body,
+  .catalogo-bolos-portfolio__group,
+  .catalogo-bolos-cta__card,
+  .catalogo-bolos-guide__panel {
+    border-radius: 24px;
+  }
+
+  .catalogo-bolos-price__row {
+    padding: 11px 12px;
+  }
+}
