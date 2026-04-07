@@ -1427,6 +1427,17 @@ body.menu-open {
   }
 }
 
+@media (min-width: 901px) and (max-width: 1180px) {
+  header .leftside {
+    gap: 8px;
+  }
+
+  header nav li a {
+    padding: 8px 8px;
+    font-size: 0.92rem;
+  }
+}
+
 @media (max-width: 500px) {
   .button,
   .button-strong,
