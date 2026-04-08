@@ -23,10 +23,11 @@
   <meta name="twitter:image:alt" content="Logo Manu Rosa Bakery sobre fundo da marca">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/mobile-fixes.css">
+  <link rel="stylesheet" href="../assets/css/delivery-float.css">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
-<body>
+<body class="has-delivery-float">
   <header>
     <div class="container">
       <div class="logo">
@@ -139,7 +140,20 @@
     </div>
   </section>
   </main>
-  <footer class="site-footer" aria-label="Rodapé do site">
+    <div class="delivery-float-reserve" aria-hidden="true"></div>
+  <aside class="delivery-float" aria-label="Acesso rápido ao grupo oficial do delivery semanal">
+    <a class="delivery-float__inner" href="https://chat.whatsapp.com/D2rUxjFqdFFHVZUnjF6UPm?mode=gi_t" target="_blank" rel="noopener noreferrer" aria-label="Entrar no grupo oficial do delivery semanal no WhatsApp">
+      <span class="delivery-float__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" focusable="false" aria-hidden="true">
+          <path d="M8 10h8M8 14h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M18 17H12.8L8.8 20v-3H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="delivery-float__label">Delivery da semana</span>
+      <span class="delivery-float__action">Entrar</span>
+    </a>
+  </aside>
+<footer class="site-footer" aria-label="Rodapé do site">
     <div class="container footer-container">
       <div class="footer-left">
         <small>? <span id="year-copy"></span> Todos os direitos reservados ? <a id="dev-whatsapp" href="https://www.instagram.com/maicon_douglas_047/" target="_blank" rel="noopener noreferrer">Criado por Maicon Dougals desenvolvedor web full stack</a></small>
