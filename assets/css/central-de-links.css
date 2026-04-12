@@ -75,7 +75,7 @@
   font-size: clamp(2.1rem, 8vw, 4rem);
   line-height: 0.98;
   color: var(--text);
-  max-width: 10.5ch;
+  max-width: 14ch;
 }
 
 .hub-hero__summary {
@@ -391,6 +391,57 @@
     linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(253, 244, 239, 0.96) 100%);
 }
 
+.hub-section--primary .hub-grid {
+  gap: clamp(18px, 2.4vw, 26px);
+  align-items: stretch;
+}
+
+.hub-section--primary .hub-card {
+  height: 100%;
+  border-radius: 30px;
+  border-color: rgba(182, 145, 81, 0.14);
+  box-shadow: 0 22px 46px rgba(70, 56, 49, 0.09);
+}
+
+.hub-section--primary .hub-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 28px 56px rgba(70, 56, 49, 0.13);
+  border-color: rgba(182, 145, 81, 0.24);
+}
+
+.hub-section--primary .hub-card__media {
+  aspect-ratio: 1.18 / 1;
+}
+
+.hub-section--primary .hub-card__media::after {
+  background: linear-gradient(180deg, rgba(70, 56, 49, 0.02) 0%, rgba(70, 56, 49, 0.12) 100%);
+}
+
+.hub-section--primary .hub-card__body {
+  grid-template-rows: auto auto 1fr auto;
+  gap: 12px;
+  padding: 24px 24px 22px;
+}
+
+.hub-section--primary .hub-card__eyebrow {
+  letter-spacing: 0.2em;
+}
+
+.hub-section--primary .hub-card h3 {
+  font-size: clamp(1.6rem, 2.5vw, 2.05rem);
+  line-height: 0.96;
+}
+
+.hub-section--primary .hub-card p:not(.hub-card__eyebrow) {
+  line-height: 1.58;
+  max-width: 30ch;
+}
+
+.hub-section--primary .hub-card__link {
+  margin-top: auto;
+  padding-top: 2px;
+}
+
 .hub-secondary {
   padding-top: clamp(18px, 4vw, 28px);
 }
@@ -540,6 +591,12 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .hub-section--primary .hub-grid > .hub-card:nth-child(3):last-child {
+    grid-column: 1 / -1;
+    max-width: min(620px, 100%);
+    justify-self: center;
+  }
+
   .hub-grid--secondary {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -562,6 +619,17 @@
   .hub-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
+  }
+
+  .hub-section--primary .hub-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .hub-section--primary .hub-grid > .hub-card:nth-child(3):last-child {
+    grid-column: auto;
+    max-width: none;
+    justify-self: stretch;
   }
 
   .hub-grid--secondary .hub-card {
@@ -619,6 +687,15 @@
 @media (max-width: 540px) {
   .hub-hero {
     padding-top: clamp(92px, 16vh, 116px);
+  }
+
+  .hub-section--primary .hub-card {
+    border-radius: 24px;
+  }
+
+  .hub-section--primary .hub-card__body {
+    padding: 20px 18px 18px;
+    gap: 10px;
   }
 
   .hub-quicklinks__item {
