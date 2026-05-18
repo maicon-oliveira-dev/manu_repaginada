@@ -37,6 +37,43 @@ section {
   }
 }
 
+@media (max-width: 820px) {
+  .mobile-hero {
+    display: block;
+    padding: 18px 0 12px;
+  }
+
+  .mobile-hero-support {
+    display: block;
+    padding: 0 0 24px;
+  }
+
+  .banner {
+    display: none;
+  }
+
+  .mobile-hero__card,
+  .mobile-hero__support {
+    border-radius: 24px;
+  }
+
+  .mobile-hero__card {
+    padding: 16px;
+  }
+
+  .mobile-hero__support {
+    padding: 16px;
+  }
+
+  .mobile-hero__media img {
+    max-height: clamp(180px, 36vh, 220px);
+  }
+
+  .paths {
+    padding-top: 24px;
+  }
+}
+
 /* Tablet/mobile nav, hero and touch behavior */
 @media (max-width: 900px) {
   .banner {
@@ -247,6 +284,29 @@ section {
 
 /* Phones */
 @media (max-width: 540px) {
+  .mobile-hero {
+    padding: 16px 0 10px;
+  }
+
+  .mobile-hero-support {
+    padding: 0 0 20px;
+  }
+
+  .mobile-hero__quicklinks {
+    gap: 8px;
+  }
+
+  .mobile-hero__quicklink {
+    min-height: 46px;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    line-height: 1.25;
+  }
+
+  .mobile-hero__media img {
+    max-height: 196px;
+  }
+
   .banner .banner-content {
     padding: clamp(80px, 13vh, 100px) 0 62px;
   }
@@ -299,6 +359,19 @@ section {
 @media (max-width: 420px) {
   .container {
     padding-inline: 14px;
+  }
+
+  .mobile-hero__content h1 {
+    font-size: clamp(1.78rem, 8vw, 2.05rem);
+  }
+
+  .mobile-hero__content .lead,
+  .mobile-hero__note p {
+    font-size: 0.95rem;
+  }
+
+  .mobile-hero__quicklink {
+    font-size: 0.86rem;
   }
 
   .chip {

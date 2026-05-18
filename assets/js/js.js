@@ -5,6 +5,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     const banner = document.querySelector('.banner');
     if (!banner) return;
+    if (window.matchMedia('(max-width: 820px)').matches) return;
 
     const wrapper = banner.querySelector('.banner-wrapper');
     const track = banner.querySelector('.banner-track');
