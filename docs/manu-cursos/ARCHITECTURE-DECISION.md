@@ -102,4 +102,17 @@ Adotar Astro com saída estática como arquitetura-alvo, sujeito à validação 
 
 ## Status
 
-PROPOSTA — AGUARDANDO VALIDAÇÃO DO SCAFFOLD
+ACEITA — SCAFFOLD ESTÁTICO VALIDADO
+
+Data da decisão: 30 de julho de 2026
+
+## Evidências da validação
+
+- Scaffold criado com Astro 7.1.6.
+- Saída configurada explicitamente como `static`.
+- Build reproduzível com `npm ci` e `npm run build`.
+- Uma página estática gerada em `dist/index.html`.
+- Nenhum adapter, SSR, backend ou API route.
+- Nenhuma dependência de Node.js em produção.
+- Compatibilidade preservada com hospedagem estática Apache/HostGator.
+- Site legado permaneceu integralmente preservado durante a validação.
