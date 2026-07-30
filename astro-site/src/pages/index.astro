@@ -1,13 +1,155 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/ui/Button.astro';
+import Container from '../components/ui/Container.astro';
+import Section from '../components/ui/Section.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
 ---
 
 <BaseLayout
-  title="Manu Rosa Cursos"
-  description="Scaffold técnico do futuro site Manu Rosa Cursos."
+  title="Fundação visual | Manu Rosa Cursos"
+  description="Demonstração técnica do design system e da estrutura global do futuro site Manu Rosa Cursos."
 >
-  <main>
-    <h1>Manu Rosa Cursos</h1>
-    <p>Scaffold técnico validado. O conteúdo definitivo ainda não foi migrado.</p>
-  </main>
+  <Section tone="brand-soft" spacing="large" labelledby="hero-title" class="hero">
+    <Container size="content">
+      <div class="hero__content">
+        <p class="eyebrow">Fundação visual</p>
+        <h1 id="hero-title">Manu Rosa Cursos</h1>
+        <p class="hero__description">
+          Design system e estrutura global em validação. O conteúdo definitivo dos cursos ainda não foi migrado.
+        </p>
+        <div class="hero__actions" aria-label="Atalhos da demonstração">
+          <Button href="#componentes" size="large">Ver componentes</Button>
+          <Button href="#arquitetura" variant="secondary" size="large">Consultar arquitetura</Button>
+        </div>
+      </div>
+    </Container>
+  </Section>
+
+  <Section id="principios" tone="default" labelledby="principios-title">
+    <Container size="content">
+      <SectionHeading
+        id="principios-title"
+        eyebrow="Direção de design"
+        title="Princípios da nova experiência"
+        description="Uma base visual consistente para organizar a experiência educacional sem antecipar conteúdo comercial."
+      />
+
+      <ul class="principles-grid">
+        <li class="surface"><strong>Clareza para aprender</strong></li>
+        <li class="surface"><strong>Autoridade com proximidade</strong></li>
+        <li class="surface"><strong>Conversão sem distrações</strong></li>
+      </ul>
+    </Container>
+  </Section>
+
+  <Section id="componentes" tone="soft" labelledby="componentes-title">
+    <Container size="content">
+      <SectionHeading
+        id="componentes-title"
+        eyebrow="Biblioteca inicial"
+        title="Componentes fundamentais"
+        description="Amostra técnica de títulos, superfícies, containers e variações de botão."
+      />
+
+      <div class="component-surface surface">
+        <p>Os estados abaixo validam contraste, foco, espaçamento e comportamento responsivo.</p>
+        <div class="component-actions" aria-label="Variações técnicas de botão">
+          <Button href="#arquitetura">Ir para arquitetura</Button>
+          <Button href="#principios" variant="secondary">Rever princípios</Button>
+          <Button href="#hero-title" variant="ghost">Voltar ao início</Button>
+        </div>
+      </div>
+    </Container>
+  </Section>
+
+  <Section id="arquitetura" tone="default" labelledby="arquitetura-title">
+    <Container size="narrow">
+      <SectionHeading
+        id="arquitetura-title"
+        eyebrow="Base estática"
+        title="Estrutura preparada para evoluir"
+        description="A base estática foi organizada para receber páginas de cursos, conteúdo institucional e fluxos de conversão após a validação das informações da cliente."
+      />
+    </Container>
+  </Section>
 </BaseLayout>
+
+<style>
+  .hero__content {
+    display: grid;
+    max-width: var(--container-narrow);
+    gap: var(--space-5);
+  }
+
+  .eyebrow {
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .hero__description {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-xl);
+  }
+
+  .hero__actions,
+  .component-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-5);
+    margin: var(--space-10) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .surface {
+    border: 0.0625rem solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .principles-grid .surface {
+    padding: var(--space-6);
+  }
+
+  .principles-grid strong {
+    color: var(--color-text);
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-heading);
+  }
+
+  .component-surface {
+    display: grid;
+    gap: var(--space-6);
+    margin-top: var(--space-10);
+    padding: clamp(var(--space-5), 5vw, var(--space-10));
+  }
+
+  .component-surface p {
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 48rem) {
+    .principles-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 30rem) {
+    .hero__actions,
+    .component-actions {
+      display: grid;
+    }
+  }
+</style>

@@ -1,0 +1,143 @@
+---
+import Container from '../ui/Container.astro';
+import { mainNavigation } from '../../data/navigation';
+
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+---
+
+<header class="site-header">
+  <Container size="wide" class="site-header__inner">
+    <a class="site-header__brand" href="/" aria-label="Manu Rosa Cursos — início">
+      Manu Rosa Cursos
+    </a>
+
+    <nav aria-label="Navegação principal">
+      <ul class="site-nav">
+        {mainNavigation.map((item) => (
+          <li>
+            {item.available ? (
+              <a href={item.href} aria-current={currentPath === item.href ? 'page' : undefined}>
+                {item.label}
+              </a>
+            ) : (
+              <span class="site-nav__future">
+                <span>{item.label}</span>
+                <small>Estrutura futura</small>
+              </span>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </Container>
+</header>
+
+<style>
+  .site-header {
+    position: relative;
+    z-index: 10;
+    min-height: var(--header-height);
+    border-bottom: 0.0625rem solid var(--color-border);
+    background: var(--color-surface-elevated);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .site-header :global(.site-header__inner) {
+    display: flex;
+    min-height: var(--header-height);
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
+  }
+
+  .site-header__brand {
+    flex: none;
+    color: var(--color-text);
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    text-decoration: none;
+  }
+
+  .site-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--space-2) var(--space-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .site-nav a,
+  .site-nav__future {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .site-nav a {
+    color: var(--color-brand);
+    text-underline-offset: 0.25em;
+  }
+
+  .site-nav a[aria-current='page'] {
+    background: var(--color-brand-soft);
+    color: var(--color-brand-active);
+    text-decoration-thickness: 0.15em;
+  }
+
+  .site-nav__future {
+    align-items: flex-start;
+    color: var(--color-text-muted);
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .site-nav__future small {
+    color: var(--color-text-subtle);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    line-height: 1;
+    text-transform: lowercase;
+  }
+
+  @media (max-width: 60rem) {
+    .site-header :global(.site-header__inner) {
+      align-items: flex-start;
+      flex-direction: column;
+      padding-block: var(--space-4);
+    }
+
+    .site-nav {
+      justify-content: flex-start;
+    }
+  }
+
+  @media (max-width: 36rem) {
+    .site-nav {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .site-nav a,
+    .site-nav__future {
+      width: 100%;
+    }
+
+    .site-nav__future {
+      align-items: center;
+      flex-direction: row;
+    }
+  }
+</style>

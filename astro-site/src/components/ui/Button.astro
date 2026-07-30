@@ -1,0 +1,144 @@
+---
+interface Props {
+  href: string;
+  variant?: 'primary' | 'secondary' | 'ghost';
+  size?: 'default' | 'large';
+  external?: boolean;
+  class?: string;
+  ariaLabel?: string;
+}
+
+const {
+  href,
+  variant = 'primary',
+  size = 'default',
+  external = false,
+  class: className,
+  ariaLabel,
+} = Astro.props;
+
+const safeHref = href.trim();
+const forbiddenControlCharacters = /[\u0000-\u001f\u007f]/;
+const allowedSchemes = new Set(['https:', 'mailto:', 'tel:']);
+
+if (!safeHref) {
+  throw new Error('Button requires a non-empty href.');
+}
+
+if (forbiddenControlCharacters.test(safeHref)) {
+  throw new Error('Button href cannot contain control characters.');
+}
+
+let decodedHref: string;
+
+try {
+  decodedHref = decodeURIComponent(safeHref);
+} catch {
+  throw new Error('Button href contains invalid percent-encoding.');
+}
+
+const schemeProbe = decodedHref.replace(/\s/g, '');
+const scheme = schemeProbe.match(/^[a-z][a-z\d+.-]*:/i)?.[0].toLowerCase();
+
+if (schemeProbe.startsWith('//') || (scheme && !allowedSchemes.has(scheme))) {
+  throw new Error(`Button does not accept the URL scheme in "${safeHref}".`);
+}
+---
+
+<a
+  href={safeHref}
+  class:list={['button', `button--${variant}`, `button--${size}`, className]}
+  target={external ? '_blank' : undefined}
+  rel={external ? 'noopener noreferrer' : undefined}
+  aria-label={ariaLabel}
+>
+  <slot />
+</a>
+
+<style>
+  .button {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    border: 0.125rem solid transparent;
+    border-radius: var(--radius-pill);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    transition:
+      background-color var(--duration-base) var(--easing-standard),
+      border-color var(--duration-base) var(--easing-standard),
+      color var(--duration-base) var(--easing-standard),
+      transform var(--duration-fast) var(--easing-standard);
+  }
+
+  .button--default {
+    padding: var(--space-3) var(--space-5);
+  }
+
+  .button--large {
+    min-height: 3rem;
+    padding: var(--space-4) var(--space-6);
+    font-size: var(--font-size-base);
+  }
+
+  .button--primary {
+    background: var(--color-brand);
+    color: var(--color-text-on-brand);
+  }
+
+  .button--primary:hover {
+    background: var(--color-brand-hover);
+    color: var(--color-text-on-brand);
+  }
+
+  .button--primary:active {
+    background: var(--color-brand-active);
+  }
+
+  .button--secondary {
+    border-color: var(--color-brand);
+    background: var(--color-surface);
+    color: var(--color-brand);
+  }
+
+  .button--secondary:hover {
+    border-color: var(--color-brand-hover);
+    background: var(--color-brand-soft);
+    color: var(--color-brand-hover);
+  }
+
+  .button--secondary:active {
+    border-color: var(--color-brand-active);
+    color: var(--color-brand-active);
+  }
+
+  .button--ghost {
+    background: transparent;
+    color: var(--color-brand);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  .button--ghost:hover {
+    background: var(--color-background-soft);
+    color: var(--color-brand-hover);
+  }
+
+  .button--ghost:active {
+    color: var(--color-brand-active);
+  }
+
+  .button:active {
+    transform: translateY(0.0625rem);
+  }
+
+  @media (max-width: 30rem) {
+    .button {
+      width: 100%;
+    }
+  }
+</style>

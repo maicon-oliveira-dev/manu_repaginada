@@ -1,0 +1,51 @@
+---
+interface Props {
+  id?: string;
+  tone?: 'default' | 'soft' | 'brand-soft';
+  spacing?: 'compact' | 'default' | 'large';
+  labelledby?: string;
+  class?: string;
+}
+
+const {
+  id,
+  tone = 'default',
+  spacing = 'default',
+  labelledby,
+  class: className,
+} = Astro.props;
+---
+
+<section
+  id={id}
+  aria-labelledby={labelledby}
+  class:list={['section', `section--tone-${tone}`, `section--spacing-${spacing}`, className]}
+>
+  <slot />
+</section>
+
+<style>
+  .section--tone-default {
+    background: var(--color-background);
+  }
+
+  .section--tone-soft {
+    background: var(--color-background-soft);
+  }
+
+  .section--tone-brand-soft {
+    background: var(--color-brand-soft);
+  }
+
+  .section--spacing-compact {
+    padding-block: var(--space-10);
+  }
+
+  .section--spacing-default {
+    padding-block: var(--space-16);
+  }
+
+  .section--spacing-large {
+    padding-block: clamp(var(--space-16), 10vw, var(--space-24));
+  }
+</style>
