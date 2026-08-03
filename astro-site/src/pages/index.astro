@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import HomeHero from '../components/home/HomeHero.astro';
 import Button from '../components/ui/Button.astro';
 import Card from '../components/ui/Card.astro';
 import Container from '../components/ui/Container.astro';
@@ -11,21 +12,13 @@ import SectionHeading from '../components/ui/SectionHeading.astro';
   title="Manu Rosa Cursos | Cursos e e-books de confeitaria"
   description="Estrutura institucional dedicada aos cursos, treinamentos e e-books de confeitaria da Manu Rosa."
 >
-  <Section tone="brand-soft" spacing="large" labelledby="hero-title">
-    <Container size="content">
-      <div class="hero__content">
-        <p class="eyebrow">Confeitaria e educação</p>
-        <h1 id="hero-title">Cursos e e-books de confeitaria com Manu Rosa</h1>
-        <p class="hero__description">
-          Uma nova experiência está sendo preparada para reunir conteúdos educacionais, cursos e materiais de confeitaria em um só lugar.
-        </p>
-        <div class="hero__actions" aria-label="Caminhos principais">
-          <Button href="/cursos/" size="large">Conhecer os cursos</Button>
-          <Button href="/ebooks/" variant="secondary" size="large">Ver os e-books</Button>
-        </div>
-      </div>
-    </Container>
-  </Section>
+  <HomeHero
+    eyebrow="Cursos, treinamentos e materiais de confeitaria."
+    title="Aprenda confeitaria com a Chef Manu Rosa."
+    description="Aprenda com quem une experiência, técnica e trajetória reconhecida. Desenvolva repertório e avance com mais segurança no universo da confeitaria."
+    primaryCta={{ label: 'Conhecer os cursos', href: '/cursos/' }}
+    secondaryCta={{ label: 'Ver os e-books', href: '/ebooks/' }}
+  />
 
   <Section labelledby="caminhos-title">
     <Container size="content">
@@ -67,36 +60,3 @@ import SectionHeading from '../components/ui/SectionHeading.astro';
     </Container>
   </Section>
 </BaseLayout>
-
-<style>
-  .hero__content {
-    display: grid;
-    max-width: var(--container-narrow);
-    gap: var(--space-5);
-  }
-
-  .eyebrow {
-    color: var(--color-accent);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-bold);
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-  }
-
-  .hero__description {
-    color: var(--color-text-muted);
-    font-size: var(--font-size-xl);
-  }
-
-  .hero__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-3);
-  }
-
-  @media (max-width: 30rem) {
-    .hero__actions {
-      display: grid;
-    }
-  }
-</style>
