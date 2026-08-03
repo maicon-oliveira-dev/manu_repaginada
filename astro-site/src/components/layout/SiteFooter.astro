@@ -9,16 +9,15 @@ const currentYear = new Date().getFullYear();
   <Container size="wide" class="site-footer__inner">
     <div class="site-footer__summary">
       <strong>Manu Rosa Cursos</strong>
-      <p>Estrutura em desenvolvimento. Conteúdo comercial ainda não publicado.</p>
+      <p>Cursos, treinamentos e materiais educacionais de confeitaria.</p>
+      <small>Conteúdo comercial em preparação e validação.</small>
       <small>© {currentYear} Manu Rosa Cursos</small>
     </div>
 
-    <nav aria-label="Navegação estrutural do rodapé">
+    <nav aria-label="Navegação do rodapé">
       <ul class="site-footer__navigation">
         {mainNavigation.map((item) => (
-          <li>
-            {item.available ? <a href={item.href}>{item.label}</a> : <span>{item.label} — estrutura futura</span>}
-          </li>
+          <li><a href={item.href}>{item.label}</a></li>
         ))}
       </ul>
     </nav>
@@ -49,8 +48,7 @@ const currentYear = new Date().getFullYear();
   }
 
   .site-footer__summary p,
-  .site-footer__summary small,
-  .site-footer__navigation span {
+  .site-footer__summary small {
     color: var(--color-text-muted);
   }
 
@@ -63,8 +61,7 @@ const currentYear = new Date().getFullYear();
     list-style: none;
   }
 
-  .site-footer__navigation a,
-  .site-footer__navigation span {
+  .site-footer__navigation a {
     display: inline-flex;
     min-height: 2.75rem;
     align-items: center;

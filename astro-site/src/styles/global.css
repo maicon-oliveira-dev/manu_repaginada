@@ -23,6 +23,10 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+main {
+  min-height: 50vh;
+}
+
 h1,
 h2,
 h3,
@@ -54,6 +58,76 @@ h3 {
 
 p {
   max-width: 70ch;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+  margin-top: var(--space-10);
+}
+
+.principles-list,
+.field-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+  margin: var(--space-10) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.principles-list li,
+.field-list li,
+.notice {
+  border: 0.0625rem solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  padding: var(--space-5);
+}
+
+.principles-list li {
+  font-weight: var(--font-weight-semibold);
+}
+
+.field-list li {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.field-list span,
+.notice {
+  color: var(--color-text-muted);
+}
+
+.section-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+}
+
+.faq-list {
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-10);
+}
+
+.faq-list details {
+  border: 0.0625rem solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  padding: var(--space-5);
+}
+
+.faq-list summary {
+  cursor: pointer;
+  font-weight: var(--font-weight-semibold);
+}
+
+.faq-list details p {
+  margin-top: var(--space-3);
+  color: var(--color-text-muted);
 }
 
 a {
@@ -112,5 +186,13 @@ textarea {
     animation-duration: 0.01ms;
     animation-iteration-count: 1;
     transition-duration: 0.01ms;
+  }
+}
+
+@media (max-width: 48rem) {
+  .cards-grid,
+  .principles-list,
+  .field-list {
+    grid-template-columns: 1fr;
   }
 }

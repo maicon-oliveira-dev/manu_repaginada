@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Card from '../../components/ui/Card.astro';
+import Container from '../../components/ui/Container.astro';
+import PageIntro from '../../components/ui/PageIntro.astro';
+import Section from '../../components/ui/Section.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+
+const topics = [
+  { title: 'Trajetória', description: 'Histórico profissional em processo de organização e validação.' },
+  { title: 'Formação', description: 'Formações e credenciais serão apresentadas somente após confirmação.' },
+  { title: 'Experiência com ensino', description: 'Informações sobre a atuação educacional ainda estão em validação.' },
+  { title: 'Proposta educacional', description: 'A abordagem de ensino será descrita após aprovação do conteúdo institucional.' },
+];
+---
+
+<BaseLayout title="Sobre a Manu | Manu Rosa Cursos" description="Página institucional sobre a trajetória e a atuação educacional da Manu Rosa.">
+  <PageIntro
+    eyebrow="Sobre a professora"
+    title="Manu Rosa"
+    description="A trajetória profissional e as informações de autoridade serão apresentadas após a validação dos dados, formações e resultados autorizados."
+  />
+  <Section labelledby="about-structure-title">
+    <Container size="content">
+      <SectionHeading id="about-structure-title" title="Informações institucionais em preparação" />
+      <div class="cards-grid">
+        {topics.map((topic) => <Card title={topic.title} description={topic.description} />)}
+      </div>
+    </Container>
+  </Section>
+</BaseLayout>

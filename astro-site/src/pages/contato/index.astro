@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/ui/Button.astro';
+import Container from '../../components/ui/Container.astro';
+import PageIntro from '../../components/ui/PageIntro.astro';
+import Section from '../../components/ui/Section.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+---
+
+<BaseLayout title="Contato | Manu Rosa Cursos" description="Página de contato institucional do novo site Manu Rosa Cursos.">
+  <PageIntro
+    eyebrow="Contato"
+    title="Fale com a equipe"
+    description="Os canais oficiais para dúvidas sobre cursos, e-books e suporte serão publicados após validação."
+  />
+  <Section labelledby="contact-status-title">
+    <Container size="narrow">
+      <SectionHeading id="contact-status-title" title="Atendimento institucional" />
+      <p class="notice">Canal de atendimento em definição.</p>
+      <div class="section-actions"><Button href="/duvidas/" variant="secondary">Consultar dúvidas</Button></div>
+    </Container>
+  </Section>
+</BaseLayout>

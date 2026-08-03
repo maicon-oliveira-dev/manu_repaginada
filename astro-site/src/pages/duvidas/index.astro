@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Container from '../../components/ui/Container.astro';
+import PageIntro from '../../components/ui/PageIntro.astro';
+import Section from '../../components/ui/Section.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+
+const questions = [
+  { question: 'Quando os cursos serão publicados?', answer: 'Nenhuma data foi confirmada. O conteúdo e o calendário de publicação ainda estão em validação.' },
+  { question: 'Quais informações estarão disponíveis?', answer: 'Os campos acadêmicos, comerciais e de atendimento serão publicados depois de validados para cada oferta.' },
+  { question: 'Os e-books continuarão disponíveis?', answer: 'A disponibilidade dos materiais digitais ainda será definida e comunicada nesta área.' },
+  { question: 'Como funcionará o contato?', answer: 'Os canais oficiais de contato ainda estão em definição e serão publicados após validação.' },
+];
+---
+
+<BaseLayout title="Dúvidas | Manu Rosa Cursos" description="Informações gerais sobre cursos, e-books, acesso, suporte e matrícula.">
+  <PageIntro
+    eyebrow="Informações"
+    title="Dúvidas sobre cursos e e-books"
+    description="Esta página reúne respostas provisórias enquanto as informações comerciais, acadêmicas e de atendimento são validadas."
+  />
+  <Section labelledby="faq-title">
+    <Container size="narrow">
+      <SectionHeading id="faq-title" title="Informações em validação" />
+      <div class="faq-list">
+        {questions.map((item) => <details><summary>{item.question}</summary><p>{item.answer}</p></details>)}
+      </div>
+    </Container>
+  </Section>
+</BaseLayout>
