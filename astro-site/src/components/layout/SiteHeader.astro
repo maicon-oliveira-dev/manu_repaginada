@@ -1,5 +1,6 @@
 ---
 import Container from '../ui/Container.astro';
+import BrandMark from '../ui/BrandMark.astro';
 import { mainNavigation } from '../../data/navigation';
 
 interface Props {
@@ -16,9 +17,13 @@ const activePath = normalizePath(currentPath);
 
 <header class="site-header" data-site-header>
   <Container size="wide" class="site-header__inner">
-    <a class="site-header__brand" href="/" aria-label="Manu Rosa Cursos — início">
-      Manu Rosa Cursos
-    </a>
+    <BrandMark
+      class="site-header__brand"
+      variant="primary"
+      size="header"
+      href="/"
+      tagline="Cursos e treinamentos"
+    />
 
     <button
       class="site-header__menu-button"
@@ -120,13 +125,8 @@ const activePath = normalizePath(currentPath);
     gap: var(--space-6);
   }
 
-  .site-header__brand {
-    flex: none;
-    color: var(--color-text);
-    font-family: var(--font-family-display);
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-bold);
-    text-decoration: none;
+  .site-header :global(.site-header__brand) {
+    min-width: 0;
   }
 
   .site-header__menu-button {
@@ -192,6 +192,7 @@ const activePath = normalizePath(currentPath);
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-semibold);
     text-underline-offset: 0.25em;
+    white-space: nowrap;
   }
 
   .site-nav a[aria-current='page'] {
@@ -235,6 +236,21 @@ const activePath = normalizePath(currentPath);
   @media (min-width: 48rem) {
     .site-header__menu-button {
       display: none;
+    }
+  }
+
+  @media (min-width: 48rem) and (max-width: 55.999rem) {
+    .site-header :global(.site-header__inner) {
+      gap: var(--space-3);
+    }
+
+    .site-nav {
+      gap: 0;
+    }
+
+    .site-nav a {
+      padding-inline: var(--space-2);
+      font-size: var(--font-size-xs);
     }
   }
 </style>

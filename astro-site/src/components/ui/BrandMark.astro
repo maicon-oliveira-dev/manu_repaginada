@@ -1,0 +1,107 @@
+---
+import { Image } from 'astro:assets';
+import logoLight from '../../assets/brand/manu-rosa-logo-light.png';
+import logoPrimary from '../../assets/brand/manu-rosa-logo-primary.png';
+
+interface Props {
+  variant?: 'primary' | 'light';
+  size?: 'header' | 'footer';
+  href?: string;
+  tagline?: string;
+  class?: string;
+}
+
+const {
+  variant = 'primary',
+  size = 'header',
+  href,
+  tagline = 'Cursos e treinamentos',
+  class: className,
+} = Astro.props;
+
+const logo = variant === 'light' ? logoLight : logoPrimary;
+const imageWidth = size === 'header' ? 240 : 320;
+const imageHeight = Math.round((imageWidth * logo.height) / logo.width);
+const Element = href ? 'a' : 'div';
+---
+
+<Element
+  class:list={['brand-mark', `brand-mark--${variant}`, `brand-mark--${size}`, className]}
+  href={href}
+>
+  <Image
+    class="brand-mark__image"
+    src={logo}
+    alt="Manu Rosa Bakery"
+    width={imageWidth}
+    height={imageHeight}
+    format="png"
+    loading={size === 'header' ? 'eager' : 'lazy'}
+    decoding="async"
+  />
+  <span class="brand-mark__tagline">{tagline}</span>
+  {href && <span class="brand-mark__destination">Página inicial</span>}
+</Element>
+
+<style>
+  .brand-mark {
+    display: inline-flex;
+    max-width: 100%;
+    align-items: center;
+    flex: none;
+    flex-direction: column;
+    gap: var(--space-1);
+    color: var(--color-text);
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .brand-mark:hover {
+    color: var(--color-brand-hover);
+  }
+
+  .brand-mark--light,
+  .brand-mark--light:hover {
+    color: var(--color-text-on-brand);
+  }
+
+  .brand-mark--light:focus-visible {
+    outline-color: var(--color-accent-soft);
+  }
+
+  .brand-mark__image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .brand-mark--header .brand-mark__image {
+    width: clamp(5.75rem, 14vw, 6.5rem);
+  }
+
+  .brand-mark--footer .brand-mark__image {
+    width: clamp(8rem, 18vw, 10rem);
+  }
+
+  .brand-mark__tagline {
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .brand-mark__destination {
+    position: absolute;
+    width: 0.0625rem;
+    height: 0.0625rem;
+    padding: 0;
+    border: 0;
+    margin: -0.0625rem;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    overflow: hidden;
+    white-space: nowrap;
+  }
+</style>
