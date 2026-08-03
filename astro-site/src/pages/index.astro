@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import HomeCoursesSection from '../components/home/HomeCoursesSection.astro';
 import HomeHero from '../components/home/HomeHero.astro';
 import Button from '../components/ui/Button.astro';
-import Card from '../components/ui/Card.astro';
 import Container from '../components/ui/Container.astro';
 import Section from '../components/ui/Section.astro';
 import SectionHeading from '../components/ui/SectionHeading.astro';
@@ -20,16 +20,7 @@ import SectionHeading from '../components/ui/SectionHeading.astro';
     secondaryCta={{ label: 'Ver os e-books', href: '/ebooks/' }}
   />
 
-  <Section labelledby="caminhos-title">
-    <Container size="content">
-      <SectionHeading id="caminhos-title" title="Escolha como deseja aprender" />
-      <div class="cards-grid">
-        <Card title="Cursos" description="Área preparada para reunir cursos e treinamentos de confeitaria após a validação do conteúdo." href="/cursos/" />
-        <Card title="E-books" description="Materiais digitais organizados para consulta e aquisição após a validação das ofertas." href="/ebooks/" />
-        <Card title="Sobre a Manu" description="Conheça a trajetória profissional e a proposta educacional que orientarão esta nova fase." href="/sobre/" />
-      </div>
-    </Container>
-  </Section>
+  <HomeCoursesSection />
 
   <Section tone="soft" labelledby="posicionamento-title">
     <Container size="content">

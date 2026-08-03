@@ -1,0 +1,77 @@
+---
+import macaronsImage from '../../assets/home/courses/macarons.jpeg';
+import preparationImage from '../../assets/home/courses/preparo-massa.jpeg';
+import temperingImage from '../../assets/home/courses/temperagem-chocolate.jpeg';
+import Button from '../ui/Button.astro';
+import Container from '../ui/Container.astro';
+import Section from '../ui/Section.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import HomeCourseCard from './HomeCourseCard.astro';
+---
+
+<Section labelledby="home-courses-title" class="home-courses">
+  <Container size="content">
+    <SectionHeading
+      id="home-courses-title"
+      eyebrow="Cursos e treinamentos"
+      title="Formação, workshops e aprendizado prático."
+      description="Aulas pensadas para quem deseja aprender com profundidade, colocar a mão na massa e desenvolver segurança no preparo, na execução e no acabamento."
+    />
+
+    <div class="home-courses__grid">
+      <HomeCourseCard
+        eyebrow="Formação profissional"
+        title="Curso profissionalizante de confeitaria"
+        description="Uma formação que reúne conteúdo prático e técnico para quem deseja desenvolver repertório e evoluir na confeitaria."
+        image={temperingImage}
+        imageAlt="Mão espalhando chocolate com uma espátula."
+        href="/cursos/"
+        linkLabel="Conhecer a formação"
+      />
+      <HomeCourseCard
+        eyebrow="Para começar"
+        title="Confeitaria Básica"
+        description="Um caminho para quem quer começar do zero, construir base e avançar com mais segurança na confeitaria."
+        image={preparationImage}
+        imageAlt="Fouet com massa sobre uma tigela de vidro."
+        href="/cursos/"
+        linkLabel="Conhecer Confeitaria Básica"
+      />
+      <HomeCourseCard
+        eyebrow="Aulas especiais"
+        title="Workshops e aulas especiais"
+        description="Conteúdos pontuais sobre receitas e temas específicos, com experiências que ampliam o repertório na confeitaria."
+        image={macaronsImage}
+        imageAlt="Macarons dispostos sobre uma superfície."
+        href="/cursos/"
+        linkLabel="Conhecer os workshops"
+      />
+    </div>
+
+    <div class="home-courses__action">
+      <Button href="/cursos/" size="large">Ver cursos e treinamentos</Button>
+    </div>
+  </Container>
+</Section>
+
+<style>
+  .home-courses__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    gap: var(--space-5);
+    margin-top: var(--space-10);
+  }
+
+  .home-courses__action {
+    display: flex;
+    margin-top: var(--space-10);
+  }
+
+  @media (min-width: 44rem) and (max-width: 58.375rem) {
+    .home-courses__grid > :global(.home-course-card:last-child) {
+      width: calc((100% - var(--space-5)) / 2);
+      grid-column: 1 / -1;
+      justify-self: center;
+    }
+  }
+</style>
