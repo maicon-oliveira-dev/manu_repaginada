@@ -1,0 +1,281 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Picture } from 'astro:assets';
+import courseHeroAsset from '../../assets/courses/manu-rosa-batendo-massa.png';
+import Button from '../ui/Button.astro';
+import Container from '../ui/Container.astro';
+
+const courseHeroImage: ImageMetadata = courseHeroAsset;
+const whatsappHref =
+  'https://api.whatsapp.com/send?phone=5547996552618&text=Ol%C3%A1%2C%20gostaria%20de%20conhecer%20os%20cursos%20presenciais%20da%20Chef%20Manu%20Rosa.';
+---
+
+<section class="courses-hero" aria-labelledby="courses-hero-title">
+  <Container size="wide">
+    <div class="courses-hero__layout">
+      <div class="courses-hero__content">
+        <p class="courses-hero__eyebrow">Cursos Presenciais</p>
+        <h1 id="courses-hero-title">Aprenda Confeitaria com a Chef Manu Rosa</h1>
+        <p class="courses-hero__subtitle">
+          Entre para o mundo da confeitaria com quem une experiência, técnica e trajetória reconhecida.
+        </p>
+        <p class="courses-hero__description">
+          Aprenda com quem tem experiência, desenvolva repertório técnico e avance com mais segurança no universo da confeitaria.
+        </p>
+        <ul class="courses-hero__highlights">
+          <li>Formação profissional</li>
+          <li>Workshops e oficinas</li>
+          <li>Aprendizado prático</li>
+        </ul>
+        <div class="courses-hero__actions">
+          <Button
+            href={whatsappHref}
+            size="large"
+            external
+            ariaLabel="Falar no WhatsApp sobre os cursos presenciais"
+          >
+            Falar no WhatsApp
+          </Button>
+          <Button href="#cursos-modalidades" variant="secondary" size="large">
+            Conhecer os cursos
+          </Button>
+        </div>
+      </div>
+
+      <figure class="courses-hero__visual">
+        <div class="courses-hero__frame">
+          <Picture
+            class="courses-hero__image"
+            pictureAttributes={{ class: 'courses-hero__picture' }}
+            src={courseHeroImage}
+            formats={['avif', 'webp']}
+            fallbackFormat="png"
+            width={701}
+            height={1050}
+            widths={[320, 480, 600, 701]}
+            sizes="(min-width: 80rem) 30rem, (min-width: 56.25rem) 40vw, (min-width: 40rem) 36rem, calc(100vw - 2rem)"
+            alt="Chef Manu Rosa batendo massa em aula de confeitaria"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
+        </div>
+        <figcaption class="courses-hero__note">
+          <p class="courses-hero__note-label">Formação e prática</p>
+          <strong>Uma experiência pensada para quem deseja aprender com profundidade e segurança.</strong>
+          <p>Da base técnica ao refinamento do acabamento, os cursos aproximam prática real, repertório e evolução profissional.</p>
+        </figcaption>
+      </figure>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .courses-hero {
+    border-bottom: 0.0625rem solid var(--color-border);
+    background:
+      radial-gradient(circle at 88% 18%, var(--color-accent-soft), transparent 28rem),
+      linear-gradient(135deg, var(--color-brand-soft), var(--color-background-soft));
+    padding-block: clamp(var(--space-8), 3.5vw, var(--space-12));
+  }
+
+  .courses-hero__layout {
+    display: grid;
+    align-items: center;
+    gap: clamp(var(--space-8), 4vw, var(--space-16));
+  }
+
+  .courses-hero__content {
+    display: grid;
+    min-width: 0;
+    max-width: 43rem;
+    gap: clamp(var(--space-3), 1.3vw, var(--space-4));
+  }
+
+  .courses-hero__eyebrow,
+  .courses-hero__note-label {
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.14em;
+    line-height: var(--line-height-heading);
+    text-transform: uppercase;
+  }
+
+  .courses-hero h1 {
+    max-width: 12.5ch;
+    font-size: clamp(3.25rem, 5vw, 5rem);
+    line-height: 0.95;
+    text-wrap: balance;
+  }
+
+  .courses-hero__subtitle {
+    max-width: 54ch;
+    color: var(--color-text);
+    font-size: clamp(var(--font-size-lg), 1.7vw, 1.375rem);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .courses-hero__description {
+    max-width: 62ch;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-base);
+  }
+
+  .courses-hero__highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .courses-hero__highlights li {
+    min-height: 2.75rem;
+    padding: var(--space-2) var(--space-3);
+    border: 0.0625rem solid var(--color-border-strong);
+    border-radius: var(--radius-pill);
+    background: var(--color-surface-elevated);
+    color: var(--color-text);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.25;
+  }
+
+  .courses-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding-top: 0;
+  }
+
+  .courses-hero__visual {
+    position: relative;
+    display: grid;
+    width: 100%;
+    min-width: 0;
+    max-width: 29rem;
+    padding-bottom: var(--space-20);
+    margin: 0 auto;
+  }
+
+  .courses-hero__frame {
+    min-width: 0;
+    border: 0.0625rem solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-accent-soft);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+
+  .courses-hero__frame :global(.courses-hero__picture) {
+    display: block;
+    aspect-ratio: 5 / 6;
+  }
+
+  .courses-hero__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+  }
+
+  .courses-hero__note {
+    position: absolute;
+    right: var(--space-4);
+    bottom: 0;
+    left: var(--space-4);
+    z-index: 1;
+    display: grid;
+    gap: var(--space-1);
+    padding: var(--space-4);
+    border: 0.0625rem solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .courses-hero__note strong {
+    color: var(--color-text);
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-heading);
+  }
+
+  .courses-hero__note p:last-child {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+  }
+
+  @media (min-width: 56.25rem) {
+    .courses-hero__layout {
+      grid-template-columns: minmax(0, 1fr) minmax(22rem, 29rem);
+    }
+
+    .courses-hero__content {
+      justify-self: start;
+    }
+
+    .courses-hero__visual {
+      justify-self: end;
+    }
+  }
+
+  @media (max-width: 39.99rem) {
+    .courses-hero__highlights,
+    .courses-hero__actions {
+      display: grid;
+    }
+
+    .courses-hero__highlights li {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  @media (max-width: 56.249rem) {
+    .courses-hero__visual {
+      max-width: 38rem;
+      padding-bottom: 0;
+    }
+
+    .courses-hero__note {
+      position: static;
+      width: calc(100% - var(--space-8));
+      margin: var(--space-4) auto 0;
+    }
+  }
+
+  @media (min-width: 64rem) and (max-height: 50rem) {
+    .courses-hero {
+      padding-block: var(--space-5);
+    }
+
+    .courses-hero__layout {
+      gap: var(--space-8);
+    }
+
+    .courses-hero__content {
+      gap: var(--space-3);
+    }
+
+    .courses-hero h1 {
+      font-size: clamp(3rem, 4.7vw, 4.25rem);
+      line-height: 0.94;
+    }
+
+    .courses-hero__subtitle {
+      font-size: clamp(1.0625rem, 1.7vw, 1.25rem);
+    }
+
+    .courses-hero__visual {
+      max-width: 24rem;
+      padding-bottom: var(--space-24);
+    }
+
+    .courses-hero__note {
+      padding: var(--space-3) var(--space-4);
+    }
+  }
+</style>

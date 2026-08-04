@@ -1,34 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Button from '../../components/ui/Button.astro';
-import Container from '../../components/ui/Container.astro';
-import PageIntro from '../../components/ui/PageIntro.astro';
-import Section from '../../components/ui/Section.astro';
-import SectionHeading from '../../components/ui/SectionHeading.astro';
-
-const fields = ['Modalidade', 'Nível', 'Duração', 'Conteúdo programático', 'Período de acesso', 'Certificado', 'Suporte', 'Matrícula'];
+import CoursesHero from '../../components/courses/CoursesHero.astro';
 ---
 
 <BaseLayout
   title="Cursos | Manu Rosa Cursos"
   description="Página institucional preparada para apresentar os cursos e treinamentos de confeitaria da Manu Rosa."
 >
-  <PageIntro
-    eyebrow="Cursos e treinamentos"
-    title="Cursos de confeitaria"
-    description="O catálogo de cursos está sendo estruturado. As informações de modalidade, duração, conteúdo e matrícula serão publicadas após validação."
-  />
-  <Section labelledby="course-fields-title">
-    <Container size="content">
-      <SectionHeading
-        id="course-fields-title"
-        title="Informações que cada curso apresentará"
-        description="Os campos abaixo compõem a estrutura planejada e ainda dependem de confirmação para cada oferta."
-      />
-      <ul class="field-list">
-        {fields.map((field) => <li><strong>{field}</strong><span>Informação em validação.</span></li>)}
-      </ul>
-      <div class="section-actions"><Button href="/contato/">Acompanhar informações</Button></div>
-    </Container>
-  </Section>
+  <CoursesHero />
 </BaseLayout>
