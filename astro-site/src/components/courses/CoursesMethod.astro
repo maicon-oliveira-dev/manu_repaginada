@@ -1,0 +1,177 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Picture } from 'astro:assets';
+import handsShapingAsset from '../../assets/courses/maos-modelando-massa.jpeg';
+import batterPreparationAsset from '../../assets/courses/preparo-massa-na-tigela.jpeg';
+import Container from '../ui/Container.astro';
+
+const batterPreparationImage: ImageMetadata = batterPreparationAsset;
+const handsShapingImage: ImageMetadata = handsShapingAsset;
+---
+
+<section class="courses-method" aria-labelledby="courses-method-title">
+  <Container size="wide">
+    <div class="courses-method__layout">
+      <div class="courses-method__content">
+        <span class="courses-method__eyebrow">Mão na massa</span>
+        <h2 id="courses-method-title">Técnica, prática e experiência real</h2>
+        <p>
+          Aulas pensadas para quem deseja aprender com profundidade, colocar a mão na massa e desenvolver segurança no preparo, na execução e no acabamento.
+        </p>
+      </div>
+
+      <div class="courses-method__gallery">
+        <figure class="courses-method__figure courses-method__figure--primary">
+          <Picture
+            class="courses-method__image"
+            pictureAttributes={{ class: 'courses-method__picture' }}
+            src={batterPreparationImage}
+            formats={['avif', 'webp']}
+            fallbackFormat="jpeg"
+            width={426}
+            height={568}
+            widths={[240, 320, 426]}
+            sizes="(min-width: 80rem) 26.625rem, (min-width: 60rem) 36vw, (min-width: 40rem) 52vw, calc(100vw - 2rem)"
+            alt="Preparo de massa em tigela durante aula de confeitaria"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+
+        <figure class="courses-method__figure courses-method__figure--secondary">
+          <Picture
+            class="courses-method__image"
+            pictureAttributes={{ class: 'courses-method__picture' }}
+            src={handsShapingImage}
+            formats={['avif', 'webp']}
+            fallbackFormat="jpeg"
+            width={426}
+            height={568}
+            widths={[240, 320, 426]}
+            sizes="(min-width: 80rem) 20rem, (min-width: 60rem) 25vw, (min-width: 40rem) 38vw, 72vw"
+            alt="Mãos modelando massa em atividade prática"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .courses-method {
+    padding-block: clamp(var(--space-16), 8vw, var(--space-24));
+    border-top: 0.0625rem solid var(--color-border);
+    background: var(--color-surface);
+  }
+
+  .courses-method__layout {
+    display: grid;
+    align-items: center;
+    gap: clamp(var(--space-10), 6vw, var(--space-20));
+  }
+
+  .courses-method__content {
+    display: grid;
+    min-width: 0;
+    max-width: 36rem;
+    gap: var(--space-3);
+  }
+
+  .courses-method__eyebrow {
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.12em;
+    line-height: var(--line-height-heading);
+    text-transform: uppercase;
+  }
+
+  .courses-method h2 {
+    max-width: 13ch;
+    font-size: var(--font-size-4xl);
+    line-height: var(--line-height-tight);
+  }
+
+  .courses-method__content p {
+    max-width: 50ch;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-lg);
+  }
+
+  .courses-method__gallery {
+    display: grid;
+    min-width: 0;
+    grid-template-columns: minmax(0, 1.22fr) minmax(0, 0.9fr);
+    align-items: start;
+    gap: clamp(var(--space-3), 2vw, var(--space-6));
+  }
+
+  .courses-method__figure {
+    width: 100%;
+    margin: 0;
+    border: 0.0625rem solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-background-soft);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+
+  .courses-method__figure--primary {
+    max-width: 26.625rem;
+  }
+
+  .courses-method__figure--secondary {
+    max-width: 20rem;
+    margin-top: var(--space-16);
+  }
+
+  .courses-method__figure :global(.courses-method__picture) {
+    display: block;
+    aspect-ratio: 3 / 4;
+  }
+
+  .courses-method__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  @media (min-width: 60rem) {
+    .courses-method__layout {
+      grid-template-columns: minmax(18rem, 0.78fr) minmax(0, 1.22fr);
+    }
+  }
+
+  @media (max-width: 59.99rem) {
+    .courses-method__content {
+      max-width: 46rem;
+    }
+
+    .courses-method__gallery {
+      max-width: 46rem;
+    }
+  }
+
+  @media (max-width: 39.99rem) {
+    .courses-method {
+      padding-block: var(--space-12);
+    }
+
+    .courses-method__content p {
+      font-size: var(--font-size-base);
+    }
+
+    .courses-method__gallery {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+
+    .courses-method__figure--secondary {
+      width: 72%;
+      margin-top: 0;
+      margin-left: auto;
+    }
+  }
+</style>
