@@ -1,0 +1,154 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Picture } from 'astro:assets';
+import manuFullBodyAsset from '../../assets/courses/manu-rosa-corpo-inteiro.png';
+import Button from '../ui/Button.astro';
+import Container from '../ui/Container.astro';
+
+const manuFullBodyImage: ImageMetadata = manuFullBodyAsset;
+const whatsappHref =
+  'https://api.whatsapp.com/send?phone=5547996552618&text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20cursos%20presenciais%20da%20Chef%20Manu%20Rosa.';
+---
+
+<section class="courses-final-cta" aria-labelledby="courses-final-cta-title">
+  <Container size="wide">
+    <div class="courses-final-cta__layout">
+      <figure class="courses-final-cta__media">
+        <Picture
+          class="courses-final-cta__image"
+          pictureAttributes={{ class: 'courses-final-cta__picture' }}
+          src={manuFullBodyImage}
+          formats={['avif', 'webp']}
+          fallbackFormat="png"
+          width={935}
+          height={1400}
+          widths={[320, 480, 640, 800, 935]}
+          sizes="(min-width: 80rem) 27rem, (min-width: 56.25rem) 38vw, (min-width: 40rem) 30rem, calc(100vw - 2rem)"
+          alt="Chef Manu Rosa em retrato de corpo inteiro"
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+
+      <div class="courses-final-cta__content">
+        <span class="courses-final-cta__eyebrow">Próximo passo</span>
+        <h2 id="courses-final-cta-title">Vou adorar ter você como meu aluno</h2>
+        <p>
+          Para mais informações sobre datas, valores e cronogramas, entre em contato pelo nosso WhatsApp.
+        </p>
+        <address><strong>WhatsApp:</strong> (47) 99655-2618</address>
+        <div class="courses-final-cta__action">
+          <Button
+            href={whatsappHref}
+            size="large"
+            external
+            ariaLabel="Falar no WhatsApp sobre os cursos presenciais"
+          >
+            Falar no WhatsApp
+          </Button>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .courses-final-cta {
+    padding-block: clamp(var(--space-16), 8vw, var(--space-24));
+    border-top: 0.0625rem solid var(--color-border);
+    background:
+      radial-gradient(circle at 16% 75%, var(--color-accent-soft), transparent 24rem),
+      linear-gradient(135deg, var(--color-brand-soft), var(--color-background-soft));
+  }
+
+  .courses-final-cta__layout {
+    display: grid;
+    align-items: center;
+    gap: clamp(var(--space-8), 7vw, var(--space-20));
+  }
+
+  .courses-final-cta__media {
+    width: 100%;
+    max-width: 30rem;
+    margin: 0 auto;
+    border: 0.0625rem solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface-elevated);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+
+  .courses-final-cta__media :global(.courses-final-cta__picture) {
+    display: block;
+    aspect-ratio: 935 / 1400;
+  }
+
+  .courses-final-cta__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+  }
+
+  .courses-final-cta__content {
+    display: grid;
+    max-width: 39rem;
+    gap: var(--space-4);
+  }
+
+  .courses-final-cta__eyebrow {
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.12em;
+    line-height: var(--line-height-heading);
+    text-transform: uppercase;
+  }
+
+  .courses-final-cta h2 {
+    max-width: 14ch;
+    font-size: var(--font-size-4xl);
+    line-height: var(--line-height-tight);
+  }
+
+  .courses-final-cta__content > p {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-lg);
+  }
+
+  .courses-final-cta address {
+    padding-top: var(--space-4);
+    border-top: 0.0625rem solid var(--color-border-strong);
+    color: var(--color-text);
+    font-style: normal;
+  }
+
+  .courses-final-cta__action {
+    display: flex;
+    padding-top: var(--space-2);
+  }
+
+  @media (min-width: 56.25rem) {
+    .courses-final-cta__layout {
+      grid-template-columns: minmax(21rem, 27rem) minmax(0, 1fr);
+    }
+
+    .courses-final-cta__media {
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 39.99rem) {
+    .courses-final-cta {
+      padding-block: var(--space-12);
+    }
+
+    .courses-final-cta__content > p {
+      font-size: var(--font-size-base);
+    }
+
+    .courses-final-cta__action {
+      display: grid;
+    }
+  }
+</style>
