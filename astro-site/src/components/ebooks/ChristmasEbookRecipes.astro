@@ -1,0 +1,112 @@
+---
+import Container from '../ui/Container.astro';
+
+const recipes = [
+  'Gingerbread tradicional + receita completa do glacê real do zero',
+  'Linzer Cookies com geleia artesanal',
+  'Speculoos — o biscoito belga mais aromático da temporada',
+  'Biscoito de mel e chocolate – sabor intenso e festivo',
+  'Biscoito dinamarquês com cereja – o clássico da lata azul!',
+  'Estrelinha de nozes – receita alemã com sabor de tradição',
+  'Amanteigado com goiabada – um toque brasileiro e irresistível',
+  'Biscoito de chocolate – simples, delicioso e sempre sucesso',
+  'Biscoito recheado de leite ninho com Nutella – o favorito das crianças',
+  'Biscoito de amêndoas e limão siciliano – delicado e sofisticado',
+  'Estrelinhas de café e chocolate – combinação perfeita!',
+  'Biscoitinho de nata com damasco – macio e elegante',
+  'Biscoito craquelado de limão e coco – textura incrível e sabor cítrico',
+  'Biscotti de figo, canela e laranja – o toque italiano que encanta',
+  'Biscoito de queijo – perfeito para equilibrar os sabores doces',
+] as const;
+---
+
+<section class="christmas-recipes" id="receitas-do-ebook" aria-labelledby="christmas-recipes-title">
+  <Container size="content">
+    <header class="christmas-recipes__heading">
+      <p class="christmas-recipes__eyebrow">Conteúdo do material</p>
+      <h2 id="christmas-recipes-title">15 receitas para aprender, produzir e compartilhar</h2>
+    </header>
+    <ol class="christmas-recipes__list">
+      {recipes.map((recipe) => <li><span>{recipe}</span></li>)}
+    </ol>
+  </Container>
+</section>
+
+<style>
+  .christmas-recipes {
+    padding-block: clamp(var(--space-12), 8vw, var(--space-20));
+    background: var(--color-surface);
+    scroll-margin-top: calc(var(--header-height) + var(--space-4));
+  }
+
+  .christmas-recipes__heading {
+    display: grid;
+    max-width: 52rem;
+    gap: var(--space-3);
+  }
+
+  .christmas-recipes__eyebrow {
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .christmas-recipes h2 {
+    max-width: 21ch;
+    font-size: var(--font-size-4xl);
+  }
+
+  .christmas-recipes__list {
+    display: grid;
+    gap: 0;
+    margin: var(--space-10) 0 0;
+    padding: 0;
+    border-block: 0.0625rem solid var(--color-border-strong);
+    list-style-position: inside;
+  }
+
+  .christmas-recipes__list li {
+    min-width: 0;
+    padding: var(--space-4);
+    border-bottom: 0.0625rem solid var(--color-border);
+    color: var(--color-accent);
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .christmas-recipes__list li:last-child {
+    border-bottom: 0;
+  }
+
+  .christmas-recipes__list span {
+    color: var(--color-text);
+  }
+
+  @media (min-width: 48rem) {
+    .christmas-recipes__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .christmas-recipes__list li:nth-child(odd) {
+      border-right: 0.0625rem solid var(--color-border);
+    }
+
+    .christmas-recipes__list li:nth-last-child(-n + 2) {
+      border-bottom: 0;
+    }
+
+    .christmas-recipes__list li:last-child {
+      border-top: 0.0625rem solid var(--color-border);
+      border-right: 0;
+    }
+  }
+
+  @media (max-width: 39.99rem) {
+    .christmas-recipes {
+      padding-block: var(--space-12);
+    }
+  }
+</style>

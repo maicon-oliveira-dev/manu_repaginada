@@ -1,0 +1,80 @@
+---
+import Button from '../ui/Button.astro';
+import Container from '../ui/Container.astro';
+
+const cookbookHref =
+  'https://chefmanurosa1651954297.kpages.online/cook-book-bolos-caseiros-da-manu-rosa-62c773f1-3252-4aa1-9d22-e9de89b1f69a?utm_source=site_principal&utm_medium=banner&utm_campaign=cookbook';
+const instagramHref = 'https://www.instagram.com/manurosabakery/';
+---
+
+<section class="ebooks-final" aria-labelledby="ebooks-final-title">
+  <Container size="content">
+    <div class="ebooks-final__content">
+      <p class="ebooks-final__eyebrow">Próximo passo</p>
+      <h2 id="ebooks-final-title">Escolha como deseja aprender com a Manu</h2>
+      <div class="ebooks-final__actions">
+        <Button href="/cursos/" size="large">Ver cursos e workshops</Button>
+        <Button href={cookbookHref} variant="secondary" size="large" external>Ver Cookbook</Button>
+        <Button href="/ebooks/biscoitos-de-natal/" variant="secondary" size="large">Conhecer Biscoitos de Natal</Button>
+      </div>
+      <a class="ebooks-final__instagram" href={instagramHref} target="_blank" rel="noopener noreferrer">Acompanhar a Manu no Instagram</a>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .ebooks-final {
+    padding-block: clamp(var(--space-12), 8vw, var(--space-20));
+    border-top: 0.0625rem solid var(--color-border);
+    background:
+      radial-gradient(circle at 15% 80%, var(--color-accent-soft), transparent 22rem),
+      linear-gradient(135deg, var(--color-brand-soft), var(--color-background-soft));
+  }
+
+  .ebooks-final__content {
+    display: grid;
+    justify-items: center;
+    gap: var(--space-5);
+    text-align: center;
+  }
+
+  .ebooks-final__eyebrow {
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .ebooks-final h2 {
+    max-width: 18ch;
+    font-size: var(--font-size-4xl);
+  }
+
+  .ebooks-final__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3);
+  }
+
+  .ebooks-final__instagram {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    padding-inline: var(--space-3);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  @media (max-width: 39.99rem) {
+    .ebooks-final {
+      padding-block: var(--space-12);
+    }
+
+    .ebooks-final__actions {
+      display: grid;
+      width: 100%;
+    }
+  }
+</style>

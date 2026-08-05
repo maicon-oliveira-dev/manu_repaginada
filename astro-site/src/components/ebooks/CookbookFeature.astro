@@ -1,0 +1,177 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Picture } from 'astro:assets';
+import cakeAsset from '../../assets/ebooks/cookbook-cake.png';
+import coverAsset from '../../assets/ebooks/cookbook-cover.jpg';
+import Button from '../ui/Button.astro';
+import Container from '../ui/Container.astro';
+
+const cakeImage: ImageMetadata = cakeAsset;
+const coverImage: ImageMetadata = coverAsset;
+const cookbookHref =
+  'https://chefmanurosa1651954297.kpages.online/cook-book-bolos-caseiros-da-manu-rosa-62c773f1-3252-4aa1-9d22-e9de89b1f69a?utm_source=site_principal&utm_medium=banner&utm_campaign=cookbook';
+---
+
+<section class="cookbook-feature" aria-labelledby="cookbook-feature-title">
+  <Container size="wide">
+    <div class="cookbook-feature__layout">
+      <div class="cookbook-feature__visual">
+        <figure class="cookbook-feature__cake">
+          <Picture
+            class="cookbook-feature__image"
+            pictureAttributes={{ class: 'cookbook-feature__picture' }}
+            src={cakeImage}
+            formats={['avif', 'webp']}
+            fallbackFormat="png"
+            width={587}
+            height={841}
+            widths={[280, 400, 520, 587]}
+            sizes="(min-width: 80rem) 24rem, (min-width: 56.25rem) 36vw, calc(100vw - 2rem)"
+            alt="Bolo caseiro com cobertura de chocolate sendo finalizado"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+        <figure class="cookbook-feature__cover">
+          <Picture
+            class="cookbook-feature__image"
+            pictureAttributes={{ class: 'cookbook-feature__picture' }}
+            src={coverImage}
+            formats={['avif', 'webp']}
+            fallbackFormat="jpeg"
+            width={360}
+            height={640}
+            widths={[180, 260, 360]}
+            sizes="(min-width: 56.25rem) 11rem, 8rem"
+            alt="Capa do Cookbook Bolos Caseiros com seis receitas da Manu Rosa"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      </div>
+
+      <div class="cookbook-feature__content">
+        <p class="cookbook-feature__eyebrow">6 receitas de bolos caseiros</p>
+        <h2 id="cookbook-feature-title">Cookbook – Bolos Caseiros da Manu Rosa</h2>
+        <p>Aprenda receitas de bolos caseiros fofinhos, com o sabor e a leveza que fizeram da Manu Rosa referência em confeitaria.</p>
+        <p>As receitas queridinhas da Manu, direto do caderno para a sua cozinha: bolos fofinhos, fáceis de fazer, com rendimento pensado para vender, encantar a família e transformar o simples bolo caseiro em renda extra com carinho e profissionalismo.</p>
+        <div class="cookbook-feature__action">
+          <Button href={cookbookHref} size="large" external>Quero ver o e-book</Button>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .cookbook-feature {
+    padding-block: clamp(var(--space-12), 8vw, var(--space-24));
+    background: var(--color-surface);
+  }
+
+  .cookbook-feature__layout {
+    display: grid;
+    align-items: center;
+    gap: clamp(var(--space-8), 7vw, var(--space-20));
+  }
+
+  .cookbook-feature__visual {
+    position: relative;
+    width: 100%;
+    max-width: 34rem;
+    margin-inline: auto;
+    padding-right: clamp(var(--space-8), 10vw, var(--space-16));
+    padding-bottom: var(--space-8);
+  }
+
+  .cookbook-feature__cake,
+  .cookbook-feature__cover {
+    margin: 0;
+    border: 0.0625rem solid var(--color-border);
+    background: var(--color-surface-elevated);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+
+  .cookbook-feature__cake {
+    border-radius: var(--radius-lg);
+  }
+
+  .cookbook-feature__cake :global(.cookbook-feature__picture) {
+    display: block;
+    aspect-ratio: 7 / 10;
+  }
+
+  .cookbook-feature__cover {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 34%;
+    border-radius: var(--radius-md);
+    transform: rotate(2deg);
+  }
+
+  .cookbook-feature__cover :global(.cookbook-feature__picture) {
+    display: block;
+    aspect-ratio: 9 / 16;
+  }
+
+  .cookbook-feature__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .cookbook-feature__cover .cookbook-feature__image {
+    object-fit: contain;
+  }
+
+  .cookbook-feature__content {
+    display: grid;
+    max-width: 41rem;
+    gap: var(--space-4);
+  }
+
+  .cookbook-feature__eyebrow {
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .cookbook-feature h2 {
+    max-width: 16ch;
+    font-size: var(--font-size-4xl);
+  }
+
+  .cookbook-feature__content > p:not(.cookbook-feature__eyebrow) {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-lg);
+  }
+
+  .cookbook-feature__action {
+    display: flex;
+    padding-top: var(--space-3);
+  }
+
+  @media (min-width: 56.25rem) {
+    .cookbook-feature__layout {
+      grid-template-columns: minmax(22rem, 0.92fr) minmax(0, 1.08fr);
+    }
+  }
+
+  @media (max-width: 39.99rem) {
+    .cookbook-feature {
+      padding-block: var(--space-12);
+    }
+
+    .cookbook-feature__content > p:not(.cookbook-feature__eyebrow) {
+      font-size: var(--font-size-base);
+    }
+
+    .cookbook-feature__action {
+      display: grid;
+    }
+  }
+</style>

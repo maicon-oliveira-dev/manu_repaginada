@@ -1,0 +1,125 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Picture } from 'astro:assets';
+import workshopAsset from '../../assets/ebooks/workshops-baking.jpg';
+import Button from '../ui/Button.astro';
+import Container from '../ui/Container.astro';
+
+const workshopImage: ImageMetadata = workshopAsset;
+---
+
+<section class="workshops-teaser" aria-labelledby="workshops-teaser-title">
+  <Container size="wide">
+    <div class="workshops-teaser__layout">
+      <figure class="workshops-teaser__media">
+        <Picture
+          class="workshops-teaser__image"
+          pictureAttributes={{ class: 'workshops-teaser__picture' }}
+          src={workshopImage}
+          formats={['avif', 'webp']}
+          fallbackFormat="jpeg"
+          width={800}
+          height={534}
+          widths={[320, 480, 640, 800]}
+          sizes="(min-width: 80rem) 34rem, (min-width: 56.25rem) 46vw, calc(100vw - 2rem)"
+          alt="Confeiteira finalizando pequenos bolos durante o preparo"
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+
+      <div class="workshops-teaser__content">
+        <p class="workshops-teaser__eyebrow">Aprendizado presencial</p>
+        <h2 id="workshops-teaser-title">Aulas &amp; Workshops especiais</h2>
+        <p>Diversos workshops na área da Confeitaria. Aprenda receitas específicas e muito especiais como bolos, cookies, brownies, cucas, pães, tortas salgadas, além de receitas especiais para diferentes épocas do ano.</p>
+        <div class="workshops-teaser__action">
+          <Button href="/cursos/" variant="secondary" size="large">Conhecer os cursos</Button>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .workshops-teaser {
+    padding-block: clamp(var(--space-12), 8vw, var(--space-20));
+    background: var(--color-surface);
+  }
+
+  .workshops-teaser__layout {
+    display: grid;
+    align-items: center;
+    gap: clamp(var(--space-8), 7vw, var(--space-20));
+  }
+
+  .workshops-teaser__media {
+    width: 100%;
+    max-width: 38rem;
+    margin: 0 auto;
+    border: 0.0625rem solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-background-soft);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+
+  .workshops-teaser__media :global(.workshops-teaser__picture) {
+    display: block;
+    aspect-ratio: 3 / 2;
+  }
+
+  .workshops-teaser__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .workshops-teaser__content {
+    display: grid;
+    max-width: 40rem;
+    gap: var(--space-4);
+  }
+
+  .workshops-teaser__eyebrow {
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .workshops-teaser h2 {
+    max-width: 15ch;
+    font-size: var(--font-size-4xl);
+  }
+
+  .workshops-teaser__content > p:not(.workshops-teaser__eyebrow) {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-lg);
+  }
+
+  .workshops-teaser__action {
+    display: flex;
+    padding-top: var(--space-3);
+  }
+
+  @media (min-width: 56.25rem) {
+    .workshops-teaser__layout {
+      grid-template-columns: minmax(24rem, 1.08fr) minmax(0, 0.92fr);
+    }
+  }
+
+  @media (max-width: 39.99rem) {
+    .workshops-teaser {
+      padding-block: var(--space-12);
+    }
+
+    .workshops-teaser__content > p:not(.workshops-teaser__eyebrow) {
+      font-size: var(--font-size-base);
+    }
+
+    .workshops-teaser__action {
+      display: grid;
+    }
+  }
+</style>

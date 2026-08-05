@@ -1,0 +1,99 @@
+---
+import Container from '../ui/Container.astro';
+
+const questions = [
+  {
+    question: 'Para quem é o material?',
+    answer: 'Sim. As receitas têm passo a passo claro, com medidas exatas e dicas de produção.',
+  },
+  {
+    question: 'Quantas receitas fazem parte do conteúdo?',
+    answer: 'O material apresenta 15 receitas de biscoitos de Natal.',
+  },
+  {
+    question: 'As receitas podem ser usadas para produção e venda?',
+    answer: 'O material foi pensado para renda extra, com orientações de embalagem e precificação.',
+  },
+  {
+    question: 'Que orientações práticas são apresentadas?',
+    answer: 'O conteúdo reúne medidas precisas, rendimento, forno, ponto, armazenamento, embalagem e dicas de produção.',
+  },
+  {
+    question: 'O que é a Cookie Box?',
+    answer: 'A Cookie Box aparece como conteúdo associado ao e-book, com dicas de combinação de sabores, montagem e apresentação.',
+  },
+] as const;
+---
+
+<section class="christmas-faq" aria-labelledby="christmas-faq-title">
+  <Container size="narrow">
+    <header class="christmas-faq__heading">
+      <p class="christmas-faq__eyebrow">Dúvidas sobre o conteúdo</p>
+      <h2 id="christmas-faq-title">Perguntas frequentes</h2>
+    </header>
+    <div class="christmas-faq__list">
+      {questions.map((item) => (
+        <details>
+          <summary>{item.question}</summary>
+          <p>{item.answer}</p>
+        </details>
+      ))}
+    </div>
+  </Container>
+</section>
+
+<style>
+  .christmas-faq {
+    padding-block: clamp(var(--space-12), 8vw, var(--space-20));
+    border-top: 0.0625rem solid var(--color-border);
+    background: var(--color-surface);
+  }
+
+  .christmas-faq__heading {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .christmas-faq__eyebrow {
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .christmas-faq h2 {
+    font-size: var(--font-size-4xl);
+  }
+
+  .christmas-faq__list {
+    display: grid;
+    gap: var(--space-3);
+    margin-top: var(--space-10);
+  }
+
+  .christmas-faq details {
+    border: 0.0625rem solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface-elevated);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .christmas-faq summary {
+    min-height: 2.75rem;
+    padding: var(--space-5);
+    cursor: pointer;
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .christmas-faq details p {
+    padding: 0 var(--space-5) var(--space-5);
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 39.99rem) {
+    .christmas-faq {
+      padding-block: var(--space-12);
+    }
+  }
+</style>

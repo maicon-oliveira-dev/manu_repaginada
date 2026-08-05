@@ -1,0 +1,69 @@
+---
+import Button from '../ui/Button.astro';
+import Container from '../ui/Container.astro';
+
+const hotmartHref = 'https://hotmart.com/pt-br/marketplace/produtos/biscoistos-de-natal-chef-manu-rosa/Q103166087R';
+const whatsappHref = 'https://api.whatsapp.com/send?phone=5547996552618&text=Quero%20saber%20mais%20sobre%20o%20e-book%20de%20Natal';
+const instagramHref = 'https://www.instagram.com/manurosabakery/';
+---
+
+<section class="christmas-final" aria-labelledby="christmas-final-title">
+  <Container size="content">
+    <div class="christmas-final__content">
+      <p class="christmas-final__eyebrow">Receitas para o Natal</p>
+      <h2 id="christmas-final-title">Conheça o E-book “Biscoitos de Natal”</h2>
+      <div class="christmas-final__actions">
+        <Button href={hotmartHref} size="large" external>Acessar na Hotmart</Button>
+        <Button href={whatsappHref} variant="secondary" size="large" external>Falar com a Manu</Button>
+        <Button href={instagramHref} variant="ghost" size="large" external>Instagram</Button>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .christmas-final {
+    padding-block: clamp(var(--space-12), 8vw, var(--space-20));
+    background:
+      radial-gradient(circle at 15% 80%, var(--color-accent-soft), transparent 22rem),
+      linear-gradient(135deg, var(--color-brand-soft), var(--color-background-soft));
+  }
+
+  .christmas-final__content {
+    display: grid;
+    justify-items: center;
+    gap: var(--space-5);
+    text-align: center;
+  }
+
+  .christmas-final__eyebrow {
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .christmas-final h2 {
+    max-width: 18ch;
+    font-size: var(--font-size-4xl);
+  }
+
+  .christmas-final__actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3);
+  }
+
+  @media (max-width: 39.99rem) {
+    .christmas-final {
+      padding-block: var(--space-12);
+    }
+
+    .christmas-final__actions {
+      display: grid;
+      width: 100%;
+    }
+  }
+</style>

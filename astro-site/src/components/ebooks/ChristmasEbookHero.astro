@@ -1,0 +1,190 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Picture } from 'astro:assets';
+import coverAsset from '../../assets/ebooks/christmas-ebook-cover.jpg';
+import starsAsset from '../../assets/ebooks/christmas-chocolate-stars.jpg';
+import Button from '../ui/Button.astro';
+import Container from '../ui/Container.astro';
+
+const coverImage: ImageMetadata = coverAsset;
+const starsImage: ImageMetadata = starsAsset;
+const hotmartHref = 'https://hotmart.com/pt-br/marketplace/produtos/biscoistos-de-natal-chef-manu-rosa/Q103166087R';
+---
+
+<section class="christmas-hero" aria-labelledby="christmas-hero-title">
+  <Container size="wide">
+    <div class="christmas-hero__layout">
+      <div class="christmas-hero__content">
+        <p class="christmas-hero__eyebrow">E-book de confeitaria</p>
+        <h1 id="christmas-hero-title">E-book Biscoitos de Natal</h1>
+        <p class="christmas-hero__lead">Neste material reuni minhas receitas preferidas e testadas de biscoitos natalinos, fáceis de executar e perfeitas para presentear ou vender.</p>
+        <p class="christmas-hero__support">As receitas têm passo a passo claro, com medidas exatas e dicas de produção. Se você ama o Natal e quer transformar essa paixão em uma renda extra deliciosa, este e-book é para você.</p>
+        <div class="christmas-hero__actions">
+          <Button href="#receitas-do-ebook" size="large">Conhecer as receitas</Button>
+          <Button href={hotmartHref} variant="secondary" size="large" external>Acessar na Hotmart</Button>
+        </div>
+      </div>
+
+      <div class="christmas-hero__visual">
+        <figure class="christmas-hero__cover">
+          <Picture
+            class="christmas-hero__image"
+            pictureAttributes={{ class: 'christmas-hero__picture' }}
+            src={coverImage}
+            formats={['avif', 'webp']}
+            fallbackFormat="jpeg"
+            width={512}
+            height={768}
+            widths={[240, 360, 480, 512]}
+            sizes="(min-width: 80rem) 19rem, (min-width: 56.25rem) 25vw, 13rem"
+            alt="Capa do E-book Biscoitos de Natal da Chef Manu Rosa"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
+        </figure>
+        <figure class="christmas-hero__cookies">
+          <Picture
+            class="christmas-hero__image"
+            pictureAttributes={{ class: 'christmas-hero__picture' }}
+            src={starsImage}
+            formats={['avif', 'webp']}
+            fallbackFormat="jpeg"
+            width={430}
+            height={574}
+            widths={[220, 320, 430]}
+            sizes="(min-width: 56.25rem) 13rem, 9rem"
+            alt="Biscoitos em formato de estrela cobertos com chocolate"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .christmas-hero {
+    padding-block: clamp(var(--space-8), 5vw, var(--space-16));
+    border-bottom: 0.0625rem solid var(--color-border);
+    background:
+      radial-gradient(circle at 85% 18%, var(--color-accent-soft), transparent 25rem),
+      linear-gradient(135deg, var(--color-brand-soft), var(--color-background-soft));
+  }
+
+  .christmas-hero__layout {
+    display: grid;
+    align-items: center;
+    gap: clamp(var(--space-8), 7vw, var(--space-20));
+  }
+
+  .christmas-hero__content {
+    display: grid;
+    max-width: 43rem;
+    gap: var(--space-4);
+  }
+
+  .christmas-hero__eyebrow {
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .christmas-hero h1 {
+    max-width: 12ch;
+    font-size: var(--font-size-5xl);
+  }
+
+  .christmas-hero__lead {
+    color: var(--color-text);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .christmas-hero__support {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-lg);
+  }
+
+  .christmas-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding-top: var(--space-2);
+  }
+
+  .christmas-hero__visual {
+    position: relative;
+    width: 100%;
+    max-width: 32rem;
+    margin-inline: auto;
+    padding-right: clamp(var(--space-12), 12vw, var(--space-20));
+    padding-bottom: var(--space-8);
+  }
+
+  .christmas-hero__cover,
+  .christmas-hero__cookies {
+    margin: 0;
+    border: 0.0625rem solid var(--color-border);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+  }
+
+  .christmas-hero__cover {
+    border-radius: var(--radius-lg);
+  }
+
+  .christmas-hero__cover :global(.christmas-hero__picture) {
+    display: block;
+    aspect-ratio: 2 / 3;
+  }
+
+  .christmas-hero__cookies {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 39%;
+    border-radius: var(--radius-md);
+    transform: rotate(2deg);
+  }
+
+  .christmas-hero__cookies :global(.christmas-hero__picture) {
+    display: block;
+    aspect-ratio: 3 / 4;
+  }
+
+  .christmas-hero__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .christmas-hero__cover .christmas-hero__image {
+    object-fit: contain;
+  }
+
+  @media (min-width: 56.25rem) {
+    .christmas-hero__layout {
+      grid-template-columns: minmax(0, 1.04fr) minmax(25rem, 0.96fr);
+    }
+  }
+
+  @media (max-width: 39.99rem) {
+    .christmas-hero {
+      padding-block: var(--space-8) var(--space-12);
+    }
+
+    .christmas-hero__lead,
+    .christmas-hero__support {
+      font-size: var(--font-size-base);
+    }
+
+    .christmas-hero__actions {
+      display: grid;
+    }
+  }
+</style>

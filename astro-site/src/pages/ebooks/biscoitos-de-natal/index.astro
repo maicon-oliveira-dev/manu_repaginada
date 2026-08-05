@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ChristmasEbookAuthor from '../../../components/ebooks/ChristmasEbookAuthor.astro';
+import ChristmasEbookBonus from '../../../components/ebooks/ChristmasEbookBonus.astro';
+import ChristmasEbookContents from '../../../components/ebooks/ChristmasEbookContents.astro';
+import ChristmasEbookFaq from '../../../components/ebooks/ChristmasEbookFaq.astro';
+import ChristmasEbookFinalCta from '../../../components/ebooks/ChristmasEbookFinalCta.astro';
+import ChristmasEbookGallery from '../../../components/ebooks/ChristmasEbookGallery.astro';
+import ChristmasEbookHero from '../../../components/ebooks/ChristmasEbookHero.astro';
+import ChristmasEbookRecipes from '../../../components/ebooks/ChristmasEbookRecipes.astro';
+---
+
+<BaseLayout
+  title="E-book Biscoitos de Natal | Manu Rosa"
+  description="Conheça as 15 receitas testadas do E-book Biscoitos de Natal da Chef Manu Rosa para produzir, presentear e vender."
+>
+  <ChristmasEbookHero />
+  <ChristmasEbookContents />
+  <ChristmasEbookRecipes />
+  <ChristmasEbookGallery />
+  <ChristmasEbookBonus />
+  <ChristmasEbookAuthor />
+  <ChristmasEbookFinalCta />
+  <ChristmasEbookFaq />
+</BaseLayout>

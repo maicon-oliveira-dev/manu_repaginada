@@ -1,0 +1,151 @@
+---
+import Container from '../ui/Container.astro';
+
+const audiences = [
+  'Receitas com medidas exatas, dicas de produção e acabamento.',
+  'Perfeitas para presentear, vender e lucrar nessa época tão especial.',
+  'Receitas pensadas para vender no período mais aquecido do ano.',
+] as const;
+
+const practicalItems = [
+  'Medidas precisas + rendimento',
+  'Forno & ponto',
+  'Armazenamento',
+  'Embalagem',
+  'Produção otimizada',
+] as const;
+---
+
+<section class="christmas-audience" aria-labelledby="christmas-audience-title">
+  <Container size="content">
+    <header class="christmas-audience__heading">
+      <p class="christmas-audience__eyebrow">Para começar com segurança</p>
+      <h2 id="christmas-audience-title">Para quem é o material</h2>
+      <p>Passo a passo claro, produção otimizada e ingredientes acessíveis.</p>
+    </header>
+    <ul class="christmas-audience__list">
+      {audiences.map((audience) => <li>{audience}</li>)}
+    </ul>
+  </Container>
+</section>
+
+<section class="christmas-practical" aria-labelledby="christmas-practical-title">
+  <Container size="content">
+    <div class="christmas-practical__layout">
+      <header class="christmas-practical__heading">
+        <p class="christmas-practical__eyebrow">Prático de verdade</p>
+        <h2 id="christmas-practical-title">Prático de verdade, do forno à venda</h2>
+        <p>Passo a passo com medidas exatas e rendimento.</p>
+      </header>
+      <ul class="christmas-practical__list">
+        {practicalItems.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .christmas-audience,
+  .christmas-practical {
+    padding-block: clamp(var(--space-12), 7vw, var(--space-20));
+  }
+
+  .christmas-audience {
+    background: var(--color-surface);
+  }
+
+  .christmas-audience__heading,
+  .christmas-practical__heading {
+    display: grid;
+    max-width: 48rem;
+    gap: var(--space-3);
+  }
+
+  .christmas-audience__eyebrow,
+  .christmas-practical__eyebrow {
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .christmas-audience h2,
+  .christmas-practical h2 {
+    max-width: 18ch;
+    font-size: var(--font-size-4xl);
+  }
+
+  .christmas-audience__heading > p:last-child,
+  .christmas-practical__heading > p:last-child {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-lg);
+  }
+
+  .christmas-audience__list,
+  .christmas-practical__list {
+    display: grid;
+    gap: var(--space-4);
+    margin: var(--space-10) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .christmas-audience__list li,
+  .christmas-practical__list li {
+    min-height: 2.75rem;
+    padding: var(--space-5);
+    border: 0.0625rem solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .christmas-practical {
+    border-block: 0.0625rem solid var(--color-border);
+    background: var(--color-background-soft);
+  }
+
+  .christmas-practical__layout {
+    display: grid;
+    gap: var(--space-8);
+  }
+
+  .christmas-practical__list {
+    margin-top: 0;
+  }
+
+  .christmas-practical__list li {
+    font-weight: var(--font-weight-semibold);
+  }
+
+  @media (min-width: 40rem) {
+    .christmas-audience__list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .christmas-practical__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 56.25rem) {
+    .christmas-practical__layout {
+      grid-template-columns: minmax(0, 1fr) minmax(24rem, 0.9fr);
+      align-items: start;
+      gap: var(--space-16);
+    }
+  }
+
+  @media (max-width: 39.99rem) {
+    .christmas-audience,
+    .christmas-practical {
+      padding-block: var(--space-12);
+    }
+
+    .christmas-audience__heading > p:last-child,
+    .christmas-practical__heading > p:last-child {
+      font-size: var(--font-size-base);
+    }
+  }
+</style>

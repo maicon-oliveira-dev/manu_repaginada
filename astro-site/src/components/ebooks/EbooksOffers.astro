@@ -1,0 +1,283 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Picture } from 'astro:assets';
+import cookbookAsset from '../../assets/ebooks/cookbook-cake.png';
+import christmasAsset from '../../assets/ebooks/christmas-ebook-cover.jpg';
+import workshopsAsset from '../../assets/ebooks/workshops-baking.jpg';
+import Button from '../ui/Button.astro';
+import Container from '../ui/Container.astro';
+
+const cookbookImage: ImageMetadata = cookbookAsset;
+const christmasImage: ImageMetadata = christmasAsset;
+const workshopsImage: ImageMetadata = workshopsAsset;
+const cookbookHref =
+  'https://chefmanurosa1651954297.kpages.online/cook-book-bolos-caseiros-da-manu-rosa-62c773f1-3252-4aa1-9d22-e9de89b1f69a?utm_source=site_principal&utm_medium=banner&utm_campaign=cookbook';
+
+const offers = [
+  {
+    title: 'Aulas & Workshops especiais',
+    description:
+      'Diversos workshops na área da Confeitaria. Aprenda receitas específicas e muito especiais como bolos, cookies, brownies, cucas, pães, tortas salgadas, além de receitas especiais para diferentes épocas do ano.',
+    cta: 'Conhecer cursos e workshops',
+    href: '/cursos/',
+    external: false,
+    image: workshopsImage,
+    width: 720,
+    height: 480,
+    alt: 'Confeiteira finalizando pequenos bolos em uma bancada',
+    fallback: 'jpeg' as const,
+  },
+  {
+    title: 'Cookbook Bolos Caseiros',
+    description:
+      'As receitas queridinhas da Manu, direto do caderno para a sua cozinha: bolos fofinhos, fáceis de fazer, com rendimento pensado para vender, encantar a família e transformar o simples bolo caseiro em renda extra com carinho e profissionalismo.',
+    cta: 'Acessar página do e-book',
+    href: cookbookHref,
+    external: true,
+    image: cookbookImage,
+    width: 420,
+    height: 601,
+    alt: 'Bolo caseiro com cobertura de chocolate sendo finalizado',
+    fallback: 'png' as const,
+  },
+  {
+    title: 'E-book - Biscoitos de Natal',
+    description:
+      'Biscoitos de Natal: aprenda as receitas de biscoitos preferidas da Manu, testadas e aprovadas por ela, perfeitas para presentear, vender e lucrar nessa época tão especial.',
+    cta: 'Conhecer o e-book',
+    href: '/ebooks/biscoitos-de-natal/',
+    external: false,
+    image: christmasImage,
+    width: 420,
+    height: 630,
+    alt: 'Capa do E-book Biscoitos de Natal da Chef Manu Rosa',
+    fallback: 'jpeg' as const,
+  },
+] as const;
+---
+
+<section class="ebooks-intro" aria-labelledby="ebooks-intro-title">
+  <Container size="content">
+    <div class="ebooks-intro__layout">
+      <header class="ebooks-intro__heading">
+        <p class="ebooks-intro__eyebrow">E-books e materiais digitais</p>
+        <h2 id="ebooks-intro-title">Receitas queridas da Manu, direto do caderno para a sua cozinha</h2>
+      </header>
+      <div class="ebooks-intro__copy">
+        <p>Cookbook e E-book Biscoitos de Natal para você vender mais, presentear e ter receitas testadas.</p>
+        <p>São massas, recheios e dicas que você pode aplicar hoje mesmo na sua cozinha. Um e-book completo para quem quer transformar paixão por doces em resultado.</p>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<section class="ebooks-offers" id="materiais-digitais" aria-labelledby="ebooks-offers-title">
+  <Container size="wide">
+    <header class="ebooks-offers__heading">
+      <p class="ebooks-offers__eyebrow">Agenda e digitais</p>
+      <h2 id="ebooks-offers-title">Workshops &amp; E-books</h2>
+      <p>Receitas testadas para vender, encantar a família e lotar sua agenda.</p>
+    </header>
+    <p class="ebooks-offers__ribbon">Receitas autorais, com acabamento premium e orientação direta da Manu.</p>
+
+    <div class="ebooks-offers__grid">
+      {offers.map((offer) => (
+        <article class="ebooks-offers__card">
+          <figure class="ebooks-offers__media">
+            <Picture
+              class="ebooks-offers__image"
+              pictureAttributes={{ class: 'ebooks-offers__picture' }}
+              src={offer.image}
+              formats={['avif', 'webp']}
+              fallbackFormat={offer.fallback}
+              width={offer.width}
+              height={offer.height}
+              widths={[240, 360, 520, offer.width]}
+              sizes="(min-width: 70rem) 23rem, (min-width: 40rem) 42vw, calc(100vw - 2rem)"
+              alt={offer.alt}
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <div class="ebooks-offers__body">
+            <h3>{offer.title}</h3>
+            <p>{offer.description}</p>
+            <div class="ebooks-offers__action">
+              <Button href={offer.href} external={offer.external}>{offer.cta}</Button>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </Container>
+</section>
+
+<style>
+  .ebooks-intro,
+  .ebooks-offers {
+    padding-block: clamp(var(--space-12), 7vw, var(--space-20));
+  }
+
+  .ebooks-intro {
+    background: var(--color-surface);
+  }
+
+  .ebooks-intro__layout {
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  .ebooks-intro__heading,
+  .ebooks-intro__copy,
+  .ebooks-offers__heading {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .ebooks-intro__eyebrow,
+  .ebooks-offers__eyebrow {
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .ebooks-intro__heading h2 {
+    max-width: 17ch;
+    font-size: var(--font-size-4xl);
+  }
+
+  .ebooks-intro__copy {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-lg);
+  }
+
+  .ebooks-offers {
+    border-block: 0.0625rem solid var(--color-border);
+    background: var(--color-background-soft);
+  }
+
+  .ebooks-offers__heading {
+    max-width: 50rem;
+  }
+
+  .ebooks-offers__heading h2 {
+    font-size: var(--font-size-4xl);
+  }
+
+  .ebooks-offers__heading > p:last-child {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-lg);
+  }
+
+  .ebooks-offers__ribbon {
+    width: fit-content;
+    margin-top: var(--space-6);
+    padding: var(--space-3) var(--space-5);
+    border: 0.0625rem solid var(--color-border-strong);
+    border-radius: var(--radius-pill);
+    background: var(--color-surface);
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .ebooks-offers__grid {
+    display: grid;
+    gap: var(--space-5);
+    margin-top: var(--space-10);
+  }
+
+  .ebooks-offers__card {
+    display: grid;
+    min-width: 0;
+    grid-template-rows: auto 1fr;
+    border: 0.0625rem solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+
+  .ebooks-offers__media {
+    margin: 0;
+    background: var(--color-surface-elevated);
+  }
+
+  .ebooks-offers__media :global(.ebooks-offers__picture) {
+    display: block;
+    aspect-ratio: 4 / 3;
+  }
+
+  .ebooks-offers__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ebooks-offers__card:nth-child(2) .ebooks-offers__image,
+  .ebooks-offers__card:nth-child(3) .ebooks-offers__image {
+    object-fit: contain;
+  }
+
+  .ebooks-offers__body {
+    display: grid;
+    align-content: start;
+    gap: var(--space-4);
+    padding: var(--space-6);
+  }
+
+  .ebooks-offers__body h3 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .ebooks-offers__body p {
+    color: var(--color-text-muted);
+  }
+
+  .ebooks-offers__action {
+    align-self: end;
+    padding-top: var(--space-2);
+  }
+
+  @media (min-width: 56.25rem) {
+    .ebooks-intro__layout {
+      grid-template-columns: minmax(0, 1.05fr) minmax(20rem, 0.95fr);
+      align-items: end;
+      gap: var(--space-16);
+    }
+  }
+
+  @media (min-width: 70rem) {
+    .ebooks-offers__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 40rem) and (max-width: 69.99rem) {
+    .ebooks-offers__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ebooks-offers__card:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 39.99rem) {
+    .ebooks-intro,
+    .ebooks-offers {
+      padding-block: var(--space-12);
+    }
+
+    .ebooks-intro__copy,
+    .ebooks-offers__heading > p:last-child {
+      font-size: var(--font-size-base);
+    }
+
+    .ebooks-offers__ribbon {
+      border-radius: var(--radius-md);
+    }
+  }
+</style>

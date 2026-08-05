@@ -1,23 +1,21 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Button from '../../components/ui/Button.astro';
-import Container from '../../components/ui/Container.astro';
-import PageIntro from '../../components/ui/PageIntro.astro';
-import Section from '../../components/ui/Section.astro';
-import SectionHeading from '../../components/ui/SectionHeading.astro';
+import ChristmasEbookFeature from '../../components/ebooks/ChristmasEbookFeature.astro';
+import CookbookFeature from '../../components/ebooks/CookbookFeature.astro';
+import EbooksFinalCta from '../../components/ebooks/EbooksFinalCta.astro';
+import EbooksHero from '../../components/ebooks/EbooksHero.astro';
+import EbooksOffers from '../../components/ebooks/EbooksOffers.astro';
+import WorkshopsTeaser from '../../components/ebooks/WorkshopsTeaser.astro';
 ---
 
-<BaseLayout title="E-books | Manu Rosa Cursos" description="Área dedicada aos e-books e materiais digitais de confeitaria da Manu Rosa.">
-  <PageIntro
-    eyebrow="Materiais digitais"
-    title="E-books de confeitaria"
-    description="Esta área reunirá os materiais digitais que permanecerem disponíveis na nova fase do site."
-  />
-  <Section labelledby="ebooks-status-title">
-    <Container size="narrow">
-      <SectionHeading id="ebooks-status-title" title="Publicação dos materiais" />
-      <p class="notice">Títulos, preços, disponibilidade e formas de aquisição ainda estão em validação.</p>
-      <div class="section-actions"><Button href="/duvidas/" variant="secondary">Consultar dúvidas</Button></div>
-    </Container>
-  </Section>
+<BaseLayout
+  title="Workshops & E-books | Manu Rosa"
+  description="Receitas testadas, materiais digitais e workshops de confeitaria da Chef Manu Rosa para aprender, produzir, presentear e vender."
+>
+  <EbooksHero />
+  <EbooksOffers />
+  <CookbookFeature />
+  <ChristmasEbookFeature />
+  <WorkshopsTeaser />
+  <EbooksFinalCta />
 </BaseLayout>
