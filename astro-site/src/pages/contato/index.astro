@@ -2,22 +2,328 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Button from '../../components/ui/Button.astro';
 import Container from '../../components/ui/Container.astro';
-import PageIntro from '../../components/ui/PageIntro.astro';
-import Section from '../../components/ui/Section.astro';
-import SectionHeading from '../../components/ui/SectionHeading.astro';
+
+const whatsappHref =
+  'https://api.whatsapp.com/send?phone=5547996552618&text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20voc%C3%AA.';
+
+const instagramHref = 'https://www.instagram.com/manurosabakery/';
 ---
 
-<BaseLayout title="Contato | Manu Rosa Cursos" description="Página de contato institucional do novo site Manu Rosa Cursos.">
-  <PageIntro
-    eyebrow="Contato"
-    title="Fale com a equipe"
-    description="Os canais oficiais para dúvidas sobre cursos, e-books e suporte serão publicados após validação."
-  />
-  <Section labelledby="contact-status-title">
-    <Container size="narrow">
-      <SectionHeading id="contact-status-title" title="Atendimento institucional" />
-      <p class="notice">Canal de atendimento em definição.</p>
-      <div class="section-actions"><Button href="/duvidas/" variant="secondary">Consultar dúvidas</Button></div>
+<BaseLayout
+  title="Contato | Manu Rosa Bakery"
+  description="Contato direto com a Manu Rosa pelo WhatsApp profissional e Instagram oficial."
+>
+  <section class="contact-page" aria-labelledby="contact-title">
+    <Container size="wide">
+      <div class="contact-layout">
+        <div class="contact-copy">
+          <p class="contact-eyebrow">Contato</p>
+
+          <h1 id="contact-title">
+            Se preferir, fale com a Manu e receba a orientação ideal para o seu momento.
+          </h1>
+
+          <div class="contact-actions">
+            <Button href={whatsappHref} size="large" external>
+              Falar no WhatsApp
+            </Button>
+
+            <a
+              class="contact-instagram"
+              href={instagramHref}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Ver mais no Instagram
+            </a>
+          </div>
+        </div>
+
+        <aside
+          class="contact-panel"
+          aria-label="Canais de contato da Chef Manu Rosa"
+        >
+          <p class="contact-panel__eyebrow">Atendimento direto</p>
+
+          <address class="contact-list">
+            <a
+              class="contact-channel"
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="contact-channel__content">
+                <span class="contact-channel__label">WhatsApp:</span>
+                <strong>(47) 99655-2618</strong>
+              </span>
+
+              <span class="contact-channel__arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <a
+              class="contact-channel"
+              href={instagramHref}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="contact-channel__content">
+                <span class="contact-channel__label">Instagram:</span>
+                <strong>@manurosabakery</strong>
+              </span>
+
+              <span class="contact-channel__arrow" aria-hidden="true">↗</span>
+            </a>
+          </address>
+        </aside>
+      </div>
     </Container>
-  </Section>
+  </section>
 </BaseLayout>
+
+<style>
+  .contact-page {
+    position: relative;
+    overflow: hidden;
+    padding-block: clamp(4.5rem, 8vw, 7.5rem);
+    background:
+      radial-gradient(
+        circle at 90% 10%,
+        rgb(150 48 82 / 12%),
+        transparent 28rem
+      ),
+      linear-gradient(
+        135deg,
+        var(--color-background, #fff8f5) 0%,
+        #f8e0e8 100%
+      );
+  }
+
+  .contact-page::before {
+    position: absolute;
+    top: -9rem;
+    right: -8rem;
+    width: 24rem;
+    height: 24rem;
+    border: 1px solid rgb(118 85 29 / 18%);
+    border-radius: 50%;
+    content: '';
+    pointer-events: none;
+  }
+
+  .contact-layout {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(19rem, 0.75fr);
+    gap: clamp(3rem, 7vw, 7rem);
+    align-items: center;
+  }
+
+  .contact-copy {
+    max-width: 47rem;
+  }
+
+  .contact-eyebrow,
+  .contact-panel__eyebrow {
+    margin: 0 0 1rem;
+    color: var(--color-accent, #76551d);
+    font-family: var(--font-body, 'Manrope', sans-serif);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    max-width: 46rem;
+    margin: 0;
+    color: var(--color-text, #342722);
+    font-family: var(--font-heading, 'Cormorant Garamond', serif);
+    font-size: clamp(2.55rem, 5vw, 4.25rem);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 0.98;
+    text-wrap: balance;
+  }
+
+  .contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+    align-items: center;
+    margin-top: clamp(2rem, 4vw, 3rem);
+  }
+
+  .contact-instagram {
+    display: inline-flex;
+    min-height: 3rem;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 1rem;
+    border-radius: 999px;
+    color: var(--color-brand, #963052);
+    font-family: var(--font-body, 'Manrope', sans-serif);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.3rem;
+    transition:
+      background-color 180ms ease,
+      color 180ms ease;
+  }
+
+  .contact-instagram:hover {
+    background: rgb(255 255 255 / 55%);
+  }
+
+  .contact-panel {
+    position: relative;
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    border: 1px solid rgb(118 85 29 / 18%);
+    border-radius: 1.5rem;
+    background: rgb(255 255 255 / 78%);
+    box-shadow: 0 1.5rem 3.5rem rgb(52 39 34 / 10%);
+    backdrop-filter: blur(12px);
+  }
+
+  .contact-panel::before {
+    display: block;
+    width: 3.5rem;
+    height: 2px;
+    margin-bottom: 1.25rem;
+    background: var(--color-accent, #76551d);
+    content: '';
+  }
+
+  .contact-panel__eyebrow {
+    margin-bottom: 1.25rem;
+  }
+
+  .contact-list {
+    display: grid;
+    gap: 0.75rem;
+    margin: 0;
+    font-style: normal;
+  }
+
+  .contact-channel {
+    display: flex;
+    min-height: 5.25rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.1rem;
+    border: 1px solid rgb(150 48 82 / 14%);
+    border-radius: 1rem;
+    background: var(--color-surface, #fff);
+    color: var(--color-text, #342722);
+    text-decoration: none;
+    transition:
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      transform 180ms ease;
+  }
+
+  .contact-channel:hover {
+    border-color: rgb(150 48 82 / 42%);
+    box-shadow: 0 0.8rem 1.8rem rgb(52 39 34 / 8%);
+    transform: translateY(-2px);
+  }
+
+  .contact-channel__content {
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .contact-channel__label {
+    color: var(--color-muted, #675852);
+    font-family: var(--font-body, 'Manrope', sans-serif);
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .contact-channel strong {
+    color: var(--color-brand, #963052);
+    font-family: var(--font-body, 'Manrope', sans-serif);
+    font-size: clamp(0.95rem, 2vw, 1.05rem);
+    overflow-wrap: anywhere;
+  }
+
+  .contact-channel__arrow {
+    display: grid;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex: 0 0 auto;
+    place-items: center;
+    border-radius: 50%;
+    background: rgb(150 48 82 / 9%);
+    color: var(--color-brand, #963052);
+    font-size: 1.1rem;
+    transition:
+      background-color 180ms ease,
+      color 180ms ease;
+  }
+
+  .contact-channel:hover .contact-channel__arrow {
+    background: var(--color-brand, #963052);
+    color: #fff;
+  }
+
+  .contact-instagram:focus-visible,
+  .contact-channel:focus-visible {
+    outline: 3px solid var(--color-focus, #0b6773);
+    outline-offset: 4px;
+  }
+
+  @media (max-width: 760px) {
+    .contact-page {
+      padding-block: 3.5rem 4.5rem;
+    }
+
+    .contact-page::before {
+      top: -12rem;
+      right: -13rem;
+    }
+
+    .contact-layout {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    h1 {
+      max-width: 22rem;
+      font-size: clamp(2.4rem, 12vw, 3.35rem);
+      line-height: 1;
+    }
+
+    .contact-actions {
+      align-items: stretch;
+    }
+
+    .contact-actions > :global(*) {
+      width: 100%;
+    }
+
+    .contact-instagram {
+      width: 100%;
+    }
+
+    .contact-panel {
+      padding: 1.25rem;
+      border-radius: 1.25rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .contact-instagram,
+    .contact-channel,
+    .contact-channel__arrow {
+      transition: none;
+    }
+
+    .contact-channel:hover {
+      transform: none;
+    }
+  }
+</style>
