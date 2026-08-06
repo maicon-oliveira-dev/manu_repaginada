@@ -2,52 +2,41 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HomeCoursesSection from '../components/home/HomeCoursesSection.astro';
 import HomeHero from '../components/home/HomeHero.astro';
-import Button from '../components/ui/Button.astro';
-import Container from '../components/ui/Container.astro';
-import Section from '../components/ui/Section.astro';
-import SectionHeading from '../components/ui/SectionHeading.astro';
+
+const whatsappHref =
+  'https://api.whatsapp.com/send?phone=5547996552618&text=Quero%20saber%20sobre%20as%20pr%C3%B3ximas%20aulas%20da%20Manu';
 ---
 
 <BaseLayout
-  title="Manu Rosa Cursos | Cursos e e-books de confeitaria"
-  description="Estrutura institucional dedicada aos cursos, treinamentos e e-books de confeitaria da Manu Rosa."
+  title="Manu Rosa | Cursos, workshops e e-books de confeitaria"
+  description="Cursos, workshops e materiais digitais de confeitaria da Chef Manu Rosa."
 >
   <HomeHero
-    eyebrow="Cursos, treinamentos e materiais de confeitaria."
-    title="Aprenda confeitaria com a Chef Manu Rosa."
-    description="Aprenda com quem une experiência, técnica e trajetória reconhecida. Desenvolva repertório e avance com mais segurança no universo da confeitaria."
-    primaryCta={{ label: 'Conhecer os cursos', href: '/cursos/' }}
-    secondaryCta={{ label: 'Ver os e-books', href: '/ebooks/' }}
+    eyebrow="Cursos que oferecemos!"
+    title="Curso de Confeitaria"
+    description="30 aulas que te habilitam a atuar como confeiteira profissional."
+    highlights={[
+      {
+        label: 'Confeitaria Básica',
+        text: '12 aulas para começar do zero com a Manu.',
+      },
+      {
+        label: 'Workshops',
+        text: 'Aprenda receitas exclusivas de bolos, pães, tortas e doces sazonais para diferentes épocas do ano.',
+      },
+    ]}
+    primaryCta={{
+      label: 'Ver central de cursos',
+      href: '/cursos/',
+      ariaLabel: 'Conhecer os cursos de confeitaria da Chef Manu Rosa',
+    }}
+    secondaryCta={{
+      label: 'Quero aula exclusiva',
+      href: whatsappHref,
+      external: true,
+      ariaLabel: 'Falar com a Manu sobre as próximas aulas',
+    }}
   />
 
   <HomeCoursesSection />
-
-  <Section tone="soft" labelledby="posicionamento-title">
-    <Container size="content">
-      <SectionHeading
-        id="posicionamento-title"
-        eyebrow="Nova fase"
-        title="Um site dedicado exclusivamente ao ensino"
-        description="A nova estrutura foi planejada para apresentar cursos, treinamentos e e-books com clareza, organização e uma jornada de navegação sem distrações."
-      />
-      <ul class="principles-list">
-        <li>Informações organizadas</li>
-        <li>Navegação simples</li>
-        <li>Foco em produtos educacionais</li>
-      </ul>
-    </Container>
-  </Section>
-
-  <Section labelledby="validacao-title">
-    <Container size="narrow">
-      <SectionHeading
-        id="validacao-title"
-        title="Conteúdo em validação"
-        description="Os detalhes de cada curso e e-book serão publicados após a confirmação das informações comerciais, acadêmicas e de atendimento."
-      />
-      <div class="section-actions">
-        <Button href="/duvidas/">Entender a nova estrutura</Button>
-      </div>
-    </Container>
-  </Section>
 </BaseLayout>

@@ -4,21 +4,35 @@ import heroImage from '../../assets/home/manu-rosa-hero.jpg';
 import Button from '../ui/Button.astro';
 import Container from '../ui/Container.astro';
 
+interface Cta {
+  label: string;
+  href: string;
+  external?: boolean;
+  ariaLabel?: string;
+}
+
+interface Highlight {
+  label: string;
+  text: string;
+}
+
 interface Props {
   eyebrow: string;
   title: string;
   description: string;
-  primaryCta: {
-    label: string;
-    href: string;
-  };
-  secondaryCta: {
-    label: string;
-    href: string;
-  };
+  highlights?: Highlight[];
+  primaryCta: Cta;
+  secondaryCta: Cta;
 }
 
-const { eyebrow, title, description, primaryCta, secondaryCta } = Astro.props;
+const {
+  eyebrow,
+  title,
+  description,
+  highlights = [],
+  primaryCta,
+  secondaryCta,
+} = Astro.props;
 ---
 
 <section class="home-hero" aria-labelledby="home-hero-title">
@@ -26,11 +40,44 @@ const { eyebrow, title, description, primaryCta, secondaryCta } = Astro.props;
     <div class="home-hero__layout">
       <div class="home-hero__content">
         <p class="home-hero__eyebrow">{eyebrow}</p>
+
         <h1 id="home-hero-title">{title}</h1>
+
         <p class="home-hero__description">{description}</p>
+
+        {
+          highlights.length > 0 && (
+            <ul
+              class="home-hero__highlights"
+              aria-label="Destaques dos cursos"
+            >
+              {highlights.map((highlight) => (
+                <li>
+                  <strong>{highlight.label}</strong>
+                  <span>{highlight.text}</span>
+                </li>
+              ))}
+            </ul>
+          )
+        }
+
         <div class="home-hero__actions">
-          <Button href={primaryCta.href} size="large">{primaryCta.label}</Button>
-          <Button href={secondaryCta.href} variant="secondary" size="large">
+          <Button
+            href={primaryCta.href}
+            size="large"
+            external={primaryCta.external}
+            ariaLabel={primaryCta.ariaLabel}
+          >
+            {primaryCta.label}
+          </Button>
+
+          <Button
+            href={secondaryCta.href}
+            variant="secondary"
+            size="large"
+            external={secondaryCta.external}
+            ariaLabel={secondaryCta.ariaLabel}
+          >
             {secondaryCta.label}
           </Button>
         </div>
@@ -51,6 +98,10 @@ const { eyebrow, title, description, primaryCta, secondaryCta } = Astro.props;
           decoding="async"
           fetchpriority="high"
         />
+
+        <figcaption>
+          Vivências práticas com método e acabamento impecável.
+        </figcaption>
       </figure>
     </div>
   </Container>
@@ -58,12 +109,34 @@ const { eyebrow, title, description, primaryCta, secondaryCta } = Astro.props;
 
 <style>
   .home-hero {
+    position: relative;
+    overflow: hidden;
     border-bottom: 0.0625rem solid var(--color-border);
-    background: var(--color-brand-soft);
-    padding-block: var(--space-12);
+    background:
+      radial-gradient(
+        circle at 90% 10%,
+        rgb(150 48 82 / 12%),
+        transparent 26rem
+      ),
+      var(--color-brand-soft);
+    padding-block: clamp(var(--space-10), 8vw, var(--space-16));
+  }
+
+  .home-hero::before {
+    position: absolute;
+    top: -12rem;
+    right: -10rem;
+    width: 28rem;
+    height: 28rem;
+    border: 0.0625rem solid rgb(118 85 29 / 18%);
+    border-radius: 50%;
+    content: '';
+    pointer-events: none;
   }
 
   .home-hero__layout {
+    position: relative;
+    z-index: 1;
     display: grid;
     align-items: center;
     gap: clamp(var(--space-10), 6vw, var(--space-16));
@@ -71,7 +144,7 @@ const { eyebrow, title, description, primaryCta, secondaryCta } = Astro.props;
 
   .home-hero__content {
     display: grid;
-    max-width: 40rem;
+    max-width: 42rem;
     gap: var(--space-5);
   }
 
@@ -85,13 +158,43 @@ const { eyebrow, title, description, primaryCta, secondaryCta } = Astro.props;
   }
 
   .home-hero h1 {
-    max-width: 14ch;
+    max-width: 13ch;
+    font-size: clamp(3rem, 6vw, 5.25rem);
+    letter-spacing: -0.035em;
+    line-height: 0.92;
+    text-wrap: balance;
   }
 
   .home-hero__description {
-    max-width: 58ch;
+    max-width: 50ch;
     color: var(--color-text-muted);
-    font-size: var(--font-size-xl);
+    font-size: clamp(1.1rem, 2vw, var(--font-size-xl));
+  }
+
+  .home-hero__highlights {
+    display: grid;
+    gap: var(--space-3);
+    max-width: 38rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .home-hero__highlights li {
+    display: grid;
+    gap: var(--space-1);
+    padding-left: var(--space-4);
+    border-left: 0.125rem solid var(--color-accent);
+  }
+
+  .home-hero__highlights strong {
+    color: var(--color-text);
+    font-size: var(--font-size-base);
+  }
+
+  .home-hero__highlights span {
+    color: var(--color-text-muted);
+    line-height: var(--line-height-body);
   }
 
   .home-hero__actions {
@@ -124,6 +227,15 @@ const { eyebrow, title, description, primaryCta, secondaryCta } = Astro.props;
     object-position: 51% 50%;
   }
 
+  .home-hero figcaption {
+    padding: var(--space-4) var(--space-5);
+    border-top: 0.0625rem solid var(--color-border);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    text-align: center;
+  }
+
   @media (min-width: 40rem) {
     .home-hero__media :global(.home-hero__picture) {
       aspect-ratio: 4 / 3;
@@ -147,6 +259,14 @@ const { eyebrow, title, description, primaryCta, secondaryCta } = Astro.props;
   @media (max-width: 30rem) {
     .home-hero__actions {
       display: grid;
+    }
+
+    .home-hero__actions > :global(*) {
+      width: 100%;
+    }
+
+    .home-hero h1 {
+      font-size: clamp(2.75rem, 14vw, 3.75rem);
     }
   }
 </style>
