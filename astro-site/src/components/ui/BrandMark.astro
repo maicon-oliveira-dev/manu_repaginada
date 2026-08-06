@@ -7,7 +7,6 @@ interface Props {
   variant?: 'primary' | 'light';
   size?: 'header' | 'footer';
   href?: string;
-  tagline?: string;
   class?: string;
 }
 
@@ -15,7 +14,6 @@ const {
   variant = 'primary',
   size = 'header',
   href,
-  tagline = 'Cursos e treinamentos',
   class: className,
 } = Astro.props;
 
@@ -39,7 +37,6 @@ const Element = href ? 'a' : 'div';
     loading={size === 'header' ? 'eager' : 'lazy'}
     decoding="async"
   />
-  <span class="brand-mark__tagline">{tagline}</span>
   {href && <span class="brand-mark__destination">Página inicial</span>}
 </Element>
 
@@ -84,13 +81,7 @@ const Element = href ? 'a' : 'div';
     width: clamp(8rem, 18vw, 10rem);
   }
 
-  .brand-mark__tagline {
-    font-family: var(--font-family-body);
-    font-size: var(--font-size-xs);
-    font-weight: var(--font-weight-semibold);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
+
 
   .brand-mark__destination {
     position: absolute;

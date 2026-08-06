@@ -14,7 +14,6 @@ const currentYear = new Date().getFullYear();
         variant="light"
         size="footer"
         href="/"
-        tagline="Cursos e treinamentos"
       />
       <p>Cursos, treinamentos e materiais educacionais de confeitaria.</p>
       <small>Conteúdo comercial em preparação e validação.</small>
@@ -33,9 +32,9 @@ const currentYear = new Date().getFullYear();
 
 <style>
   .site-footer {
-    border-top: 0.0625rem solid var(--color-brand-active);
-    background: var(--color-text);
-    color: var(--color-text-on-brand);
+    border-top: 0.25rem solid var(--color-brand);
+  background: var(--color-text);
+  color: #ffffff;
   }
 
   .site-footer :global(.site-footer__inner) {
@@ -54,11 +53,14 @@ const currentYear = new Date().getFullYear();
   .site-footer :global(.site-footer__brand) {
     margin-bottom: var(--space-2);
   }
+  
+.site-footer__summary p {
+  color: rgb(255 255 255 / 88%);
+}
 
-  .site-footer__summary p,
-  .site-footer__summary small {
-    color: var(--color-text-on-brand);
-  }
+.site-footer__summary small {
+  color: rgb(255 255 255 / 68%);
+}
 
   .site-footer__navigation {
     display: grid;
@@ -69,21 +71,24 @@ const currentYear = new Date().getFullYear();
     list-style: none;
   }
 
-  .site-footer__navigation a {
-    display: inline-flex;
-    min-height: 2.75rem;
-    align-items: center;
-    color: var(--color-text-on-brand);
-    font-size: var(--font-size-sm);
-  }
+ .site-footer__navigation a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  color: rgb(255 255 255 / 88%);
+  font-size: var(--font-size-sm);
+  text-underline-offset: 0.2em;
+}
 
   .site-footer__navigation a:hover {
-    color: var(--color-accent-soft);
-  }
+  color: var(--color-brand);
+}
 
   .site-footer__navigation a:focus-visible {
-    outline-color: var(--color-accent-soft);
-  }
+  outline: 0.125rem solid var(--color-brand);
+  outline-offset: 0.25rem;
+  border-radius: var(--radius-sm);
+}
 
   @media (max-width: 44rem) {
     .site-footer :global(.site-footer__inner) {

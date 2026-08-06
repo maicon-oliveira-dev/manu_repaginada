@@ -22,7 +22,7 @@ const activePath = normalizePath(currentPath);
       variant="primary"
       size="header"
       href="/"
-      tagline="Cursos e treinamentos"
+      
     />
 
     <button
@@ -252,5 +252,14 @@ const activePath = normalizePath(currentPath);
       padding-inline: var(--space-2);
       font-size: var(--font-size-xs);
     }
+    
   }
+
+  @media (min-width: 64rem) {
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+}
 </style>
