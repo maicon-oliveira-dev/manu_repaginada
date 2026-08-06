@@ -1,28 +1,51 @@
 :root {
-  --color-background: #fff8f5;
-  --color-background-soft: #f8eee9;
-  --color-surface: #fffdfb;
-  --color-surface-elevated: #fffaf7;
+  /* Cores institucionais da Manu Rosa */
+  --color-background: #fde4e1;
+  --color-background-soft: #f5c7c6;
+  --color-surface: #ffffff;
+  --color-surface-elevated: #ffffff;
 
-  --color-text: #342722;
-  --color-text-muted: #63524b;
-  --color-text-subtle: #765f56;
-  --color-text-on-brand: #fff9f6;
+  --color-text: #463831;
+  --color-text-muted: #6f6864;
+  --color-text-subtle: #6f6864;
 
-  --color-brand: #963052;
-  --color-brand-hover: #812447;
-  --color-brand-active: #6c1d3a;
-  --color-brand-soft: #f6dbe5;
+  /*
+   * Texto escuro sobre o dourado principal.
+   * Mantém a identidade e oferece leitura melhor que branco sobre #b69151.
+   */
+  --color-text-on-brand: #342722;
 
-  --color-accent: #76551d;
-  --color-accent-soft: #f2e6cb;
+  --color-brand: #b69151;
+  --color-brand-hover: #9a7a3f;
+  --color-brand-active: #8c6d34;
+  --color-brand-soft: rgb(182 145 81 / 16%);
 
-  --color-border: #ddccc4;
-  --color-border-strong: #aa8e82;
-  --color-focus: #0b6773;
+  --color-accent: #f473a7;
+  --color-accent-hover: #e45c9a;
+  --color-accent-soft: #f5c7c6;
 
-  --font-family-body: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-family-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --color-border: #eadfda;
+  --color-border-strong: #d8c19a;
+  --color-focus: #8c6d34;
+
+  /* Tipografia original */
+  --font-family-body:
+    "Manrope",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  --font-family-display:
+    "Cormorant Garamond",
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  --font-family-accent:
+    "Berkshire Swash",
+    cursive;
 
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
@@ -42,6 +65,7 @@
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -62,16 +86,20 @@
   --page-gutter: clamp(1rem, 4vw, 2rem);
   --header-height: 5rem;
 
-  --radius-sm: 0.5rem;
+  /* Raios originais: 10px, 14px e 20px */
+  --radius-sm: 0.625rem;
   --radius-md: 0.875rem;
-  --radius-lg: 1.5rem;
+  --radius-lg: 1.25rem;
   --radius-pill: 999rem;
 
-  --shadow-sm: 0 0.25rem 1rem rgb(52 39 34 / 0.08);
-  --shadow-md: 0 1rem 2.5rem rgb(52 39 34 / 0.12);
-  --shadow-focus: 0 0 0 0.1875rem var(--color-focus);
+  /* Sombras originais */
+  --shadow-sm: 0 0.625rem 1.5rem rgb(63 45 38 / 10%);
+  --shadow-md: 0 1.125rem 2.625rem rgb(63 45 38 / 12%);
+  --shadow-focus:
+    0 0 0 0.1875rem rgb(182 145 81 / 22%),
+    0 0 0 0.375rem rgb(244 115 167 / 18%);
 
   --duration-fast: 120ms;
   --duration-base: 200ms;
-  --easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --easing-standard: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
