@@ -1,0 +1,112 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Picture } from 'astro:assets';
+import introductionAsset from '../../assets/about/manu-rosa-with-cake.jpg';
+import Container from '../ui/Container.astro';
+
+const introductionImage: ImageMetadata = introductionAsset;
+---
+
+<section class="about-introduction" aria-label="Trajetória na confeitaria">
+  <Container size="wide">
+    <div class="about-introduction__layout">
+      <div class="about-introduction__copy">
+        <p>
+          Comecei fazendo <strong>cookies americanos</strong> (primeiro produto que vendi na vida!) e{' '}
+          <strong>bolachas decoradas</strong>, que são tradicionais na minha cidade, e fui me apaixonando cada vez mais
+          pela confeitaria! Busquei conhecimento e continuei meu trabalho de formiguinha! Passei a vender chocolates e
+          depois bolos! Depois disso, comecei a fazer <strong>bolos e doces pra eventos</strong> e continuei a adoçar a
+          vida de muita gente!
+        </p>
+      </div>
+
+      <figure class="about-introduction__visual">
+        <Picture
+          class="about-introduction__image"
+          pictureAttributes={{ class: 'about-introduction__picture' }}
+          src={introductionImage}
+          formats={['avif', 'webp']}
+          fallbackFormat="jpeg"
+          width={1168}
+          height={1750}
+          widths={[320, 480, 640, 800, 1168]}
+          sizes="(min-width: 56.25rem) 28rem, (min-width: 40rem) 30rem, calc(100vw - 2rem)"
+          alt="Chef Manu Rosa segurando um bolo decorado"
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .about-introduction {
+    padding-block: clamp(var(--space-12), 6vw, var(--space-20));
+    background: var(--color-surface);
+  }
+
+  .about-introduction__layout {
+    display: grid;
+    align-items: center;
+    gap: clamp(var(--space-8), 5vw, var(--space-16));
+  }
+
+  .about-introduction__copy {
+    position: relative;
+    max-width: 40rem;
+    padding-block: var(--space-2);
+  }
+
+  .about-introduction__copy::before {
+    display: block;
+    width: 4rem;
+    height: 0.1875rem;
+    margin-bottom: var(--space-5);
+    border-radius: var(--radius-pill);
+    background: var(--color-brand);
+    content: '';
+  }
+
+  .about-introduction p {
+    color: var(--color-text-muted);
+    font-size: clamp(var(--font-size-base), 1.15vw, var(--font-size-lg));
+    line-height: 1.65;
+  }
+
+  .about-introduction strong {
+    color: var(--color-text);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .about-introduction__visual {
+    width: 100%;
+    max-width: 25rem;
+    margin: 0 auto;
+    border-radius: var(--radius-lg);
+    background: var(--color-background-soft);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+
+  .about-introduction__visual :global(.about-introduction__picture) {
+    display: block;
+    aspect-ratio: 1168 / 1750;
+  }
+
+  .about-introduction__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (min-width: 56.25rem) {
+    .about-introduction__layout {
+      grid-template-columns: minmax(0, 1fr) minmax(20rem, 25rem);
+    }
+
+    .about-introduction__visual {
+      margin: 0;
+    }
+  }
+</style>

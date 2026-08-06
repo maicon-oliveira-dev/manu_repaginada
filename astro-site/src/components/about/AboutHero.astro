@@ -1,0 +1,211 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Picture } from 'astro:assets';
+import heroAsset from '../../assets/about/manu-rosa-kitchen-portrait.jpg';
+import Button from '../ui/Button.astro';
+import Container from '../ui/Container.astro';
+
+const heroImage: ImageMetadata = heroAsset;
+const whatsappHref =
+  'https://api.whatsapp.com/send?phone=5547996552618&text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20voc%C3%AA.';
+---
+
+<section class="about-hero" aria-labelledby="about-hero-title">
+  <Container size="wide">
+    <div class="about-hero__layout">
+      <div class="about-hero__content">
+        <p class="about-hero__eyebrow">Sobre</p>
+        <h1 id="about-hero-title">Olá, sou a Manu Rosa, sou chef pâtissier!!</h1>
+        <p class="about-hero__lead">
+          Trabalho com doces há mais de <strong>15 anos</strong> e há mais de <strong>10 anos</strong> dou aulas de confeitaria.
+        </p>
+        <div class="about-hero__actions">
+          <Button href={whatsappHref} size="large" external>Falar no WhatsApp</Button>
+          <a
+            class="about-hero__instagram"
+            href="https://www.instagram.com/manurosabakery/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Ver mais no Instagram</a>
+        </div>
+      </div>
+
+      <figure class="about-hero__visual">
+        <Picture
+          class="about-hero__image"
+          pictureAttributes={{ class: 'about-hero__picture' }}
+          src={heroImage}
+          formats={['avif', 'webp']}
+          fallbackFormat="jpeg"
+          width={1067}
+          height={1600}
+          widths={[320, 480, 640, 800, 1067]}
+          sizes="(min-width: 80rem) 29rem, (min-width: 56.25rem) 38vw, (min-width: 40rem) 34rem, calc(100vw - 2rem)"
+          alt="Chef Manu Rosa em retrato de corpo inteiro na cozinha"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </figure>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .about-hero {
+    position: relative;
+    border-bottom: 0.0625rem solid var(--color-border);
+    background:
+      radial-gradient(circle at 84% 16%, var(--color-accent-soft), transparent 27rem),
+      linear-gradient(135deg, var(--color-brand-soft), var(--color-background-soft));
+    overflow: hidden;
+    padding-block: clamp(var(--space-8), 4.5vw, var(--space-16));
+  }
+
+  .about-hero__layout {
+    display: grid;
+    align-items: center;
+    gap: clamp(var(--space-6), 4vw, var(--space-12));
+  }
+
+  .about-hero__content {
+    display: grid;
+    min-width: 0;
+    max-width: 39rem;
+    gap: var(--space-4);
+  }
+
+  .about-hero__eyebrow {
+    color: var(--color-accent);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.12em;
+    line-height: var(--line-height-heading);
+    text-transform: uppercase;
+  }
+
+  .about-hero h1 {
+    max-width: 15ch;
+    font-size: clamp(2.375rem, 4vw, 3.5rem);
+    line-height: 1.06;
+  }
+
+  .about-hero__lead {
+    max-width: 58ch;
+    color: var(--color-text-muted);
+    font-size: clamp(var(--font-size-base), 1.15vw, var(--font-size-lg));
+    line-height: 1.6;
+  }
+
+  .about-hero__lead strong {
+    color: var(--color-text);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .about-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+    padding-top: var(--space-1);
+  }
+
+  .about-hero__instagram {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-pill);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .about-hero__visual {
+    position: relative;
+    width: 100%;
+    max-width: 25rem;
+    margin: 0 auto;
+    border: 0.0625rem solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+  }
+
+  .about-hero__visual::after {
+    position: absolute;
+    inset: var(--space-4);
+    border: 0.0625rem solid rgb(255 253 251 / 0.7);
+    border-radius: calc(var(--radius-lg) - var(--space-2));
+    content: '';
+    pointer-events: none;
+  }
+
+  .about-hero__visual :global(.about-hero__picture) {
+    display: block;
+    aspect-ratio: 1067 / 1600;
+  }
+
+  .about-hero__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (min-width: 56.25rem) {
+    .about-hero__layout {
+      grid-template-columns: minmax(0, 1fr) minmax(22rem, 25rem);
+    }
+
+    .about-hero__visual {
+      justify-self: end;
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 39.99rem) {
+    .about-hero {
+      padding-block: var(--space-8) var(--space-10);
+    }
+
+    .about-hero__content {
+      gap: var(--space-4);
+    }
+
+    .about-hero h1 {
+      font-size: clamp(2.25rem, 10vw, 2.5rem);
+    }
+
+    .about-hero__actions {
+      display: grid;
+    }
+
+    .about-hero__visual {
+      max-width: 22rem;
+    }
+  }
+
+  @media (min-width: 40rem) and (max-width: 56.24rem) {
+    .about-hero h1 {
+      font-size: clamp(2.75rem, 6vw, 3rem);
+    }
+
+    .about-hero__visual {
+      max-width: 24rem;
+    }
+  }
+
+  @media (min-width: 64rem) and (max-height: 50rem) {
+    .about-hero {
+      padding-block: var(--space-6);
+    }
+
+    .about-hero__visual {
+      max-width: 23.75rem;
+    }
+
+    .about-hero h1 {
+      font-size: clamp(3rem, 4vw, 3.5rem);
+    }
+  }
+</style>
