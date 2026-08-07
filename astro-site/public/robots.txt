@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://manurosabakery.com.br/sitemap.xml
