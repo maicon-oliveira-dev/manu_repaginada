@@ -1,0 +1,4 @@
+---
+import { masterclassCookies as content } from '../../data/masterclassCookies';
+---
+<section class="faq" aria-labelledby="faq-title"><p>{content.faq.eyebrow}</p><h2 id="faq-title">{content.faq.title}</h2>{content.faq.items.map((item) => <details><summary>{item.question}</summary><p>{item.answer}</p></details>)}</section><style>.faq{padding:4.5rem max(1.25rem,calc((100% - 48rem)/2));background:var(--mc-cream)}.faq>p{font-size:.75rem;font-weight:700;letter-spacing:.08em;color:var(--mc-caramel);text-transform:uppercase}h2{font:700 clamp(2rem,5vw,3.5rem)/1 var(--mc-display);margin:.5rem 0 1.5rem}details{border-bottom:1px solid var(--mc-beige);padding:1rem 0}summary{cursor:pointer;font-weight:700;padding-right:2rem}summary::marker{color:var(--mc-caramel)}details p{margin:.8rem 0 0;color:#582308bb}</style>
