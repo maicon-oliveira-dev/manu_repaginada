@@ -18,21 +18,23 @@ import Container from '../ui/Container.astro';
         </ul>
         <div class="masterclass-feature__footer">
           <p class="masterclass-feature__price"><span>Investimento</span>R$ 47</p>
-          <Button href="/cursos/a-base-dos-cookies-perfeitos/" size="large">Ver a Masterclass</Button>
+          <Button href="/cursos/a-base-dos-cookies-perfeitos/" size="large" class="home-masterclass-cta" ariaLabel="Conhecer a Masterclass A Base dos Cookies Perfeitos">Conhecer a Masterclass</Button>
         </div>
       </div>
 
       <figure class="masterclass-feature__media">
-        <Picture
-          src={heroImage}
-          formats={['avif', 'webp']}
-          fallbackFormat="jpeg"
-          widths={[480, 720, 960]}
-          sizes="(min-width: 64rem) 32rem, (min-width: 40rem) 45vw, calc(100vw - 2.5rem)"
-          alt="Cookies assados em primeiro plano, com uma assadeira ao fundo"
-          loading="lazy"
-          decoding="async"
-        />
+        <a href="/cursos/a-base-dos-cookies-perfeitos/" aria-label="Conhecer a Masterclass A Base dos Cookies Perfeitos">
+          <Picture
+            src={heroImage}
+            formats={['avif', 'webp']}
+            fallbackFormat="jpeg"
+            widths={[480, 720, 960]}
+            sizes="(min-width: 64rem) 32rem, (min-width: 40rem) 45vw, calc(100vw - 2.5rem)"
+            alt="Cookies assados em primeiro plano, com uma assadeira ao fundo"
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
       </figure>
     </div>
   </Container>
@@ -53,8 +55,9 @@ import Container from '../ui/Container.astro';
   .masterclass-feature__footer :global(.button) { background: #e3bd7c; color: #4c1d08 }
   .masterclass-feature__footer :global(.button:hover) { background: #f2d49b; color: #4c1d08 }
   .masterclass-feature__media { min-height: 17rem; margin: 0; background: #c68b4a }
-  .masterclass-feature__media :global(picture), .masterclass-feature__media :global(img) { display: block; width: 100%; height: 100% }
+  .masterclass-feature__media > a, .masterclass-feature__media :global(picture), .masterclass-feature__media :global(img) { display: block; width: 100%; height: 100% }
   .masterclass-feature__media :global(img) { min-height: 17rem; object-fit: cover; object-position: center 58% }
+  .masterclass-feature__media > a:focus-visible { outline: .1875rem solid #fff8ee; outline-offset: -.5rem }
   @media (min-width: 40rem) { .masterclass-feature__media, .masterclass-feature__media :global(img) { min-height: 22rem } }
   @media (min-width: 64rem) { .masterclass-feature__card { grid-template-columns: minmax(0, 1.05fr) minmax(24rem, .95fr) }.masterclass-feature__media, .masterclass-feature__media :global(img) { min-height: 100%; aspect-ratio: 16 / 10 } }
   @media (max-width: 30rem) { .masterclass-feature__footer { display: grid }.masterclass-feature__footer :global(.button) { width: 100% } }

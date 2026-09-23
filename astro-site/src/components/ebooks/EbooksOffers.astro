@@ -23,7 +23,8 @@ const offers = [
       'Aprenda a base dos cookies perfeitos e comece na confeitaria com segurança — mesmo que você esteja começando do zero.',
     supportingInfo: 'Aula 100% online e gravada • 1 ano de acesso',
     price: 'R$ 47',
-    cta: 'Ver a Masterclass',
+    cta: 'Conhecer a Masterclass',
+    ariaLabel: 'Conhecer a Masterclass A Base dos Cookies Perfeitos',
     href: '/cursos/a-base-dos-cookies-perfeitos/',
     external: false,
     image: masterclassImage,
@@ -124,7 +125,7 @@ const offers = [
             {offer.supportingInfo && <p class="ebooks-offers__supporting">{offer.supportingInfo}</p>}
             {offer.price && <p class="ebooks-offers__price">{offer.price}</p>}
             <div class="ebooks-offers__action">
-              <Button href={offer.href} external={offer.external}>{offer.cta}</Button>
+              <Button href={offer.href} external={offer.external} class={offer.ariaLabel ? 'ebooks-masterclass-cta' : undefined} ariaLabel={offer.ariaLabel}>{offer.cta}</Button>
             </div>
           </div>
         </article>
@@ -244,6 +245,14 @@ const offers = [
 
   .ebooks-offers__card:first-child .ebooks-offers__image {
     object-position: center 58%;
+  }
+
+  .ebooks-offers__card:first-child {
+    border-color: var(--color-border-strong);
+  }
+
+  .ebooks-offers__card:first-child :global(.ebooks-masterclass-cta) {
+    font-weight: var(--font-weight-bold);
   }
 
   .ebooks-offers__body {
