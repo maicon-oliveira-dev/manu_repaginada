@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HomeCoursesSection from '../components/home/HomeCoursesSection.astro';
 import HomeHero from '../components/home/HomeHero.astro';
+import HomeMasterclassFeature from '../components/home/HomeMasterclassFeature.astro';
 
 const whatsappHref =
   'https://api.whatsapp.com/send?phone=5547996552618&text=Quero%20saber%20sobre%20as%20pr%C3%B3ximas%20aulas%20da%20Manu';
@@ -37,6 +38,8 @@ const whatsappHref =
       ariaLabel: 'Falar com a Manu sobre as próximas aulas',
     }}
   />
+
+  <HomeMasterclassFeature />
 
   <HomeCoursesSection />
 </BaseLayout>

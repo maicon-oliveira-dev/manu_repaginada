@@ -1,4 +1,9 @@
 ---
 import { masterclassCookies as content } from '../../data/masterclassCookies';
+import Button from '../ui/Button.astro';
+const checkoutHref = content.offer.checkoutHref.trim();
+const hasCheckout = checkoutHref.length > 0;
+const purchaseHref = hasCheckout ? checkoutHref : '#oferta';
 ---
-<section class="final" aria-labelledby="final-title"><h2 id="final-title">{content.final.title}</h2><p>{content.final.copy}</p><a href="#oferta">{content.final.cta}</a><small>[AGUARDANDO LINK DE CHECKOUT]</small></section><style>.final{padding:5rem 1.25rem;text-align:center;background:var(--mc-beige)}h2{font:700 clamp(2.2rem,6vw,4.5rem)/1 var(--mc-display);margin:0 auto 1rem;max-width:52rem}.final p{max-width:35rem;margin:0 auto 1.5rem}.final a{display:inline-block;background:var(--mc-cocoa);color:var(--mc-cream);padding:1rem 1.5rem;border-radius:99px;text-decoration:none;font-weight:700}.final small{display:block;margin-top:1rem;color:#58230899}</style>
+<section class="final" aria-labelledby="final-title"><h2 id="final-title">{content.final.title}</h2><p>{content.final.copy}</p><Button href={purchaseHref} external={hasCheckout} class="final-cta">{content.final.cta}</Button></section>
+<style>.final{padding:4rem 1.25rem;text-align:center;background:var(--mc-beige)}h2{font:700 clamp(2rem,4.5vw,3.6rem)/1.05 var(--mc-display);max-width:52rem;margin:0 auto 1rem}.final p{max-width:42rem;margin:0 auto 1.5rem}.final :global(.final-cta){background:var(--mc-cocoa);color:var(--mc-cream);border-radius:999px;padding:1rem 1.5rem}</style>

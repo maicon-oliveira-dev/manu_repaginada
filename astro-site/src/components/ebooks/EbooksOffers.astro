@@ -4,16 +4,34 @@ import { Picture } from 'astro:assets';
 import cookbookAsset from '../../assets/ebooks/cookbook-cake.png';
 import christmasAsset from '../../assets/ebooks/christmas-ebook-cover.jpg';
 import workshopsAsset from '../../assets/ebooks/workshops-baking.jpg';
+import masterclassAsset from '../../assets/masterclass-cookies/hero.jpeg';
 import Button from '../ui/Button.astro';
 import Container from '../ui/Container.astro';
 
 const cookbookImage: ImageMetadata = cookbookAsset;
 const christmasImage: ImageMetadata = christmasAsset;
 const workshopsImage: ImageMetadata = workshopsAsset;
+const masterclassImage: ImageMetadata = masterclassAsset;
 const cookbookHref =
   'https://chefmanurosa1651954297.kpages.online/cook-book-bolos-caseiros-da-manu-rosa-62c773f1-3252-4aa1-9d22-e9de89b1f69a?utm_source=site_principal&utm_medium=banner&utm_campaign=cookbook';
 
 const offers = [
+  {
+    eyebrow: 'MASTERCLASS ONLINE',
+    title: 'Masterclass A Base dos Cookies Perfeitos',
+    description:
+      'Aprenda a base dos cookies perfeitos e comece na confeitaria com segurança — mesmo que você esteja começando do zero.',
+    supportingInfo: 'Aula 100% online e gravada • 1 ano de acesso',
+    price: 'R$ 47',
+    cta: 'Ver a Masterclass',
+    href: '/cursos/a-base-dos-cookies-perfeitos/',
+    external: false,
+    image: masterclassImage,
+    width: 960,
+    height: 600,
+    alt: 'Cookies em primeiro plano, com uma assadeira ao fundo',
+    fallback: 'jpeg' as const,
+  },
   {
     title: 'Aulas & Workshops especiais',
     description:
@@ -100,8 +118,11 @@ const offers = [
             />
           </figure>
           <div class="ebooks-offers__body">
+            {offer.eyebrow && <p class="ebooks-offers__eyebrow">{offer.eyebrow}</p>}
             <h3>{offer.title}</h3>
             <p>{offer.description}</p>
+            {offer.supportingInfo && <p class="ebooks-offers__supporting">{offer.supportingInfo}</p>}
+            {offer.price && <p class="ebooks-offers__price">{offer.price}</p>}
             <div class="ebooks-offers__action">
               <Button href={offer.href} external={offer.external}>{offer.cta}</Button>
             </div>
@@ -216,9 +237,13 @@ const offers = [
     object-fit: cover;
   }
 
-  .ebooks-offers__card:nth-child(2) .ebooks-offers__image,
-  .ebooks-offers__card:nth-child(3) .ebooks-offers__image {
+  .ebooks-offers__card:nth-child(3) .ebooks-offers__image,
+  .ebooks-offers__card:nth-child(4) .ebooks-offers__image {
     object-fit: contain;
+  }
+
+  .ebooks-offers__card:first-child .ebooks-offers__image {
+    object-position: center 58%;
   }
 
   .ebooks-offers__body {
@@ -236,6 +261,23 @@ const offers = [
     color: var(--color-text-muted);
   }
 
+  .ebooks-offers__body .ebooks-offers__eyebrow {
+    color: var(--color-accent);
+    font-size: .7rem;
+  }
+
+  .ebooks-offers__supporting {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .ebooks-offers__price {
+    color: var(--color-text) !important;
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+  }
+
   .ebooks-offers__action {
     align-self: end;
     padding-top: var(--space-2);
@@ -249,19 +291,9 @@ const offers = [
     }
   }
 
-  @media (min-width: 70rem) {
-    .ebooks-offers__grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-
-  @media (min-width: 40rem) and (max-width: 69.99rem) {
+  @media (min-width: 40rem) {
     .ebooks-offers__grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .ebooks-offers__card:last-child {
-      grid-column: 1 / -1;
     }
   }
 

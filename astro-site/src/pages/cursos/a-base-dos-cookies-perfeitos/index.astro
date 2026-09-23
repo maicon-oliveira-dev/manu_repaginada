@@ -12,10 +12,11 @@ import MasterclassCookiesOffer from '../../../components/masterclass-cookies/Mas
 import MasterclassCookiesGuarantee from '../../../components/masterclass-cookies/MasterclassCookiesGuarantee.astro';
 import MasterclassCookiesFaq from '../../../components/masterclass-cookies/MasterclassCookiesFaq.astro';
 import MasterclassCookiesFinalCta from '../../../components/masterclass-cookies/MasterclassCookiesFinalCta.astro';
+import MasterclassCookiesChrome from '../../../components/masterclass-cookies/MasterclassCookiesChrome.astro';
 ---
-<BaseLayout title="Masterclass A Base dos Cookies Perfeitos | Manu Rosa" description="Conheça a Masterclass A Base dos Cookies Perfeitos da Chef Manu Rosa.">
+<BaseLayout title="Masterclass A Base dos Cookies Perfeitos | Manu Rosa" description="Conheça a Masterclass A Base dos Cookies Perfeitos da Chef Manu Rosa." showHeader={false} showFooter={false}>
   <div class="masterclass-cookies-page">
-    <MasterclassCookiesHero /><MasterclassCookiesProblem /><MasterclassCookiesBases /><MasterclassCookiesLearn /><MasterclassCookiesAudience /><MasterclassCookiesBonus /><MasterclassCookiesTestimonials /><MasterclassCookiesInstructor /><MasterclassCookiesOffer /><MasterclassCookiesGuarantee /><MasterclassCookiesFaq /><MasterclassCookiesFinalCta />
+    <MasterclassCookiesChrome /><MasterclassCookiesHero /><MasterclassCookiesProblem /><MasterclassCookiesBases /><MasterclassCookiesLearn /><MasterclassCookiesAudience /><MasterclassCookiesBonus /><MasterclassCookiesTestimonials /><MasterclassCookiesInstructor /><MasterclassCookiesOffer /><MasterclassCookiesGuarantee /><MasterclassCookiesFaq /><MasterclassCookiesFinalCta />
   </div>
 </BaseLayout>
 <style is:global>@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap');.masterclass-cookies-page{--mc-cream:#fff8ea;--mc-beige:#e7d3a3;--mc-peach:#fed1c4;--mc-cocoa:#582308;--mc-caramel:#c58a4a;--mc-display:'Fraunces',serif;background:var(--mc-cream);color:var(--mc-cocoa);font-family:'DM Sans',sans-serif}.masterclass-cookies-page *{box-sizing:border-box}.masterclass-cookies-page a:focus-visible,.masterclass-cookies-page summary:focus-visible{outline:3px solid var(--mc-caramel);outline-offset:3px}@media(prefers-reduced-motion:no-preference){.masterclass-cookies-page a{transition:transform .2s ease,filter .2s ease}.masterclass-cookies-page a:hover{transform:translateY(-2px);filter:brightness(1.04)}}</style>

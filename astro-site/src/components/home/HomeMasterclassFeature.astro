@@ -1,0 +1,61 @@
+---
+import { Picture } from 'astro:assets';
+import heroImage from '../../assets/masterclass-cookies/hero.jpeg';
+import Button from '../ui/Button.astro';
+import Container from '../ui/Container.astro';
+---
+
+<section class="masterclass-feature" aria-labelledby="masterclass-feature-title">
+  <Container size="content">
+    <div class="masterclass-feature__card">
+      <div class="masterclass-feature__content">
+        <p class="masterclass-feature__eyebrow">MASTERCLASS ONLINE</p>
+        <h2 id="masterclass-feature-title">A Base dos Cookies Perfeitos</h2>
+        <p class="masterclass-feature__copy">Aprenda a base dos cookies perfeitos e comece na confeitaria com segurança — mesmo que você esteja começando do zero.</p>
+        <ul class="masterclass-feature__details" aria-label="Informações da Masterclass">
+          <li>Aula 100% online e gravada</li>
+          <li>1 ano de acesso</li>
+        </ul>
+        <div class="masterclass-feature__footer">
+          <p class="masterclass-feature__price"><span>Investimento</span>R$ 47</p>
+          <Button href="/cursos/a-base-dos-cookies-perfeitos/" size="large">Ver a Masterclass</Button>
+        </div>
+      </div>
+
+      <figure class="masterclass-feature__media">
+        <Picture
+          src={heroImage}
+          formats={['avif', 'webp']}
+          fallbackFormat="jpeg"
+          widths={[480, 720, 960]}
+          sizes="(min-width: 64rem) 32rem, (min-width: 40rem) 45vw, calc(100vw - 2.5rem)"
+          alt="Cookies assados em primeiro plano, com uma assadeira ao fundo"
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .masterclass-feature { padding-block: clamp(3.5rem, 7vw, 6rem); background: #fff8ee }
+  .masterclass-feature__card { display: grid; overflow: hidden; border: .0625rem solid rgb(88 35 8 / 14%); border-radius: var(--radius-lg); background: #602609; box-shadow: var(--shadow-md) }
+  .masterclass-feature__content { display: grid; align-content: center; gap: var(--space-4); padding: clamp(2rem, 5vw, 4rem); color: #fff8ee }
+  .masterclass-feature__eyebrow { margin: 0; color: #e3bd7c; font-size: var(--font-size-sm); font-weight: var(--font-weight-bold); letter-spacing: .14em; text-transform: uppercase }
+  .masterclass-feature h2 { max-width: 14ch; margin: 0; color: #fff8ee; font-size: clamp(2.1rem, 4vw, 3.5rem); line-height: .98; letter-spacing: -.03em }
+  .masterclass-feature__copy { max-width: 48ch; margin: 0; color: rgb(255 248 238 / 90%); font-size: var(--font-size-lg) }
+  .masterclass-feature__details { display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-5); margin: 0; padding: 0; list-style: none; font-weight: var(--font-weight-semibold) }
+  .masterclass-feature__details li::before { margin-right: .45rem; color: #e3bd7c; content: '•' }
+  .masterclass-feature__footer { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-5); margin-top: var(--space-2) }
+  .masterclass-feature__price { display: grid; margin: 0; color: #fff8ee; font-family: var(--font-family-display); font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: var(--font-weight-bold); line-height: 1 }
+  .masterclass-feature__price span { margin-bottom: .3rem; color: #e3bd7c; font-family: var(--font-family-base); font-size: .7rem; font-weight: var(--font-weight-bold); letter-spacing: .12em; text-transform: uppercase }
+  .masterclass-feature__footer :global(.button) { background: #e3bd7c; color: #4c1d08 }
+  .masterclass-feature__footer :global(.button:hover) { background: #f2d49b; color: #4c1d08 }
+  .masterclass-feature__media { min-height: 17rem; margin: 0; background: #c68b4a }
+  .masterclass-feature__media :global(picture), .masterclass-feature__media :global(img) { display: block; width: 100%; height: 100% }
+  .masterclass-feature__media :global(img) { min-height: 17rem; object-fit: cover; object-position: center 58% }
+  @media (min-width: 40rem) { .masterclass-feature__media, .masterclass-feature__media :global(img) { min-height: 22rem } }
+  @media (min-width: 64rem) { .masterclass-feature__card { grid-template-columns: minmax(0, 1.05fr) minmax(24rem, .95fr) }.masterclass-feature__media, .masterclass-feature__media :global(img) { min-height: 100%; aspect-ratio: 16 / 10 } }
+  @media (max-width: 30rem) { .masterclass-feature__footer { display: grid }.masterclass-feature__footer :global(.button) { width: 100% } }
+</style>

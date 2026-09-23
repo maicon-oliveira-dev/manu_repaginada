@@ -17,4 +17,6 @@
 - Detalhes da oferta
 - Garantia
 - Quatro FAQs
-- Link real de checkout
+- [ ] Link oficial do carrinho/checkout Hotmart
+
+Após recebê-lo, inserir o link somente em `src/data/masterclassCookies.ts` no campo `offer.checkoutHref`.
