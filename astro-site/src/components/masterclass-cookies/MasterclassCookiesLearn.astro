@@ -3,7 +3,7 @@ import { Picture } from 'astro:assets';
 import { masterclassCookies as content } from '../../data/masterclassCookies';
 import modeling from '../../assets/masterclass-cookies/processo-modelagem.jpeg';
 import filling from '../../assets/masterclass-cookies/processo-recheio.jpeg';
-import oven from '../../assets/masterclass-cookies/processo-forno-editorial.png';
+import oven from '../../assets/masterclass-cookies/processo-forno-manu-enquadrado.png';
 
 const images = [modeling, filling, oven];
 const alts = ['Manu Rosa demonstrando modelagem de cookies em aula', 'Mãos modelando porções de massa de cookie', 'Cookies sendo assados no forno'];
@@ -36,6 +36,7 @@ const alts = ['Manu Rosa demonstrando modelagem de cookies em aula', 'Mãos mode
   .photo :global(img) { width: 100%; height: 100%; object-fit: cover }
   .photo-1 :global(img) { object-position: center 42% }
   .photo-2 :global(img) { object-position: center 48% }
+  .photo-3 { aspect-ratio: 4/3; background: var(--mc-cocoa) }
   .photo-3 :global(img) { object-fit: cover; object-position: center }
   .process b, .process strong { display: block; padding: 0 1rem }
   .process b { color: var(--mc-caramel); font: 700 1.3rem var(--mc-display); margin-top: .75rem }
