@@ -1,45 +1,27 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HomeCoursesSection from '../components/home/HomeCoursesSection.astro';
+import HomeEventFeature from '../components/home/HomeEventFeature.astro';
 import HomeHero from '../components/home/HomeHero.astro';
 import HomeMasterclassFeature from '../components/home/HomeMasterclassFeature.astro';
 
-const whatsappHref =
-  'https://api.whatsapp.com/send?phone=5547996552618&text=Quero%20saber%20sobre%20as%20pr%C3%B3ximas%20aulas%20da%20Manu';
+const whatsappHref = 'https://api.whatsapp.com/send?phone=5547996552618&text=Quero%20saber%20sobre%20as%20pr%C3%B3ximas%20aulas%20da%20Manu';
 ---
 
-<BaseLayout
-  title="Manu Rosa | Cursos, workshops e e-books de confeitaria"
-  description="Cursos, workshops e materiais digitais de confeitaria da Chef Manu Rosa."
->
+<BaseLayout title="Manu Rosa | Cursos, workshops e e-books de confeitaria" description="Cursos, workshops e materiais digitais de confeitaria da Chef Manu Rosa.">
   <HomeHero
     eyebrow="Cursos que oferecemos!"
     title="Curso de Confeitaria"
     description="30 aulas que te habilitam a atuar como confeiteira profissional."
     highlights={[
-      {
-        label: 'Confeitaria Básica',
-        text: '12 aulas para começar do zero com a Manu.',
-      },
-      {
-        label: 'Workshops',
-        text: 'Aprenda receitas exclusivas de bolos, pães, tortas e doces sazonais para diferentes épocas do ano.',
-      },
+      { label: 'Confeitaria Básica', text: '12 aulas para começar do zero com a Manu.' },
+      { label: 'Workshops', text: 'Aprenda receitas exclusivas de bolos, pães, tortas e doces sazonais para diferentes épocas do ano.' },
     ]}
-    primaryCta={{
-      label: 'Ver central de cursos',
-      href: '/cursos/',
-      ariaLabel: 'Conhecer os cursos de confeitaria da Chef Manu Rosa',
-    }}
-    secondaryCta={{
-      label: 'Quero aula exclusiva',
-      href: whatsappHref,
-      external: true,
-      ariaLabel: 'Falar com a Manu sobre as próximas aulas',
-    }}
+    primaryCta={{ label: 'Ver central de cursos', href: '/cursos/', ariaLabel: 'Conhecer os cursos de confeitaria da Chef Manu Rosa' }}
+    secondaryCta={{ label: 'Quero aula exclusiva', href: whatsappHref, external: true, ariaLabel: 'Falar com a Manu sobre as próximas aulas' }}
   />
 
+  <HomeEventFeature />
   <HomeMasterclassFeature />
-
   <HomeCoursesSection />
 </BaseLayout>

@@ -1,0 +1,21 @@
+/astro-site/node_modules/
+/astro-site/.astro/
+/astro-site/dist/
+
+/.env
+/.env.*
+!/.env.example
+/astro-site/.env
+/astro-site/.env.*
+!/astro-site/.env.example
+
+/manu-rosa-hostgator-v1.zip
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+._*
