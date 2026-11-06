@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
           await new Promise((resolve) => window.setTimeout(resolve, 500));
         }
 
-        window.location.assign('obrigado/index.html');
+        window.location.assign('obrigado/');
       } catch {
         status.textContent = 'Não foi possível concluir sua inscrição agora. Seus dados continuam preenchidos; tente novamente mais tarde.';
         if (submit) {
