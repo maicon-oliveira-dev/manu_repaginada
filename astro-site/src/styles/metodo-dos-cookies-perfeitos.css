@@ -1,0 +1,187 @@
+/* Same font request as the reference route, loaded once on this route.
+   The reference imports fonts inline; there is no shared font module to reuse. */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap');
+
+.metodo-cookies-page {
+  --metodo-cocoa: #582308;
+  --metodo-cream: #fff8ea;
+  --metodo-beige: #e7d3a3;
+  --metodo-peach: #fed1c4;
+  --metodo-caramel: #c58a4a;
+  --metodo-font-display: 'Fraunces', serif;
+  --metodo-font-body: 'DM Sans', sans-serif;
+
+  /* Local aliases keep shared primitives inside this page's palette,
+     including their hover/active states. */
+  --color-background: var(--metodo-cream);
+  --color-background-soft: var(--metodo-beige);
+  --color-surface: var(--metodo-cream);
+  --color-surface-elevated: var(--metodo-cream);
+  --color-text: var(--metodo-cocoa);
+  --color-text-muted: var(--metodo-cocoa);
+  --color-text-subtle: var(--metodo-cocoa);
+  --color-brand: var(--metodo-cocoa);
+  --color-brand-hover: var(--metodo-cocoa);
+  --color-brand-active: var(--metodo-cocoa);
+  --color-brand-soft: var(--metodo-beige);
+  --color-text-on-brand: var(--metodo-cream);
+  --color-accent: var(--metodo-peach);
+  --color-accent-hover: var(--metodo-peach);
+  --color-accent-soft: var(--metodo-peach);
+  --color-border: var(--metodo-beige);
+  --color-border-strong: var(--metodo-caramel);
+  --color-focus: var(--metodo-caramel);
+  --font-family-body: var(--metodo-font-body);
+  --font-family-display: var(--metodo-font-display);
+
+  min-height: 100svh;
+  background: var(--metodo-cream);
+  color: var(--metodo-cocoa);
+  font-family: var(--metodo-font-body);
+}
+
+.metodo-cookies-page :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--metodo-cocoa);
+  font-family: var(--metodo-font-display);
+}
+
+/* The original PNG is served unchanged; only its CSS framing varies. */
+.metodo-cookies-page .metodo-hero {
+  padding: clamp(1rem, 3.3vw, 3rem) clamp(1rem, 4.5vw, 4rem);
+}
+
+.metodo-cookies-page .metodo-hero__inner {
+  max-width: 82rem;
+  min-height: 48rem;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  border-inline: 2px solid var(--metodo-caramel);
+  border-right-color: var(--metodo-beige);
+  background-color: var(--metodo-cream);
+  background-image: linear-gradient(90deg, #fff8eafa 0%, #fff8eaf5 32%, #fff8eae6 42%, #fff8ea99 49%, #fff8ea00 65%), var(--metodo-hero-image);
+  background-size: cover;
+  background-position: center, 62% center;
+  background-repeat: no-repeat;
+  box-shadow: 0 18px 50px -30px #58230840;
+}
+
+.metodo-cookies-page .metodo-hero__copy {
+  box-sizing: border-box;
+  min-width: 0;
+  width: 52%;
+  max-width: 42rem;
+  padding: clamp(2rem, 4vw, 3.75rem);
+}
+
+.metodo-cookies-page .metodo-hero h1 {
+  margin: 0;
+  max-width: 16ch;
+  color: var(--metodo-cocoa);
+  font-family: var(--metodo-font-display);
+  font-size: clamp(2.25rem, 3.9vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1.03;
+  letter-spacing: -.035em;
+  overflow-wrap: anywhere;
+}
+
+.metodo-cookies-page .metodo-hero__highlight {
+  margin: 1.5rem 0 0;
+  max-width: 34ch;
+  font-size: clamp(1.25rem, 1.7vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.metodo-cookies-page .metodo-hero__support {
+  margin-top: 1.5rem;
+  max-width: 55ch;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+.metodo-cookies-page .metodo-hero__support p + p {
+  margin-top: 1rem;
+}
+
+.metodo-cookies-page .metodo-hero__cta {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 3.5rem;
+  max-width: 100%;
+  margin-top: 2rem;
+  padding: 1.125rem 1.75rem;
+  border: 2px solid var(--metodo-cocoa);
+  border-radius: 999px;
+  background: var(--metodo-cocoa);
+  color: var(--metodo-cream);
+  font: 700 .9375rem/1.4 var(--metodo-font-body);
+  text-align: center;
+  white-space: normal;
+  cursor: not-allowed;
+}
+
+.metodo-cookies-page .metodo-hero__cta:hover,
+.metodo-cookies-page .metodo-hero__cta:active {
+  background: var(--metodo-cocoa);
+  color: var(--metodo-cream);
+}
+
+.metodo-cookies-page .metodo-hero__cta:focus-visible {
+  outline: 3px solid var(--metodo-cocoa);
+  outline-offset: 5px;
+}
+
+.metodo-cookies-page .metodo-hero__status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 63.999rem) {
+  .metodo-cookies-page .metodo-hero__inner {
+    min-height: 0;
+    max-width: 42rem;
+    display: block;
+    /* A photo area above the copy keeps the cookie visible on narrow screens. */
+    background-image: linear-gradient(180deg, #fff8ea00 0, #fff8ea00 14rem, #fff8ea 21rem), var(--metodo-hero-image);
+    background-size: 100% 100%, auto 22rem;
+    background-position: center, 84% top;
+  }
+
+  .metodo-cookies-page .metodo-hero__copy {
+    width: 100%;
+    max-width: none;
+    padding: 20rem clamp(1.5rem, 5vw, 3rem) 2.5rem;
+  }
+
+  .metodo-cookies-page .metodo-hero h1 {
+    font-size: clamp(2rem, 7vw, 3.5rem);
+  }
+
+  .metodo-cookies-page .metodo-hero__highlight {
+    margin-top: 1.25rem;
+  }
+}
+
+@media (max-width: 30rem) {
+  .metodo-cookies-page .metodo-hero__cta {
+    width: 100%;
+    padding-inline: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .metodo-cookies-page .metodo-hero__cta {
+    transition: none;
+    animation: none;
+  }
+}

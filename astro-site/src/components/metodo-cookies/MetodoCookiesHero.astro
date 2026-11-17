@@ -1,0 +1,27 @@
+---
+import heroBackground from '../../../../Metodo_dos_Cookies_Perfeitos/HOME_V1.png?url';
+---
+
+<section class="metodo-hero" aria-labelledby="metodo-hero-title">
+  <div class="metodo-hero__inner" style={{ '--metodo-hero-image': `url("${heroBackground}")` }}>
+    <div class="metodo-hero__copy">
+      <h1 id="metodo-hero-title">MÉTODO DOS COOKIES PERFEITOS</h1>
+      <p class="metodo-hero__highlight">Aprenda a fazer cookies irresistíveis, dos tradicionais aos NY Style super-recheados!</p>
+      <div class="metodo-hero__support">
+        <p>Domine massas, recheios e técnicas para criar diferentes sabores — seja para surpreender quem você ama, começar a fazer renda extra ou ampliar o cardápio da sua confeitaria.</p>
+        <p>Um curso completo com receitas, técnicas, precificação, vendas, marketing e assistentes de inteligência artificial criados pela Manu Rosa.</p>
+      </div>
+      <!-- Integração pendente: substituir pelo link oficial do checkout quando fornecido.
+           Sem href fictício ou ação de compra. aria-disabled mantém o CTA focalizável. -->
+      <button
+        class="metodo-hero__cta"
+        type="button"
+        aria-disabled="true"
+        aria-describedby="metodo-checkout-status"
+        data-checkout-status="pending"
+      >QUERO APRENDER COM A MANU</button>
+      <span id="metodo-checkout-status" class="metodo-hero__status">Link oficial do checkout aguardando configuração.</span>
+    </div>
+
+  </div>
+</section>
