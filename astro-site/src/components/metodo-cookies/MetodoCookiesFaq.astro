@@ -1,0 +1,24 @@
+---
+const questions = [
+  ['Por quanto tempo terei acesso?', 'Você terá 12 meses de acesso ao curso online, com aulas gravadas.'],
+  ['Existe garantia?', 'Sim. O curso tem garantia de 7 dias.'],
+  ['Posso parcelar?', 'Sim. Haverá opção de parcelamento em até 12 vezes, com encargos para a compradora. As condições serão apresentadas no checkout.'],
+  ['Quais bônus vou receber?', 'A Masterclass Cookies Natalinos é oferecida para inscrições até 23/11/2026, às 23h59. A Masterclass Panetones e Chocotones é um bônus extra para inscrições até 20/11/2026, às 23h59. Ambos os horários são de Brasília.'],
+];
+---
+
+<section class="metodo-faq" aria-labelledby="metodo-faq-title">
+  <div class="metodo-faq__inner">
+    <header>
+      <h2 id="metodo-faq-title">14 | PERGUNTAS FREQUENTES</h2>
+    </header>
+    <div class="metodo-faq__questions">
+      {questions.map(([question, answer]) => (
+        <details>
+          <summary>{question}</summary>
+          <p>{answer}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

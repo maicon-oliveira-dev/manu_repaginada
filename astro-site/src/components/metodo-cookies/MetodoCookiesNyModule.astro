@@ -1,0 +1,41 @@
+---
+import { Image } from 'astro:assets';
+import overview from '../../assets/metodo-cookies/cookies-ny-style/cookies-altos-na-grade.jpeg';
+
+// Flavor identification is unconfirmed in the inventory. Keep the overview
+// separate from the preparations until matching photographs are confirmed.
+const preparations = [
+  ['Massa Tradicional NY Style', 'Cookie recheado de Nutella.'],
+  ['Massa de Chocolate Intenso', 'Cookies & Cream, com brigadeiro de Oreo, chocolate branco e finalização especial.'],
+  ['Massa Brown Butter', 'Cookie Biscoff, com doce de leite e biscoito Lotus.'],
+  ['Massa Clara', 'Cookie de Pistache, com recheio cremoso.'],
+  ['Massa de Limão Siciliano', 'Cookie Cheesecake de Limão Siciliano, com recheio de cream cheese.'],
+];
+---
+
+<section class="metodo-ny-module" aria-labelledby="metodo-ny-module-title">
+  <div class="metodo-ny-module__inner">
+    <div class="metodo-ny-module__intro">
+      <header>
+        <p class="metodo-ny-module__eyebrow">MÓDULO 2 — COOKIES NY STYLE</p>
+        <h2 id="metodo-ny-module-title">Cinco massas-base. Muitas possibilidades.</h2>
+        <p class="metodo-ny-module__description">Aprenda sobre estrutura da massa, modelagem, recheios, congelamento e assamento.</p>
+      </header>
+      <div class="metodo-ny-module__overview">
+        <Image src={overview} width={1086} height={1448} loading="lazy" decoding="async" alt="Cookies altos dourados com pedaços claros e escuros sobre grades de resfriamento." />
+      </div>
+    </div>
+    <ul class="metodo-ny-module__preparations" role="list">
+      {preparations.map(([base, preparation]) => (
+        <li class="metodo-ny-module__card">
+          <p><strong>{base}</strong> — {preparation}</p>
+        </li>
+      ))}
+    </ul>
+    <div class="metodo-ny-module__variations">
+      <h3>Sugestões de variações</h3>
+      <p>Kinder Bueno, Limão com Frutas Vermelhas, Nozes com Doce de Leite e Cookie NY Red Velvet.</p>
+    </div>
+    <p class="metodo-ny-module__note">O Cookie NY Red Velvet foi desenvolvido com auxílio da Digi de Conversão e testado pela Manu.</p>
+  </div>
+</section>

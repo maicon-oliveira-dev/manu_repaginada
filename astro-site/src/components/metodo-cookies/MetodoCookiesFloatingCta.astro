@@ -1,0 +1,108 @@
+---
+import { checkoutHref } from '../../data/metodoCookies';
+import Button from '../ui/Button.astro';
+---
+
+<div class="floating-cta" data-floating-checkout inert>
+  <Button href={checkoutHref} external>QUERO GARANTIR MINHA INSCRIÇÃO</Button>
+</div>
+
+<script>
+  const floating = document.querySelector<HTMLElement>('[data-floating-checkout]');
+  const page = floating?.closest('.metodo-cookies-page');
+  const hero = page?.querySelector('.metodo-hero');
+
+  if (floating && page && hero && 'IntersectionObserver' in window) {
+    const protectedElements = Array.from(page.querySelectorAll(
+      'a, button, details, .metodo-digis__notice, .metodo-testimonials__notice, ' +
+      '.metodo-christmas__deadline, .metodo-panettone__deadline, .metodo-offer__purchase, ' +
+      '.metodo-offer__deadlines, .metodo-final__inner > p',
+    )).filter((element) => !floating.contains(element));
+
+    let pastHero = false;
+    let frame = 0;
+
+    const update = () => {
+      frame = 0;
+      if (!pastHero) {
+        floating.inert = true;
+        return;
+      }
+
+      const button = floating.getBoundingClientRect();
+      const clearance = 8;
+      floating.inert = protectedElements.some((element) => {
+        const bounds = element.getBoundingClientRect();
+        return bounds.top < button.bottom + clearance && bounds.bottom > button.top - clearance &&
+          bounds.left < button.right + clearance && bounds.right > button.left - clearance;
+      });
+    };
+
+    const scheduleUpdate = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+
+    const heroObserver = new IntersectionObserver(([entry]) => {
+      pastHero = !entry.isIntersecting && entry.boundingClientRect.bottom <= 0;
+      scheduleUpdate();
+    });
+    heroObserver.observe(hero);
+
+    window.addEventListener('scroll', scheduleUpdate, { passive: true });
+    window.addEventListener('resize', scheduleUpdate);
+    if ('ResizeObserver' in window) new ResizeObserver(scheduleUpdate).observe(page);
+  }
+</script>
+
+<style>
+  .floating-cta {
+    --edge-gap: clamp(1rem, 2.5vw, 2rem);
+    position: fixed;
+    z-index: 9;
+    right: calc(var(--edge-gap) + env(safe-area-inset-right, 0px));
+    bottom: calc(var(--edge-gap) + env(safe-area-inset-bottom, 0px));
+    max-width: calc(100% - 2 * var(--edge-gap) - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px));
+  }
+
+  .floating-cta[inert] {
+    visibility: hidden;
+  }
+
+  .floating-cta :global(.button) {
+    min-height: 3rem;
+    padding: .75rem 1.25rem;
+    border-color: var(--metodo-peach);
+    background: var(--metodo-cocoa);
+    color: var(--metodo-cream);
+    font: 700 .875rem/1.3 var(--metodo-font-body);
+    box-shadow: 0 3px 12px rgb(88 35 8 / 25%);
+  }
+
+  .floating-cta :global(.button:focus-visible) {
+    outline: 3px solid var(--metodo-cocoa);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 3px var(--metodo-cream);
+    animation: none;
+  }
+
+  @media (max-width: 47.999rem) {
+    .floating-cta {
+      --edge-gap: .75rem;
+    }
+
+    .floating-cta :global(.button) {
+      padding-inline: 1rem;
+      font-size: .8125rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .floating-cta:not([inert]) :global(.button:not(:focus-visible)) {
+      animation: checkout-pulse 2.8s ease-in-out 2;
+    }
+  }
+
+  @keyframes checkout-pulse {
+    50% { box-shadow: 0 3px 12px rgb(88 35 8 / 25%), 0 0 0 4px rgb(197 138 74 / 35%); }
+  }
+</style>

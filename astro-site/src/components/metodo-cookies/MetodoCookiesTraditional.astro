@@ -1,0 +1,34 @@
+---
+import photo1 from '../../assets/metodo-cookies/galeria-tradicionais/galeria-01.jpeg?url';
+import photo2 from '../../assets/metodo-cookies/galeria-tradicionais/galeria-02.jpeg?url';
+import photo3 from '../../assets/metodo-cookies/galeria-tradicionais/galeria-03.jpeg?url';
+import photo4 from '../../assets/metodo-cookies/galeria-tradicionais/galeria-04.jpeg?url';
+import photo5 from '../../assets/metodo-cookies/galeria-tradicionais/galeria-05.jpeg?url';
+
+// General gallery approved separately from the product list: no flavor mapping.
+const photos = [
+  { src: photo1, width: 1200, height: 1600, alt: 'Manu usando um maçarico sobre cookies em uma grade, junto a bandejas de cookies variados.' },
+  { src: photo2, width: 1200, height: 1600, alt: 'Manu aplicando creme escuro com uma manga sobre um cookie, junto a cookies com gotas na grade.' },
+  { src: photo3, width: 768, height: 1024, alt: 'Cookies dourados, vermelhos e escuros, com diferentes coberturas, sobre uma grade.' },
+  { src: photo4, width: 768, height: 1024, alt: 'Cookies variados alinhados sobre uma tábua, com uma garrafa ao fundo.' },
+  { src: photo5, width: 1200, height: 1600, alt: 'Caixa aberta com cookies variados e outros cookies com cobertura clara em primeiro plano.' },
+];
+---
+
+<section class="metodo-traditional" aria-labelledby="metodo-traditional-title">
+  <div class="metodo-traditional__inner">
+    <header class="metodo-traditional__heading">
+      <p class="metodo-traditional__eyebrow">MÓDULO 1 — COOKIES TRADICIONAIS</p>
+      <h2 id="metodo-traditional-title">Os clássicos que todo mundo ama!</h2>
+      <p class="metodo-traditional__description">Prepare cookies tradicionais para caixas, kits, presentes e cardápios.</p>
+    </header>
+    <ul class="metodo-traditional__gallery" role="list">
+      {photos.map((photo) => (
+        <li class="metodo-traditional__photo">
+          <img {...photo} loading="lazy" decoding="async" />
+        </li>
+      ))}
+    </ul>
+    <p class="metodo-traditional__products">Cookie Tradicional • Cookie de Leite Ninho • Cookie Red Velvet • Cookie de Chocolate • Sanduíche de Cookie.</p>
+  </div>
+</section>

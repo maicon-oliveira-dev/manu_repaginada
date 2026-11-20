@@ -1,0 +1,33 @@
+---
+import stack from '../../assets/metodo-cookies/cookies-natalinos/pilha-tres-cores.jpeg?url';
+import packaging from '../../assets/metodo-cookies/cookies-natalinos/cookies-embalagens.jpeg?url';
+import tin from '../../assets/metodo-cookies/cookies-natalinos/lata-sortida.jpeg?url';
+
+// The inventory confirms Christmas compositions, but not individual flavors.
+const photos = [
+  { src: stack, alt: 'Pilha de três cookies dourado, vermelho e marrom sobre uma tábua em cenário natalino.' },
+  { src: packaging, alt: 'Cookies empilhados e em caixa aberta entre embalagens e enfeites de Natal.' },
+  { src: tin, alt: 'Lata natalina aberta com seis cookies de cores variadas, junto a enfeites de Natal.' },
+];
+---
+
+<section class="metodo-christmas" aria-labelledby="metodo-christmas-title">
+  <div class="metodo-christmas__inner">
+    <header class="metodo-christmas__heading">
+      <p class="metodo-christmas__eyebrow">08 | BÔNUS DE LANÇAMENTO — COOKIES NATALINOS</p>
+      <h2 id="metodo-christmas-title">BÔNUS DE LANÇAMENTO — MASTERCLASS COOKIES NATALINOS</h2>
+      <p class="metodo-christmas__lead">Três cookies NY Style super-recheados com sabores que combinam com o Natal!</p>
+      <p class="metodo-christmas__intro">A Masterclass Cookies Natalinos é um bônus de lançamento.</p>
+    </header>
+    <ul class="metodo-christmas__gallery" role="list">
+      {photos.map((photo) => (
+        <li class="metodo-christmas__photo">
+          <img {...photo} width="960" height="1280" loading="lazy" decoding="async" />
+        </li>
+      ))}
+    </ul>
+    <p class="metodo-christmas__products">Cookie NY Red Velvet • Cookie NY Gingerbread, inspirado nas tradicionais bolachas natalinas com especiarias • Cookie NY Pão de Mel.</p>
+    <p class="metodo-christmas__closing">Três novas possibilidades para explorar a confeitaria natalina!</p>
+    <p class="metodo-christmas__deadline">A Masterclass Cookies Natalinos acompanha as inscrições realizadas até <time datetime="2026-11-23T23:59:00-03:00">23/11/2026, às 23h59, horário de Brasília</time>.</p>
+  </div>
+</section>

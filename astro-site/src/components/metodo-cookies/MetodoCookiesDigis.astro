@@ -1,0 +1,30 @@
+---
+import { checkoutHref } from '../../data/metodoCookies';
+import Button from '../ui/Button.astro';
+---
+
+<section class="metodo-digis" aria-labelledby="metodo-digis-title">
+  <div class="metodo-digis__inner">
+    <header class="metodo-digis__heading">
+      <p class="metodo-digis__eyebrow">07 | GRANDE DIFERENCIAL — AS DIGIS</p>
+      <h2 id="metodo-digis-title">Conheça as Digis</h2>
+      <p class="metodo-digis__intro">O Método inclui três assistentes de inteligência artificial criadas pela Manu Rosa.</p>
+    </header>
+    <div class="metodo-digis__grid">
+      <article class="metodo-digis__card metodo-digis__card--featured" aria-labelledby="metodo-digi-ny-title">
+        <h3 id="metodo-digi-ny-title">Digi NY Style</h3>
+        <p class="metodo-digis__lead">Ajuda a adaptar receitas para cookies NY Style.</p>
+      </article>
+      <article class="metodo-digis__card" aria-labelledby="metodo-digi-price-title">
+        <h3 id="metodo-digi-price-title">Digi Precifica Cookies</h3>
+        <p class="metodo-digis__lead">Ajuda a organizar a precificação dos cookies.</p>
+      </article>
+      <article class="metodo-digis__card" aria-labelledby="metodo-digi-shopping-title">
+        <h3 id="metodo-digi-shopping-title">Digi de Lista de Compras</h3>
+        <p class="metodo-digis__lead">Ajuda a planejar as compras para a produção.</p>
+      </article>
+    </div>
+    <p class="metodo-digis__notice">As Digis são ferramentas de apoio. As sugestões, quantidades e cálculos devem ser conferidos antes da utilização.</p>
+    <Button href={checkoutHref} external class="metodo-digis__cta">QUERO CONHECER O MÉTODO E AS DIGIS</Button>
+  </div>
+</section>

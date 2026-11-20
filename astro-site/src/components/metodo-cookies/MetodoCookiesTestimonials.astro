@@ -1,0 +1,52 @@
+---
+import lidi from '../../assets/metodo-cookies/depoimentos/depoimento-lidi-aulas-bem-explicadas.png';
+import cookieNy from '../../assets/metodo-cookies/depoimentos/depoimento-cookie-ny-deu-certo.png';
+import mariaJose from '../../assets/metodo-cookies/depoimentos/depoimento-maria-jose-cookie-ny.png';
+
+const testimonials = [
+  {
+    image: lidi,
+    alt: 'Mensagem de Lidi: “Amei as aulas bem explicado.. Não vejo a hora de começar a fazer outros sabores com a base de cookies” 🥰',
+    featured: true,
+  },
+  {
+    image: cookieNy,
+    alt: 'Dois cookies com coberturas de chocolate em um prato. Mensagem: “Acho que deu certo cookies NY”',
+  },
+  {
+    image: mariaJose,
+    alt: 'Cookies altos sobre uma grade. Mensagem: “Cheguei no cookie new York perfeito”',
+  },
+];
+---
+
+<section id="depoimentos" class="metodo-testimonials" aria-labelledby="metodo-testimonials-title" aria-describedby="metodo-testimonials-notice">
+  <div class="metodo-testimonials__inner">
+    <header>
+      <p class="metodo-testimonials__eyebrow">12 | DEPOIMENTOS REAIS</p>
+      <h2 id="metodo-testimonials-title">Quando o aprendizado sai da aula e vai para a cozinha!</h2>
+    </header>
+    <div class="metodo-testimonials__story">
+      <p>Uma das maiores alegrias de ensinar é acompanhar as produções das alunas.</p>
+      <p>Em uma das aulas gratuitas do evento Cookies: Além da Receita, uma participante preparou a Torta Cookie de Nutella, contou que vendeu toda a produção e já começou a produzir novamente.</p>
+      <p>São experiências como essa que mostram como o aprendizado pode ganhar novas aplicações fora da aula.</p>
+    </div>
+    <ul class="metodo-testimonials__gallery" role="list">
+      {testimonials.map(({ image, alt, featured }) => (
+        <li class:list={['metodo-testimonials__card', { 'metodo-testimonials__card--featured': featured }]}>
+          <a href={image.src}>
+            <img
+              src={image.src}
+              width={image.width}
+              height={image.height}
+              alt={alt}
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
+        </li>
+      ))}
+    </ul>
+    <p id="metodo-testimonials-notice" class="metodo-testimonials__notice">Os relatos são experiências individuais de participantes de aulas e Masterclasses anteriores. Não representam garantia de resultados ou vendas.</p>
+  </div>
+</section>

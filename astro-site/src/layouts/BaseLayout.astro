@@ -8,9 +8,10 @@ interface Props {
   description: string;
   showHeader?: boolean;
   showFooter?: boolean;
+  metaPixelId?: string;
 }
 
-const { title, description, showHeader = true, showFooter = true } = Astro.props;
+const { title, description, showHeader = true, showFooter = true, metaPixelId } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
 const currentPath = pathSegments.length === 0 ? '/' : `/${pathSegments.join('/')}/`;
@@ -48,8 +49,46 @@ const currentPath = pathSegments.length === 0 ? '/' : `/${pathSegments.join('/')
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap"
     />
     <title>{title}</title>
+    {metaPixelId && (
+      <script is:inline define:vars={{ metaPixelId }}>
+        if (!window.fbq) {
+          const fbq = function () {
+            if (fbq.callMethod) {
+              fbq.callMethod.apply(fbq, arguments);
+            } else {
+              fbq.queue.push(arguments);
+            }
+          };
+          window.fbq = fbq;
+          window._fbq ??= fbq;
+          fbq.push = fbq;
+          fbq.loaded = true;
+          fbq.version = '2.0';
+          fbq.queue = [];
+
+          const pixelScript = document.createElement('script');
+          pixelScript.async = true;
+          pixelScript.src = 'https://connect.facebook.net/en_US/fbevents.js';
+          document.head.appendChild(pixelScript);
+        }
+
+        window.fbq('init', metaPixelId);
+        window.fbq('trackSingle', metaPixelId, 'PageView');
+      </script>
+    )}
   </head>
   <body>
+    {metaPixelId && (
+      <noscript>
+        <img
+          src={`https://www.facebook.com/tr?id=${metaPixelId}&ev=PageView&noscript=1`}
+          width="1"
+          height="1"
+          alt=""
+          hidden
+        />
+      </noscript>
+    )}
     <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo</a>
     {showHeader && <SiteHeader currentPath={currentPath} />}
     <main id="conteudo-principal" tabindex="-1">

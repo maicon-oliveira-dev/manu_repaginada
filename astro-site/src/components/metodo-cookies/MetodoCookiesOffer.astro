@@ -1,0 +1,45 @@
+---
+import { checkoutHref } from '../../data/metodoCookies';
+import Button from '../ui/Button.astro';
+---
+
+<section id="oferta-metodo" class="metodo-offer" aria-labelledby="metodo-offer-title">
+  <div class="metodo-offer__inner">
+    <header class="metodo-offer__heading">
+      <p class="metodo-offer__eyebrow">13 | OFERTA E INSCRIÇÃO</p>
+      <h2 id="metodo-offer-title">Sua inscrição no Método dos Cookies Perfeitos</h2>
+      <p class="metodo-offer__lead">Tudo isso reunido em um único curso online!</p>
+    </header>
+    <div class="metodo-offer__grid">
+      <div class="metodo-offer__contents">
+        <h3>Inclui:</h3>
+        <ul>
+          <li>Módulo de Cookies Tradicionais;</li>
+          <li>Módulo NY Style com cinco massas-base, recheios e variações;</li>
+          <li>conteúdos complementares sobre marketing, vendas, precificação, planejamento, cardápio e embalagens;</li>
+          <li>as três Digis;</li>
+          <li>apostilas e materiais de apoio;</li>
+          <li>12 meses de acesso ao curso;</li>
+          <li>garantia de 7 dias.</li>
+        </ul>
+        <div class="metodo-offer__bonuses">
+          <h3>Bônus:</h3>
+          <p>Masterclasses Cookies Natalinos e Panetones e Chocotones, conforme os prazos abaixo.</p>
+        </div>
+      </div>
+      <div class="metodo-offer__purchase">
+        <p class="metodo-offer__regular">VALOR REGULAR: <s>R$ 247,00</s></p>
+        <p class="metodo-offer__special">VALOR ESPECIAL DE LANÇAMENTO: <strong>R$ 197,00 <span>à vista</span></strong></p>
+        <p class="metodo-offer__installments">Até 12 vezes, com encargos para a compradora. As condições serão mostradas no checkout.</p>
+        <Button href={checkoutHref} external class="metodo-offer__cta">QUERO GARANTIR MINHA INSCRIÇÃO</Button>
+        <p class="metodo-offer__assurance">7 dias de garantia | 12 meses de acesso | Curso online.</p>
+      </div>
+    </div>
+    <div class="metodo-offer__deadlines">
+      <p>O preço especial de lançamento vale até <time datetime="2026-11-23T23:59:00-03:00">23/11/2026, às 23h59</time>.</p>
+      <p>A Masterclass Cookies Natalinos é oferecida para inscrições realizadas até <time datetime="2026-11-23T23:59:00-03:00">23/11/2026, às 23h59</time>.</p>
+      <p>A Masterclass Panetones e Chocotones é oferecida para inscrições realizadas até <time datetime="2026-11-20T23:59:00-03:00">20/11/2026, às 23h59</time>.</p>
+      <p>Todos os horários são de Brasília.</p>
+    </div>
+  </div>
+</section>
